@@ -22,12 +22,12 @@ public class BulletLogic : MonoBehaviour {
 		bulletFunction();
 	}
 
-	public void Initialize(BulletType bulletType, int damage, float velocity, float lifetime){
+	public void Initialize(BulletType bulletType, int bulletDamage, float Velocity, float Lifetime){
 		type = bulletType;
-		damage = damage;
-		velocity = velocity;
-		lifetime = lifetime;
-		switch(bulletType) {
+		damage = bulletDamage;
+		velocity = Velocity;
+		lifetime = Lifetime;
+		switch(type) {
 			case BulletType.Cat:
 				bulletFunction = IndirectLogic;
 				break;
