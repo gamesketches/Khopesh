@@ -66,6 +66,7 @@ public class BulletLogic : MonoBehaviour {
 	}
 
 	void IndirectLogic(){
+		// Might be better to handle this shit as a rotation
 		travelVector = Vector2.Lerp(new Vector2(velocity, 0), target.position - gameObject.transform.position, 
 			headingTime);
 		headingTime += indirectCorrectionSpeed / (indirectCorrectionSpeed * 60);
