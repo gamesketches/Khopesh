@@ -13,8 +13,8 @@ public class GameManager : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-		//player1 = CreatePlayer(player1Controls, Color.red, player1Pos);
-		//player2 = (GameObject)Instantiate(Resources.Load("Player"), player2Pos, Quaternion.identity);
+		player1 = CreatePlayer(player1Controls, Color.red, player1Pos);
+		player2 = CreatePlayer(player2Controls, Color.blue, player2Pos);
 		//player1Stats = player1.GetComponent<PlayerStats>();
 		//player2Stats = player2.GetComponent<PlayerStats>();
 	}
@@ -41,9 +41,11 @@ public class GameManager : MonoBehaviour {
 	}
 
 	GameObject CreatePlayer(KeyCode[] controls, Color color, Vector3 position){
-		//GameObject temp = (GameObject)Instantiate(Resources.Load("Player"), 
-												//position, Quaternion.identity);
+		GameObject temp = (GameObject)Instantiate(Resources.Load("prefabs/Player"), 
+												position, Quaternion.identity);
 		//SetControls(temp);
 		//temp.GetComponenet<Renderer>().color = color;
+		temp.GetComponent<PlayerStats>().playerColor = color;
+		return temp;
 	}
 }

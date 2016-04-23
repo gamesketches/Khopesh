@@ -41,7 +41,7 @@ public class InputManager : MonoBehaviour {
 	}
 
 	void Update() {
-		char button = GetButtonPress();
+		/*char button = GetButtonPress();
 		if(button == 'D' && meleeCooldownTimer <= 0) {
 		} else if(button != '0' && shotCooldownTimer <= 0) {
 			shotCooldownTimer = shotCooldownTime;
@@ -66,7 +66,7 @@ public class InputManager : MonoBehaviour {
 		if(exponentCooldownTimer > 0) { 
 			exponentCooldownTimer--;
 			//GetComponentInChildren<Renderer>().material.color = noShootingColor;
-		}
+		}*/
 	}
 
 	char GetButtonPress() {
