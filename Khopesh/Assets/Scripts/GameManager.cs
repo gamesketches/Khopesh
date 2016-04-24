@@ -11,8 +11,12 @@ public class GameManager : MonoBehaviour {
 	KeyCode[] player1Controls, player2Controls;
 	PlayerStats player1Stats, player2Stats;
 
+	BulletDepot bullets;
+
 	// Use this for initialization
 	void Start () {
+		bullets = new BulletDepot();
+		bullets.Load();
 		player1 = CreatePlayer(player1Controls, Color.red, player1Pos);
 		player2 = CreatePlayer(player2Controls, Color.blue, player2Pos);
 		player1Stats = player1.GetComponent<PlayerStats>();
@@ -46,6 +50,7 @@ public class GameManager : MonoBehaviour {
 		//SetControls(temp);
 		//temp.GetComponenet<Renderer>().color = color;
 		temp.GetComponent<PlayerStats>().playerColor = color;
+		temp.GetComponent<InputManager>().bullets = bullets;
 		return temp;
 	}
 }

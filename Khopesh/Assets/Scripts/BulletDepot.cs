@@ -5,7 +5,7 @@ using System.Xml;
 using System.Xml.Serialization;
 using System.IO;
 
-public class BulletDepot : MonoBehaviour {
+public class BulletDepot : ScriptableObject {
 
 	public class Bullet{
 		public int size;
@@ -15,15 +15,13 @@ public class BulletDepot : MonoBehaviour {
 	}
 
 	public class Volley {
-		[XmlArray("Volley")]
-		[XmlArrayItem("Bullet")]
-		public List<Bullet> volley = new List<Bullet>();
+		[XmlElement("Bullet")]
+		public Bullet[] volley;
 	}
 
 	public class ProjectileType {
-		[XmlArray("ProjectileType")]
-		[XmlArrayItem("Volley")]
-		public List<Volley> volleys = new List<Volley>();
+		[XmlElement("Volley")]
+		public Volley[] volleys;
 
 		[XmlAttribute("name")]
 		public string typeName;
@@ -38,10 +36,11 @@ public class BulletDepot : MonoBehaviour {
 
 	public BulletCollection types;
 	// Use this for initialization
-	void Start () {
+	public void Load () {
 		var serializer = new XmlSerializer(typeof(BulletCollection));
 		TextAsset bulletData = Resources.Load("bullets") as TextAsset;
 		TextReader reader = new StringReader(bulletData.text);
 		types = (BulletCollection)serializer.Deserialize(reader);
+		Debug.Log(types);
 	}
 }

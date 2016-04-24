@@ -18,6 +18,8 @@ public class InputManager : MonoBehaviour {
 	public GameObject gatorBulletPrefab;
 	public GameObject craneBulletPrefab;
 
+	public BulletDepot bullets;
+
 	private int bufferIter;
 
 	private float shotCooldownTimer;
@@ -38,6 +40,7 @@ public class InputManager : MonoBehaviour {
 		for(int i = 0; i < mashBufferSize; i++){
 			mashBuffer.SetValue('*', i);
 		}
+		ExponentShot();
 	}
 
 	void Update() {
@@ -88,54 +91,9 @@ public class InputManager : MonoBehaviour {
 	}
 
 	void ExponentShot() {
-		float incrementAngle = 45.0f;
-		//AudioClip clip = bulletShot1;
-		for(int i = 0; i < mashBuffer.Length; i++) {
-			BulletType type = BulletType.Gator;
-			float speed = (float)bufferIter * 2;
-			switch(mashBuffer[i]) {
-			case 'A':
-				type = BulletType.Gator;
-				speed = 28.0f;
-				break;
-			case 'B':
-				type = BulletType.Crane;
-				speed = 40.0f;
-				break;
-			case 'C':
-				speed = 5.0f;
-				type = BulletType.Hippo;
-				//clip = bulletShot2;
-				break;
-			case 'D':
-				Debug.LogError("Melee button sent to projectile buffer");
-				break;
-			default:
-				continue;
-				break;
-			}
-
-			if(bufferIter < 2) {
-				CreateBullet(0.0f, speed, type);
-				//playAudio(clip);
-				return;
-			}
-			else {
-				float baseAngle = 0.0f;
-				for(int k = 1; k < i; k++) {
-					speed = speed > 1 ? speed -= 1 : 1;
-					CreateBullet(baseAngle + incrementAngle, speed, type);
-					//playAudio(clip);
-					k++;
-					CreateBullet(-(baseAngle + incrementAngle), speed, type);
-					//playAudio(clip);
-					baseAngle += incrementAngle;
-				}
-			}
-			if(i >= 1) {
-				incrementAngle /= i;
-			}
-		}
+		// Convert button press to bullet type
+		// Loop over bullets.types.projectileTypes[BulletType enum].volleys[mashBufferIter]
+		// Create each bullet with data, donezo!
 	}
 
 	void Fire() {

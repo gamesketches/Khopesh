@@ -582,6 +582,7 @@
 						<angle>-30</angle>
 					</Bullet>
 				</Volley>
+
 		</ProjectileType>
 		<ProjectileType name="crane">
 				<Volley>
