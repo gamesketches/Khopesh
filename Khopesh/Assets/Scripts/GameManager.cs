@@ -9,14 +9,14 @@ public class GameManager : MonoBehaviour {
 	public float roundTime;
 	public Vector3 player1Pos, player2Pos;
 	KeyCode[] player1Controls, player2Controls;
-	// PlayerStats player1Stats, player2Stats;
+	PlayerStats player1Stats, player2Stats;
 
 	// Use this for initialization
 	void Start () {
 		player1 = CreatePlayer(player1Controls, Color.red, player1Pos);
 		player2 = CreatePlayer(player2Controls, Color.blue, player2Pos);
-		//player1Stats = player1.GetComponent<PlayerStats>();
-		//player2Stats = player2.GetComponent<PlayerStats>();
+		player1Stats = player1.GetComponent<PlayerStats>();
+		player2Stats = player2.GetComponent<PlayerStats>();
 	}
 	
 	// Update is called once per frame

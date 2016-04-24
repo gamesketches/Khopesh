@@ -1,902 +1,899 @@
-<bulletCollection>
-	<bullets>
-		<bulletType name="gator">
-			<volleys>
-				<volley>
-					<bullet>
+<?xml version="1.0" encoding="UTF-8"?>
+<Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<BulletCollection>
+		<ProjectileType name="gator">
+				<Volley>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>3</damage>
 						<angle>0</angle>
-					</bullet>
-				</volley>
-				<volley>
-					<bullet>
+					</Bullet>
+				</Volley>
+				<Volley>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>5</damage>
 						<angle>0</angle>
-					</bullet>
-				</volley>
-				<volley>
-					<bullet>
+					</Bullet>
+				</Volley>
+				<Volley>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>3</damage>
 						<angle>30</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>5</damage>
 						<angle>0</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>3</damage>
 						<angle>-30</angle>
-					</bullet>
-				</volley>
-				<volley>
-					<bullet>
+					</Bullet>
+				</Volley>
+				<Volley>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>5</damage>
 						<angle>30</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>5</damage>
 						<angle>0</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>5</damage>
 						<angle>-30</angle>
-					</bullet>
-				</volley>
-				<volley>
-					<bullet>
+					</Bullet>
+				</Volley>
+				<Volley>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>5</damage>
 						<angle>30</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>5</size>
 						<speed>1</speed>
 						<damage>8</damage>
 						<angle>0</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>5</damage>
 						<angle>-30</angle>
-					</bullet>
-				</volley>
-				<volley>
-					<bullet>
+					</Bullet>
+				</Volley>
+				<Volley>
+					<Bullet>
 						<size>5</size>
 						<speed>1</speed>
 						<damage>8</damage>
 						<angle>30</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>5</size>
 						<speed>1</speed>
 						<damage>8</damage>
 						<angle>0</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>5</size>
 						<speed>1</speed>
 						<damage>8</damage>
 						<angle>-30</angle>
-					</bullet>
-				</volley>
-				<volley>
-					<bullet>
+					</Bullet>
+				</Volley>
+				<Volley>
+					<Bullet>
 						<size>1</size>
 						<speed>2</speed>
 						<damage>1</damage>
 						<angle>45</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>5</size>
 						<speed>1</speed>
 						<damage>8</damage>
 						<angle>30</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>5</size>
 						<speed>1</speed>
 						<damage>8</damage>
 						<angle>0</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>5</size>
 						<speed>1</speed>
 						<damage>8</damage>
 						<angle>-30</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>2</speed>
 						<damage>1</damage>
 						<angle>-45</angle>
-					</bullet>
-					<volley>
-						<bullet>
+					</Bullet>
+				</Volley>
+					<Volley>
+						<Bullet>
 							<size>3</size>
 							<speed>2</speed>
 							<damage>5</damage>
 							<angle>45</angle>
-						</bullet>
-						<bullet>
+						</Bullet>
+						<Bullet>
 							<size>5</size>
 							<speed>1</speed>
 							<damage>8</damage>
 							<angle>30</angle>
-						</bullet>
-						<bullet>
+						</Bullet>
+						<Bullet>
 							<size>5</size>
 							<speed>1</speed>
 							<damage>8</damage>
 							<angle>0</angle>
-						</bullet>
-						<bullet>
+						</Bullet>
+						<Bullet>
 							<size>5</size>
 							<speed>1</speed>
 							<damage>8</damage>
 							<angle>-30</angle>
-						</bullet>
-						<bullet>
+						</Bullet>
+						<Bullet>
 							<size>3</size>
 							<speed>2</speed>
 							<damage>5</damage>
 							<angle>-45</angle>
-						</bullet>
-					</volley>
-		</volleys>
-		</bulletType>
-		<bulletType name="hippo">
-			<volleys>
-				<volley>
-					<bullet>
-						<size>1</size>
-						<speed>1</speed>
-						<damage>1</damage>
-						<angle>0<angle>
-					</bullet>
-				</volley>
-				<volley>
-					<bullet>
-						<size>1</size>
-						<speed>1</speed>
-						<damage>1</damage>
-						<angle>30</angle>
-					</bullet>
-					<bullet>
-						<size>1</size>
-						<speed>1</speed>
-						<damage>1</damage>
-						<angle>-30</angle>
-					</bullet>
-				</volley>
-				<volley>
-					<bullet>
-						<size>1</size>
-						<speed>1</speed>
-						<damage>1</damage>
-						<angle>30</angle>
-					</bullet>
-					<bullet>
+						</Bullet>
+					</Volley>
+		</ProjectileType>
+		<ProjectileType name="hippo">
+				<Volley>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>0</angle>
-					</bullet>
-					<bullet>
-						<size>1</size>
-						<speed>1</speed>
-						<damage>1</damage>
-						<angle>-30</angle>
-					</bullet>
-				</volley>
-				<volley>
-					<bullet>
+					</Bullet>
+				</Volley>
+				<Volley>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>30</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
+						<size>1</size>
+						<speed>1</speed>
+						<damage>1</damage>
+						<angle>-30</angle>
+					</Bullet>
+				</Volley>
+				<Volley>
+					<Bullet>
+						<size>1</size>
+						<speed>1</speed>
+						<damage>1</damage>
+						<angle>30</angle>
+					</Bullet>
+					<Bullet>
+						<size>1</size>
+						<speed>1</speed>
+						<damage>1</damage>
+						<angle>0</angle>
+					</Bullet>
+					<Bullet>
+						<size>1</size>
+						<speed>1</speed>
+						<damage>1</damage>
+						<angle>-30</angle>
+					</Bullet>
+				</Volley>
+				<Volley>
+					<Bullet>
+						<size>1</size>
+						<speed>1</speed>
+						<damage>1</damage>
+						<angle>30</angle>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>15</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>0</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>-15</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>-30</angle>
-					</bullet>
-				</volley>
-				<volley>
-					<bullet>
+					</Bullet>
+				</Volley>
+				<Volley>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>30</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>2</speed>
 						<damage>1</damage>
 						<angle>22</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>15</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>2</speed>
 						<damage>1</damage>
 						<angle>8</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>0</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>2</speed>
 						<damage>1</damage>
 						<angle>-8</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>-15</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>2</speed>
 						<damage>1</damage>
 						<angle>-22</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>-30</angle>
-					</bullet>
-				</volley>
-				<volley>
-					<bullet>
+					</Bullet>
+				</Volley>
+				<Volley>
+					<Bullet>
 							<size>1</size>
 							<speed>1</speed>
 							<damage>3</damage>
 							<angle>30</angle>
-						</bullet>
-					<bullet>
+						</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>30</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>2</speed>
 						<damage>1</damage>
 						<angle>22</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>3</speed>
 						<damage>1</damage>
 						<angle>-15</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>15</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>2</speed>
 						<damage>1</damage>
 						<angle>8</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>0</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>2</speed>
 						<damage>1</damage>
 						<angle>-8</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>-15</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>3</speed>
 						<damage>1</damage>
 						<angle>-15</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>2</speed>
 						<damage>1</damage>
 						<angle>-22</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>-30</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>3</speed>
 						<damage>1</damage>
 						<angle>-30</angle>
-					</bullet>
-				</volley>
-				<volley>
-					<bullet>
+					</Bullet>
+				</Volley>
+				<Volley>
+					<Bullet>
 							<size>1</size>
 							<speed>1</speed>
 							<damage>3</damage>
 							<angle>30</angle>
-						</bullet>
-					<bullet>
+						</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>30</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>2</speed>
 						<damage>1</damage>
 						<angle>22</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>3</speed>
 						<damage>1</damage>
 						<angle>-15</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>15</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>2</speed>
 						<damage>1</damage>
 						<angle>8</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>0</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>2</speed>
 						<damage>1</damage>
 						<angle>0</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>3</speed>
 						<damage>1</damage>
 						<angle>0</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>2</speed>
 						<damage>1</damage>
 						<angle>-8</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>-15</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>3</speed>
 						<damage>1</damage>
 						<angle>-15</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>2</speed>
 						<damage>1</damage>
 						<angle>-22</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>-30</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>3</speed>
 						<damage>1</damage>
 						<angle>-30</angle>
-					</bullet>
-				</volley>
-				<volley>
-					<bullet>
+					</Bullet>
+				</Volley>
+				<Volley>
+					<Bullet>
 							<size>1</size>
 							<speed>5</speed>
 							<damage>3</damage>
 							<angle>30</angle>
-						</bullet>
-					<bullet>
+						</Bullet>
+					<Bullet>
 							<size>1</size>
 							<speed>1</speed>
 							<damage>3</damage>
 							<angle>30</angle>
-						</bullet>
-					<bullet>
+						</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>30</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>2</speed>
 						<damage>1</damage>
 						<angle>22</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>5</speed>
 						<damage>1</damage>
 						<angle>15</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>3</speed>
 						<damage>1</damage>
 						<angle>15</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>15</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>2</speed>
 						<damage>1</damage>
 						<angle>8</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>0</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>2</speed>
 						<damage>1</damage>
 						<angle>0</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>3</speed>
 						<damage>1</damage>
 						<angle>0</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>2</speed>
 						<damage>1</damage>
 						<angle>-8</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>-15</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>3</speed>
 						<damage>1</damage>
 						<angle>-15</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>5</speed>
 						<damage>1</damage>
 						<angle>-15</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>2</speed>
 						<damage>1</damage>
 						<angle>-22</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>1</damage>
 						<angle>-30</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>3</speed>
 						<damage>1</damage>
 						<angle>-30</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>5</speed>
 						<damage>1</damage>
 						<angle>-30</angle>
-					</bullet>
-				</volley>
-			</volleys>
-		</bulletType>
-		<bulletType name="crane">
-			<volleys>
-				<volley>
-					<bullet>
+					</Bullet>
+				</Volley>
+		</ProjectileType>
+		<ProjectileType name="crane">
+				<Volley>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>180</angle>
-					</bullet>
-				</volley>
-				<volley>
-					<bullet>
+					</Bullet>
+				</Volley>
+				<Volley>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>160</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>200</angle>
-					</bullet>
-				</volley>
-				<volley>
-					<bullet>
+					</Bullet>
+				</Volley>
+				<Volley>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>120</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>160</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>200</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>240</angle>
-				</volley>
-				<volley>
-					<bullet>
+					</Bullet>
+				</Volley>
+				<Volley>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>120</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>140</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>160</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>200</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>220</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>240</angle>
-					</bullet>
-				</volley>
-				<volley>
-					<bullet>
+					</Bullet>
+				</Volley>
+				<Volley>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>120</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>4</damage>
 						<angle>140</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>160</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>200</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>4</damage>
 						<angle>220</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>240</angle>
-					</bullet>
-				</volley>
-				<volley>
-					<bullet>
+					</Bullet>
+				</Volley>
+				<Volley>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>120</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>4</damage>
 						<angle>140</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>150</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>160</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>170</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>190</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>200</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>210</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>4</damage>
 						<angle>220</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>240</angle>
-					</bullet>
-				</volley>
-				<volley>
-					<bullet>
+					</Bullet>
+				</Volley>
+				<Volley>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>4</damage>
 						<angle>120</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>4</damage>
 						<angle>140</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>4</damage>
 						<angle>150</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>160</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>170</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>190</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
 						<angle>200</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>4</damage>
 						<angle>210</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>4</damage>
 						<angle>220</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>4</damage>
 						<angle>240</angle>
-					</bullet>
-				</volley>
-				<volley>
-					<bullet>
+					</Bullet>
+				</Volley>
+				<Volley>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>4</damage>
 						<angle>120</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>4</damage>
 						<angle>140</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>4</damage>
 						<angle>150</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>4</damage>
 						<angle>160</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>4</damage>
 						<angle>170</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>4</damage>
 						<angle>190</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>4</damage>
 						<angle>200</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>4</damage>
 						<angle>210</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>4</damage>
 						<angle>220</angle>
-					</bullet>
-					<bullet>
+					</Bullet>
+					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>4</damage>
 						<angle>240</angle>
-					</bullet>
-				</volley>
-			</volleys>
-		</bulletType>
-	</bullets>
-</bulletCollection>
+					</Bullet>
+				</Volley>
+		</ProjectileType>
+	</BulletCollection>
+</Root>
