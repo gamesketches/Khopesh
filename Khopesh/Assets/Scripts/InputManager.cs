@@ -14,9 +14,11 @@ public class InputManager : MonoBehaviour {
 	public string buttonC;
 	public string buttonD;
 
-	public GameObject hippoBulletPrefab;
-	public GameObject gatorBulletPrefab;
-	public GameObject craneBulletPrefab;
+	public GameObject bulletPrefab;
+
+	public Sprite hippoBulletSprite;
+	public Sprite gatorBulletSprite;
+	public Sprite craneBulletSprite;
 
 	public BulletDepot bullets;
 
@@ -44,9 +46,9 @@ public class InputManager : MonoBehaviour {
 	}
 
 	void Update() {
-		/*char button = GetButtonPress();
+		char button = GetButtonPress();
 		if(button == 'D' && meleeCooldownTimer <= 0) {
-		} else if(button != '0' && shotCooldownTimer <= 0) {
+		} else if(button != '0' && exponentCooldownTimer <= 0) {
 			shotCooldownTimer = shotCooldownTime;
 			gameObject.transform.localScale = Vector3.Lerp(new Vector3(1f, 1f, 1f), new Vector3(fullBufferScale, fullBufferScale, fullBufferScale),(float)bufferIter / (float)mashBufferSize);
 			mashBuffer.SetValue(button, bufferIter);
@@ -67,9 +69,9 @@ public class InputManager : MonoBehaviour {
 		}
 
 		if(exponentCooldownTimer > 0) { 
-			exponentCooldownTimer--;
+			exponentCooldownTimer -= Time.deltaTime;
 			//GetComponentInChildren<Renderer>().material.color = noShootingColor;
-		}*/
+		}
 	}
 
 	char GetButtonPress() {
@@ -91,9 +93,25 @@ public class InputManager : MonoBehaviour {
 	}
 
 	void ExponentShot() {
-		// Convert button press to bullet type
-		// Loop over bullets.types.projectileTypes[BulletType enum].volleys[mashBufferIter]
-		// Create each bullet with data, donezo!
+		BulletType type = BulletType.Gator;
+		switch(GetButtonPress()) {
+			case 'A':
+				type = BulletType.Gator;
+				break;
+			case 'B':
+				type = BulletType.Crane;
+				break;
+			case 'C':
+				type = BulletType.Hippo;
+				break;
+			case 'D':
+				return;
+				break;
+		}
+		BulletDepot.Volley volley = bullets.types.projectileTypes[(int)type].volleys[bufferIter];
+		foreach(BulletDepot.Bullet bullet in volley.volley) {
+			CreateBullet(bullet, type);
+		}
 	}
 
 	void Fire() {
@@ -158,33 +176,30 @@ public class InputManager : MonoBehaviour {
 		}
 		for(int i = 0; i < bulletAngles.Count; i++) {
 			//Speed value needs to be addressed
-			CreateBullet(bulletAngles[i], Random.Range(15.0f, 25.0f), bulletTypes[i]);
+			BulletDepot.Bullet bullet = new BulletDepot.Bullet();
+			bullet.angle = (int)bulletAngles[i];
+			//CreateBullet(bulletAngles[i], Random.Range(15.0f, 25.0f), bulletTypes[i]);
+			CreateBullet(bullet, bulletTypes[i]);
 		}
 	}
 
-	public void CreateBullet(float angle, float speed = 10.0f, BulletType type = BulletType.Gator) {
-		GameObject bullet = null;
-		Rigidbody2D bulletRB;
-		angle += playerMovement.CurrentShotAngle();
-		if(type == BulletType.Hippo) {
-			bullet = ((GameObject)Instantiate (hippoBulletPrefab, transform.position, 
-				Quaternion.Euler (0.0f, 0.0f, 0.0f)));
-		} else if(type == BulletType.Gator) {
-			bullet = ((GameObject)Instantiate (gatorBulletPrefab, transform.position, 
-				Quaternion.Euler (0.0f, 0.0f, 0.0f)));
-		} else if(type == BulletType.Crane) { 
-			bullet = ((GameObject)Instantiate (craneBulletPrefab, transform.position, 
-				Quaternion.Euler (0.0f, 0.0f, 0.0f)));
+	public void CreateBullet(BulletDepot.Bullet bullet, BulletType type = BulletType.Gator) {
+		bullet.angle += (int)playerMovement.CurrentShotAngle();
+		Sprite sprite = null;
+		switch(type) {
+			case BulletType.Hippo:
+				sprite = hippoBulletSprite;
+				break;
+
+			case BulletType.Gator:
+				sprite = gatorBulletSprite;
+				break;
+
+			case BulletType.Crane:
+				sprite = craneBulletSprite;
+				break;
 		}
-		bulletRB = bullet.GetComponent<Rigidbody2D> ();
-
-		bulletRB.rotation = angle - 90f;
-
-		bulletRB.velocity = new Vector2(Mathf.Cos(angle * Mathf.Deg2Rad), Mathf.Sin(angle * Mathf.Deg2Rad)) * speed;
-
-		/*OwnerScript script = bullet.GetComponent<OwnerScript>();
-		Player player = gameObject.GetComponent<Player>();
-		script.Initialize(type, gameObject, gameObject.GetComponent<PlayerHealth>().opponent, player.number); 
-		BulletManager.Instance.AddBullet(bullet);*/
+		BulletLogic bulletLogic = ((GameObject)Instantiate(bulletPrefab, transform.position, Quaternion.identity)).GetComponent<BulletLogic>();
+		bulletLogic.Initialize(type, bullet.damage, bullet.speed, 5, sprite);
 	}
 }
