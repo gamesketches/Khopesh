@@ -38,18 +38,18 @@ public class BulletLogic : MonoBehaviour {
 	}
 
 	public void Initialize(BulletType bulletType, int bulletDamage, float Velocity,
-													float Lifetime, Sprite bulletSprite){
+													float Lifetime, Color bulletColor){
 		type = bulletType;
 		damage = bulletDamage;
 		velocity = Velocity;
 		travelVector = new Vector2(velocity, 0);
 		lifetime = Lifetime;
-		GetComponent<SpriteRenderer>().sprite = bulletSprite;
+		GetComponent<SpriteRenderer>().color = bulletColor;
 		foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player")){
-			//if(player.transform != transform.parent) {
+			if(player.transform != transform.parent) {
 				target = player.transform;
 				break;
-			//}
+			}
 		}
 		switch(type) {
 			case BulletType.Crane:

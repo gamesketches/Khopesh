@@ -41,6 +41,5 @@ public class BulletDepot : ScriptableObject {
 		TextAsset bulletData = Resources.Load("bullets") as TextAsset;
 		TextReader reader = new StringReader(bulletData.text);
 		types = (BulletCollection)serializer.Deserialize(reader);
-		Debug.Log(types);
 	}
 }

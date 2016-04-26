@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour {
 	int player1Wins, player2Wins;
 	public float roundTime;
 	public Vector3 player1Pos, player2Pos;
+	public int startingHealth;
 	KeyCode[] player1Controls, player2Controls;
 	PlayerStats player1Stats, player2Stats;
 
@@ -17,31 +18,45 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		bullets = new BulletDepot();
 		bullets.Load();
-		player1 = CreatePlayer(player1Controls, Color.red, player1Pos);
-		player2 = CreatePlayer(player2Controls, Color.blue, player2Pos);
-		player1Stats = player1.GetComponent<PlayerStats>();
-		player2Stats = player2.GetComponent<PlayerStats>();
+		StartRound();
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		roundTime -= Time.deltaTime;
-		/* if(player1Stats <= 0 || player2Stats <= 0) {
-		 * 		//LockPlayers();
-				if(player1Stats <= 0 && player2Stats <= 0) {
+		if(player1Stats.health <= 0 || player2Stats.health <= 0 || roundTime <= 0) {
+		  		LockPlayers();
+			if(player1Stats.health <= 0 && player2Stats.health <= 0) {
 					Debug.Log("we have a tie");
 					}
-				else if(player1Stats <= 0) {
-					Debug.Log("player2 wins");		
+			else if(player1Stats.health <= 0) {
+					player2Stats.IncrementRoundWins();	
 				}
 				else {
-					Debug.Log("player1 wins");
+					player1Stats.IncrementRoundWins();
 				}
-		*/
+			RoundReset();
+		}
 	}
 
 	void StartRound() {
-		
+		player1 = CreatePlayer(player1Controls, Color.red, player1Pos);
+		player2 = CreatePlayer(player2Controls, Color.blue, player2Pos);
+		player1Stats = player1.GetComponent<PlayerStats>();
+		player2Stats = player2.GetComponent<PlayerStats>();
+		player1Stats.health = startingHealth;
+		player2Stats.health = startingHealth;
+	}
+
+	void LockPlayers() {
+		player1.GetComponent<PlayerMovement>().locked = true;
+		player2.GetComponent<PlayerMovement>().locked = true;
+	}
+
+	void RoundReset() {
+		Destroy(player1);
+		Destroy(player2);
+		StartRound();
 	}
 
 	GameObject CreatePlayer(KeyCode[] controls, Color color, Vector3 position){
