@@ -32,7 +32,7 @@ public class BulletLogic : MonoBehaviour {
 			Destroy(gameObject);
 		}
 		bulletFunction();
-		transform.position += new Vector3(travelVector.x, travelVector.y) * Time.deltaTime;
+		gameObject.transform.position += new Vector3(travelVector.x, travelVector.y) * Time.deltaTime;
 		renderer.sprite = animation[animFrame];
 		animFrame = animFrame + 1 >= animation.Length ? 0 : animFrame + 1;
 	}
@@ -42,6 +42,7 @@ public class BulletLogic : MonoBehaviour {
 		type = bulletType;
 		damage = bulletDamage;
 		velocity = Velocity;
+		Debug.Log(velocity);
 		travelVector = new Vector2(velocity, 0);
 		lifetime = Lifetime;
 		GetComponent<SpriteRenderer>().color = bulletColor;
@@ -74,14 +75,16 @@ public class BulletLogic : MonoBehaviour {
 	void OnTriggerEnter(Collider other) {
 		if(other.gameObject.tag == "player") {
 			if(other.gameObject != gameObject.transform.parent) {
-				Debug.Log("Hit opponent");
+				other.gameObject.GetComponent<PlayerStats>().health -= damage;
+				Destroy(gameObject);
 			}
 		}
 	}
 
 	void IndirectLogic(){
 		// Might be better to handle this shit as a rotation
-		Debug.Log(gameObject);
+		Debug.Log(velocity);
+		Debug.Log(target.position - gameObject.transform.position);
 		travelVector = Vector2.Lerp(new Vector2(velocity, 0), target.position - gameObject.transform.position, 
 			headingTime);
 		headingTime += indirectCorrectionSpeed / (indirectCorrectionSpeed * 60);

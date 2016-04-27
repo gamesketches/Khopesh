@@ -7,14 +7,14 @@ public class InputManager : MonoBehaviour {
 
 	public float shotCooldownTime;
 	public float exponentCooldownTime;
-	public float fullBufferScale;
+	public float fullBufferScale = 2f;
 
 	public string buttonA;
 	public string buttonB;
 	public string buttonC;
 	public string buttonD;
 
-	public GameObject bulletPrefab;
+	private GameObject bulletPrefab;
 
 	public Sprite hippoBulletSprite;
 	public Sprite gatorBulletSprite;
@@ -22,7 +22,7 @@ public class InputManager : MonoBehaviour {
 
 	public BulletDepot bullets;
 
-	private int bufferIter;
+	private int bufferIter = 0;
 
 	private float shotCooldownTimer;
 	private float meleeCooldownTimer;
@@ -36,8 +36,10 @@ public class InputManager : MonoBehaviour {
 	private PlayerMovement playerMovement;
 
 	void Start() {
+		bulletPrefab = Resources.Load<GameObject>("prefabs/Bullet");
 		playerStats = GetComponent<PlayerStats>();
 		playerMovement = GetComponent<PlayerMovement>();
+		mashBufferSize = 8;
 		mashBuffer = new char[mashBufferSize];
 		for(int i = 0; i < mashBufferSize; i++){
 			mashBuffer.SetValue('*', i);
@@ -200,6 +202,6 @@ public class InputManager : MonoBehaviour {
 				break;
 		}
 		BulletLogic bulletLogic = ((GameObject)Instantiate(bulletPrefab, transform.position, Quaternion.identity)).GetComponent<BulletLogic>();
-		bulletLogic.Initialize(type, bullet.damage, bullet.speed, 5, sprite);
+		bulletLogic.Initialize(type, bullet.damage, bullet.speed, 5, playerStats.playerColor);
 	}
 }
