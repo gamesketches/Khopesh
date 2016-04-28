@@ -6,13 +6,13 @@ public class PlayerMovement : MonoBehaviour {
 	public float reticleRadius;
 	public bool locked;
 
-	public string horizontalAxis;
-	public string verticalAxis;
-
 	public GameObject reticle;
 
 	private float radians;
 	private float degrees;
+
+	private string horizontalAxis;
+	private string verticalAxis;
 
 	private Rigidbody2D rb2D;
 
@@ -37,5 +37,10 @@ public class PlayerMovement : MonoBehaviour {
 
 	public float CurrentShotAngle() {
 			return radians * Mathf.Rad2Deg;
+	}
+
+	public void InitializeAxes(string[] controls) {
+		horizontalAxis = controls[0];
+		verticalAxis = controls[1];
 	}
 }
