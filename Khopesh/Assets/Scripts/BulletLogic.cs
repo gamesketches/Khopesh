@@ -9,7 +9,7 @@ public class BulletLogic : MonoBehaviour {
 	int damage;
 	float velocity;
 	float lifetime;
-	public float indirectCorrectionSpeed;
+	public float indirectCorrectionSpeed = 5;
 	delegate void BulletFunction();
 	BulletFunction bulletFunction;
 	private Vector2 travelVector;
@@ -42,8 +42,8 @@ public class BulletLogic : MonoBehaviour {
 		type = bulletType;
 		damage = bulletDamage;
 		velocity = Velocity;
-		Debug.Log(velocity);
 		travelVector = new Vector2(velocity, 0);
+		Debug.Log("travelVector" + travelVector);
 		lifetime = Lifetime;
 		GetComponent<SpriteRenderer>().color = bulletColor;
 		foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player")){
@@ -83,10 +83,10 @@ public class BulletLogic : MonoBehaviour {
 
 	void IndirectLogic(){
 		// Might be better to handle this shit as a rotation
-		Debug.Log(velocity);
-		Debug.Log(target.position - gameObject.transform.position);
-		travelVector = Vector2.Lerp(new Vector2(velocity, 0), target.position - gameObject.transform.position, 
+		Vector3 temp = Vector3.Lerp(new Vector3(velocity, 0, 0), target.position - gameObject.transform.position, 
 			headingTime);
+		travelVector.x = temp.x;
+		travelVector.y = temp.y;
 		headingTime += indirectCorrectionSpeed / (indirectCorrectionSpeed * 60);
 	}
 
