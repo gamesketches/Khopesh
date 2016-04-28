@@ -1,0 +1,272 @@
+fileFormatVersion: 2
+guid: 194cf0fe7ffef435b96fc9e2506f7cb6
+timeCreated: 1461876222
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: SethSheet_0
+    21300002: SethSheet_1
+    21300004: SethSheet_2
+    21300006: SethSheet_3
+    21300008: SethSheet_4
+    21300010: SethSheet_5
+    21300012: SethSheet_6
+    21300014: SethSheet_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: SethSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 112, y: 12}
+        - {x: 47, y: 123}
+        - {x: -31, y: 123}
+        - {x: -113, y: 20}
+        - {x: -113, y: -116}
+        - {x: -99, y: -130}
+        - {x: 62, y: -130}
+        - {x: 114, y: -64}
+        - {x: 114, y: 10}
+    - name: SethSheet_1
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 80, y: -131}
+        - {x: 114, y: -15}
+        - {x: 114, y: 86}
+        - {x: 61, y: 122}
+        - {x: -38, y: 122}
+        - {x: -113, y: 74}
+        - {x: -113, y: -21}
+        - {x: -50, y: -131}
+        - {x: -16, y: -131}
+        - {x: -11, y: -128}
+        - {x: -8, y: -71}
+        - {x: 6, y: -116}
+        - {x: 17, y: -131}
+    - name: SethSheet_2
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: -120}
+        - {x: 18, y: -129}
+        - {x: 25, y: -130}
+        - {x: 66, y: -130}
+        - {x: 67, y: -87}
+        - {x: 64, y: -86}
+        - {x: 106, y: -19}
+        - {x: 106, y: 57}
+        - {x: 80, y: 54}
+        - {x: 77, y: 53}
+        - {x: 53, y: 13}
+        - {x: 45, y: 22}
+        - {x: 36, y: 26}
+        - {x: 31, y: 27}
+        - {x: 32, y: 38}
+        - {x: 42, y: 23}
+        - {x: 53, y: 20}
+        - {x: 56, y: 23}
+        - {x: 38, y: 122}
+        - {x: -44, y: 122}
+        - {x: -64, y: 63}
+        - {x: -64, y: -118}
+        - {x: -63, y: -130}
+        - {x: 0, y: -130}
+        - {x: 2, y: -128}
+        - {x: 4, y: -87}
+        - {x: 5, y: -101}
+    - name: SethSheet_3
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -15, y: 122}
+        - {x: -18, y: 121}
+        - {x: -56, y: 30}
+        - {x: -53, y: 21}
+        - {x: -45, y: 21}
+        - {x: -52, y: 14}
+        - {x: -67, y: 56}
+        - {x: -106, y: 79}
+        - {x: -106, y: -123}
+        - {x: -105, y: -130}
+        - {x: 64, y: -130}
+        - {x: 64, y: 59}
+        - {x: 30, y: 122}
+    - name: SethSheet_4
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 23, y: 122}
+        - {x: -23, y: 122}
+        - {x: -44, y: 67}
+        - {x: -59, y: 21}
+        - {x: -48, y: 21}
+        - {x: -46, y: 23}
+        - {x: -77, y: -10}
+        - {x: -103, y: 31}
+        - {x: -128, y: 14}
+        - {x: -128, y: -9}
+        - {x: -68, y: -132}
+        - {x: 50, y: -132}
+        - {x: 68, y: -123}
+        - {x: 92, y: -39}
+        - {x: 92, y: -16}
+    - name: SethSheet_5
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 70, y: -132}
+        - {x: 127, y: -36}
+        - {x: 127, y: 30}
+        - {x: 22, y: 122}
+        - {x: -47, y: 122}
+        - {x: -93, y: 39}
+        - {x: -93, y: -79}
+        - {x: -57, y: -130}
+        - {x: -46, y: -132}
+        - {x: -12, y: -132}
+        - {x: 4, y: -114}
+        - {x: 2, y: -111}
+        - {x: 23, y: -132}
+    - name: SethSheet_6
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 92, y: 0}
+        - {x: 32, y: 123}
+        - {x: -21, y: 123}
+        - {x: -128, y: 26}
+        - {x: -128, y: -60}
+        - {x: -94, y: -120}
+        - {x: -42, y: -133}
+        - {x: 92, y: -133}
+    - name: SethSheet_7
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9, y: -89}
+        - {x: 13, y: -120}
+        - {x: 30, y: -133}
+        - {x: 45, y: -133}
+        - {x: 78, y: -97}
+        - {x: 127, y: -33}
+        - {x: 127, y: 52}
+        - {x: 59, y: 122}
+        - {x: 9, y: 122}
+        - {x: 7, y: 120}
+        - {x: -11, y: 122}
+        - {x: -24, y: 122}
+        - {x: -93, y: -5}
+        - {x: -93, y: -37}
+        - {x: -52, y: -115}
+        - {x: -39, y: -131}
+        - {x: -32, y: -133}
+        - {x: -27, y: -133}
+        - {x: 1, y: -105}
+        - {x: 2, y: -101}
+        - {x: -3, y: -95}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

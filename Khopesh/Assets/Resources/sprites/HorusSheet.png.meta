@@ -1,0 +1,256 @@
+fileFormatVersion: 2
+guid: 64134b1c258ba4aba82d6ed68b67496a
+timeCreated: 1461876247
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: HorusSheet_0
+    21300002: HorusSheet_1
+    21300004: HorusSheet_2
+    21300006: HorusSheet_3
+    21300008: HorusSheet_4
+    21300010: HorusSheet_5
+    21300012: HorusSheet_6
+    21300014: HorusSheet_7
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: -1
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: HorusSheet_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 57, y: 130}
+        - {x: -67, y: 130}
+        - {x: -113, y: 14}
+        - {x: -113, y: -65}
+        - {x: -87, y: -61}
+        - {x: -84, y: -60}
+        - {x: -57, y: -130}
+        - {x: 69, y: -130}
+        - {x: 114, y: -102}
+        - {x: 114, y: 14}
+    - name: HorusSheet_1
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 70, y: -130}
+        - {x: 114, y: -44}
+        - {x: 114, y: 64}
+        - {x: 38, y: 130}
+        - {x: -88, y: 130}
+        - {x: -113, y: 115}
+        - {x: -113, y: -85}
+        - {x: -96, y: -130}
+        - {x: -23, y: -130}
+        - {x: -16, y: -129}
+        - {x: -9, y: -114}
+        - {x: 9, y: -128}
+        - {x: 13, y: -130}
+    - name: HorusSheet_2
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 106, y: -85}
+        - {x: 106, y: 116}
+        - {x: 85, y: 130}
+        - {x: -41, y: 130}
+        - {x: -64, y: 87}
+        - {x: -64, y: -122}
+        - {x: -39, y: -130}
+        - {x: 0, y: -130}
+        - {x: 2, y: -128}
+        - {x: 2, y: -130}
+        - {x: 95, y: -130}
+    - name: HorusSheet_3
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 0, y: -130}
+        - {x: 59, y: -130}
+        - {x: 64, y: -104}
+        - {x: 64, y: 76}
+        - {x: 38, y: 122}
+        - {x: 29, y: 130}
+        - {x: -10, y: 130}
+        - {x: -10, y: 120}
+        - {x: -10, y: 122}
+        - {x: -15, y: 128}
+        - {x: -25, y: 130}
+        - {x: -38, y: 130}
+        - {x: -106, y: 52}
+        - {x: -106, y: -16}
+        - {x: -104, y: -18}
+        - {x: -67, y: -130}
+        - {x: -24, y: -130}
+        - {x: -10, y: -124}
+        - {x: -4, y: -115}
+        - {x: -2, y: -128}
+    - name: HorusSheet_4
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 92, y: -51}
+        - {x: 92, y: 12}
+        - {x: 53, y: 130}
+        - {x: -60, y: 130}
+        - {x: -128, y: 7}
+        - {x: -128, y: -12}
+        - {x: -75, y: -132}
+        - {x: -21, y: -132}
+        - {x: -12, y: -115}
+        - {x: 14, y: -132}
+        - {x: 51, y: -132}
+    - name: HorusSheet_5
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 115, y: 22}
+        - {x: 86, y: 53}
+        - {x: 41, y: 130}
+        - {x: -31, y: 130}
+        - {x: -37, y: 121}
+        - {x: -93, y: -15}
+        - {x: -93, y: -34}
+        - {x: -53, y: -120}
+        - {x: -44, y: -132}
+        - {x: 52, y: -132}
+        - {x: 87, y: -108}
+        - {x: 127, y: -13}
+        - {x: 127, y: 8}
+    - name: HorusSheet_6
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -36, y: 130}
+        - {x: -54, y: 112}
+        - {x: -128, y: 14}
+        - {x: -128, y: -19}
+        - {x: -82, y: -57}
+        - {x: -71, y: -98}
+        - {x: -60, y: -133}
+        - {x: 58, y: -133}
+        - {x: 92, y: -36}
+        - {x: 92, y: -10}
+        - {x: 50, y: 130}
+    - name: HorusSheet_7
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 41, y: -133}
+        - {x: 79, y: -96}
+        - {x: 127, y: -24}
+        - {x: 127, y: 44}
+        - {x: 24, y: 130}
+        - {x: -45, y: 130}
+        - {x: -93, y: -5}
+        - {x: -93, y: -30}
+        - {x: -56, y: -118}
+        - {x: -35, y: -133}
+        - {x: -21, y: -133}
+        - {x: 4, y: -100}
+        - {x: 10, y: -115}
+        - {x: 22, y: -133}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
