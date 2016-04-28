@@ -75,7 +75,7 @@ public class GameManager : MonoBehaviour {
 		GameObject temp = (GameObject)Instantiate(Resources.Load("prefabs/Player"), 
 												position, Quaternion.identity);
 		//SetControls(temp);
-		//temp.GetComponenet<Renderer>().color = color;
+		//temp.GetComponent<Renderer>() = color;
 		temp.GetComponent<PlayerStats>().playerColor = color;
 		temp.GetComponent<InputManager>().bullets = bullets;
 		return temp;
