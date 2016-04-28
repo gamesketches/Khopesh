@@ -13,10 +13,6 @@ public class InputManager : MonoBehaviour {
 
 	private GameObject bulletPrefab;
 
-	public Sprite hippoBulletSprite;
-	public Sprite gatorBulletSprite;
-	public Sprite craneBulletSprite;
-
 	public BulletDepot bullets;
 
 	private int bufferIter = 0;
