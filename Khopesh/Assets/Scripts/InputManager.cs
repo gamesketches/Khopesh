@@ -177,10 +177,8 @@ public class InputManager : MonoBehaviour {
 			}
 		}
 		for(int i = 0; i < bulletAngles.Count; i++) {
-			//Speed value needs to be addressed
 			BulletDepot.Bullet bullet = new BulletDepot.Bullet();
 			bullet.angle = (int)bulletAngles[i];
-			//CreateBullet(bulletAngles[i], Random.Range(15.0f, 25.0f), bulletTypes[i]);
 			CreateBullet(bullet, bulletTypes[i]);
 		}
 	}

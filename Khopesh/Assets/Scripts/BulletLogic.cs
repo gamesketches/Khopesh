@@ -9,7 +9,7 @@ public class BulletLogic : MonoBehaviour {
 	int damage;
 	float velocity;
 	float lifetime;
-	public float indirectCorrectionSpeed = 5;
+	public float indirectCorrectionSpeed = 5f;
 	delegate void BulletFunction();
 	BulletFunction bulletFunction;
 	private Vector2 travelVector;
