@@ -51,7 +51,6 @@ public class InputManager : MonoBehaviour {
 		char button = GetButtonPress();
 		if(button == 'D' && meleeCooldownTimer <= 0) {
 		} else if(button != '0' && exponentCooldownTimer <= 0) {
-			Debug.Log ("cooldowntimer < 0");
 			shotCooldownTimer = shotCooldownTime;
 			gameObject.transform.localScale = Vector3.Lerp(new Vector3(1f, 1f, 1f), new Vector3(fullBufferScale, fullBufferScale, fullBufferScale),(float)bufferIter / (float)mashBufferSize);
 			mashBuffer.SetValue(button, bufferIter);
@@ -65,7 +64,6 @@ public class InputManager : MonoBehaviour {
 				Fire();
 			}
 		} else if(mashing && button == '0'){
-			Debug.Log ("Mashing && Button");
 			shotCooldownTimer -= Time.deltaTime;
 			if(shotCooldownTimer <= 0.0f) {
 				Fire();
@@ -131,7 +129,8 @@ public class InputManager : MonoBehaviour {
 		if(bufferIter < mashBufferSize) {
 			lockFrames = lockFrames / 2;
 		}
-		exponentCooldownTimer = lockFrames * exponentCooldownTime;
+		// TODO: CHANGE THIS TO SOMETHIGN REAL
+		exponentCooldownTimer = lockFrames * Time.deltaTime;
 		bufferIter = 0;
 		mashing = false;
 		gameObject.transform.localScale = new Vector3(1, 1, 1);
