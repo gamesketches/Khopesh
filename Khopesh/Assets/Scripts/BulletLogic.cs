@@ -42,8 +42,8 @@ public class BulletLogic : MonoBehaviour {
 		type = bulletType;
 		damage = bulletDamage;
 		velocity = Velocity;
-		travelVector = new Vector2(velocity, 0);
-		Debug.Log("travelVector" + travelVector);
+		Vector3 tempVector = Quaternion.AngleAxis(gameObject.transform.rotation.z * Mathf.Rad2Deg, Vector3.forward) * new Vector3(velocity, 0, 0);
+		travelVector = new Vector2(tempVector.x, tempVector.y);
 		lifetime = Lifetime;
 		GetComponent<SpriteRenderer>().color = bulletColor;
 		foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player")){
@@ -83,7 +83,8 @@ public class BulletLogic : MonoBehaviour {
 
 	void IndirectLogic(){
 		// Might be better to handle this shit as a rotation
-		Vector3 temp = Vector3.Lerp(new Vector3(velocity, 0, 0), target.position - gameObject.transform.position, 
+		Vector3 startVector = Quaternion.AngleAxis(gameObject.transform.rotation.z * Mathf.Rad2Deg, Vector3.forward) * new Vector3(velocity, 0, 0);
+		Vector3 temp = Vector3.Lerp(startVector, target.position - gameObject.transform.position, 
 			headingTime);
 		travelVector.x = temp.x;
 		travelVector.y = temp.y;
@@ -91,7 +92,7 @@ public class BulletLogic : MonoBehaviour {
 	}
 
 	void StraightLogic(){
-		travelVector = new Vector2(velocity, 0f);
+		//travelVector = new Vector2(velocity, 0f);
 	}
 
 	void SlowShotLogic(){
