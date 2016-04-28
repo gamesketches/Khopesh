@@ -201,7 +201,7 @@ public class InputManager : MonoBehaviour {
 				break;
 		}
 		BulletLogic bulletLogic = ((GameObject)Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, bullet.angle))).GetComponent<BulletLogic>();
-		bulletLogic.Initialize(type, bullet.damage, bullet.speed, 5, playerStats.playerColor);
+		bulletLogic.Initialize(type, bullet.damage, bullet.speed, 5, playerStats.playerColor, gameObject);
 	}
 
 	public void InitializeControls(string[] controls) {

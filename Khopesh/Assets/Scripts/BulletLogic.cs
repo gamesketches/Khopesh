@@ -38,7 +38,7 @@ public class BulletLogic : MonoBehaviour {
 	}
 
 	public void Initialize(BulletType bulletType, int bulletDamage, float Velocity,
-													float Lifetime, Color bulletColor){
+													float Lifetime, Color bulletColor, GameObject myMother){
 		type = bulletType;
 		damage = bulletDamage;
 		velocity = Velocity;
@@ -47,7 +47,7 @@ public class BulletLogic : MonoBehaviour {
 		lifetime = Lifetime;
 		GetComponent<SpriteRenderer>().color = bulletColor;
 		foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player")){
-			if(player.transform != transform.parent) {
+			if(player != myMother) {
 				target = player.transform;
 				break;
 			}
