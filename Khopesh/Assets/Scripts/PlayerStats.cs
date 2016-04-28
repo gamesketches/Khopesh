@@ -6,6 +6,7 @@ public class PlayerStats : MonoBehaviour {
 	public Color playerColor;
 	public int shotCooldown;
 	public int meleeCooldown;
+	public int number;
 
 	private int roundWins;
 

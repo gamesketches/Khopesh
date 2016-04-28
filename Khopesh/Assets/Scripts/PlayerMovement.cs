@@ -16,9 +16,20 @@ public class PlayerMovement : MonoBehaviour {
 
 	private Rigidbody2D rb2D;
 
+	private PlayerStats playerStats;
+
 	void Start() {
+		playerStats = GetComponent<PlayerStats>();
 		locked = false;
 		rb2D = GetComponent<Rigidbody2D>();
+		if(playerStats.number == 0) {
+			radians = 0.0f;
+		} else if(playerStats.number == 1) {
+			radians = Mathf.PI;
+		}
+		degrees = radians * Mathf.Rad2Deg;
+		reticle.transform.localPosition = new Vector3(Mathf.Cos(radians) * reticleRadius, Mathf.Sin(radians) * reticleRadius, 0.0f);
+		reticle.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, degrees - 90.0f);
 	}
 
 	void Update() {
@@ -28,12 +39,14 @@ public class PlayerMovement : MonoBehaviour {
 	void HandleMovement() {
 		if(!locked) {
 			rb2D.velocity = (new Vector2(Input.GetAxisRaw(horizontalAxis), Input.GetAxisRaw(verticalAxis))).normalized * speed;
-			radians = Mathf.Atan2(rb2D.velocity.y, rb2D.velocity.x);
-			degrees = radians * Mathf.Rad2Deg;
-			reticle.transform.localPosition = new Vector3(Mathf.Cos(radians) * reticleRadius, Mathf.Sin(radians) * reticleRadius, 0.0f);
-			reticle.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, degrees - 90.0f);
+				if(rb2D.velocity.x != 0.0f || rb2D.velocity.y != 0.0f) {
+					radians = Mathf.Atan2(rb2D.velocity.y, rb2D.velocity.x);
+					degrees = radians * Mathf.Rad2Deg;
+					reticle.transform.localPosition = new Vector3(Mathf.Cos(radians) * reticleRadius, Mathf.Sin(radians) * reticleRadius, 0.0f);
+					reticle.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, degrees - 90.0f);
+				}
 			}
-		}
+	}
 
 	public float CurrentShotAngle() {
 			return radians * Mathf.Rad2Deg;

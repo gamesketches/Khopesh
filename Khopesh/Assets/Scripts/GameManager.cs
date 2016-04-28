@@ -55,12 +55,8 @@ public class GameManager : MonoBehaviour {
 	void StartRound() {
 		player1 = CreatePlayer(player1Controls, Color.red, player1Pos);
 		player2 = CreatePlayer(player2Controls, Color.blue, player2Pos);
-		player1.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/playerStillBlackWhite");
-		player2.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/playerStillWhiteBlack");
 		player1Stats = player1.GetComponent<PlayerStats>();
 		player2Stats = player2.GetComponent<PlayerStats>();
-		player1Stats.health = startingHealth;
-		player2Stats.health = startingHealth;
 	}
 
 	void LockPlayers() {
@@ -79,11 +75,23 @@ public class GameManager : MonoBehaviour {
 												position, Quaternion.identity);
 		//SetControls(temp);
 		//temp.GetComponent<Renderer>() = color;
-		temp.GetComponent<PlayerStats>().playerColor = color;
-		temp.GetComponent<PlayerMovement>().InitializeAxes(controls);
+		PlayerStats tempStats = temp.GetComponent<PlayerStats>();
 		InputManager tempInputManager = temp.GetComponent<InputManager>();
+
+		tempStats.health = startingHealth;
+		tempStats.playerColor = color;
+		temp.GetComponent<PlayerMovement>().InitializeAxes(controls);
+
 		tempInputManager.bullets = bullets;
 		tempInputManager.InitializeControls(controls);
+
+		if(color == Color.red) {
+			temp.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/playerStillBlackWhite");
+			tempStats.number = 0;
+		} else if(color == Color.blue) {
+			temp.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/playerStillWhiteBlack");
+			tempStats.number = 1;
+		}
 		return temp;
 	}
 }

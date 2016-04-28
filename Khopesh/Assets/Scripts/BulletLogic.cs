@@ -41,7 +41,7 @@ public class BulletLogic : MonoBehaviour {
 													float Lifetime, Color bulletColor, GameObject myMother){
 		type = bulletType;
 		damage = bulletDamage;
-		velocity = Velocity;
+		velocity = 10.0f;//Velocity;
 		Vector3 tempVector = Quaternion.AngleAxis(gameObject.transform.rotation.eulerAngles.z, Vector3.forward) * new Vector3(velocity, 0, 0);
 		travelVector = new Vector2(tempVector.x, tempVector.y);
 		lifetime = Lifetime;
