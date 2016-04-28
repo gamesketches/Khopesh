@@ -184,20 +184,6 @@ public class InputManager : MonoBehaviour {
 
 	public void CreateBullet(BulletDepot.Bullet bullet, BulletType type = BulletType.Gator) {
 		bullet.angle += (int)playerMovement.CurrentShotAngle();
-		Sprite sprite = null;
-		switch(type) {
-			case BulletType.Hippo:
-				sprite = hippoBulletSprite;
-				break;
-
-			case BulletType.Gator:
-				sprite = gatorBulletSprite;
-				break;
-
-			case BulletType.Crane:
-				sprite = craneBulletSprite;
-				break;
-		}
 		BulletLogic bulletLogic = ((GameObject)Instantiate(bulletPrefab, reticle.transform.position, Quaternion.Euler(0, 0, bullet.angle))).GetComponent<BulletLogic>();
 		bulletLogic.Initialize(type, bullet.damage, bullet.speed, 5, playerStats.playerColor, gameObject);
 	}
