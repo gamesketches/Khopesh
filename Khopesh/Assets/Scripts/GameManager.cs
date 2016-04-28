@@ -9,7 +9,7 @@ public class GameManager : MonoBehaviour {
 	public float roundTime;
 	public Vector3 player1Pos, player2Pos;
 	public int startingHealth;
-	KeyCode[] player1Controls, player2Controls;
+	string[] player1Controls, player2Controls;
 	PlayerStats player1Stats, player2Stats;
 
 	BulletDepot bullets;
@@ -19,6 +19,18 @@ public class GameManager : MonoBehaviour {
 		bullets = new BulletDepot();
 		bullets.Load();
 		StartRound();
+		CreateControlScheme(0, out player1Controls);
+		CreateControlScheme(1, out player2Controls);
+	}
+
+	void CreateControlScheme(int playerNum, out string[] controlArray) {
+		controlArray = new string[6];
+		controlArray[0] = string.Concat("Horizontal", playerNum.ToString());
+		controlArray[1] = string.Concat("Vertical", playerNum.ToString());
+		controlArray[2] = string.Concat("ButtonA", playerNum.ToString());
+		controlArray[3] = string.Concat("ButtonB", playerNum.ToString());
+		controlArray[4] = string.Concat("ButtonC", playerNum.ToString());
+		controlArray[5] = string.Concat("ButtonD", playerNum.ToString());
 	}
 	
 	// Update is called once per frame
@@ -59,7 +71,7 @@ public class GameManager : MonoBehaviour {
 		StartRound();
 	}
 
-	GameObject CreatePlayer(KeyCode[] controls, Color color, Vector3 position){
+	GameObject CreatePlayer(string[] controls, Color color, Vector3 position){
 		GameObject temp = (GameObject)Instantiate(Resources.Load("prefabs/Player"), 
 												position, Quaternion.identity);
 		//SetControls(temp);
