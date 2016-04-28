@@ -9,11 +9,6 @@ public class InputManager : MonoBehaviour {
 	public float exponentCooldownTime;
 	public float fullBufferScale = 2f;
 
-	public string buttonA;
-	public string buttonB;
-	public string buttonC;
-	public string buttonD;
-
 	private GameObject bulletPrefab;
 
 	public Sprite hippoBulletSprite;
@@ -27,6 +22,11 @@ public class InputManager : MonoBehaviour {
 	private float shotCooldownTimer;
 	private float meleeCooldownTimer;
 	private float exponentCooldownTimer;
+
+	private string buttonA;
+	private string buttonB;
+	private string buttonC;
+	private string buttonD;
 
 	private char[] mashBuffer;
 
@@ -51,6 +51,7 @@ public class InputManager : MonoBehaviour {
 		char button = GetButtonPress();
 		if(button == 'D' && meleeCooldownTimer <= 0) {
 		} else if(button != '0' && exponentCooldownTimer <= 0) {
+			Debug.Log ("cooldowntimer < 0");
 			shotCooldownTimer = shotCooldownTime;
 			gameObject.transform.localScale = Vector3.Lerp(new Vector3(1f, 1f, 1f), new Vector3(fullBufferScale, fullBufferScale, fullBufferScale),(float)bufferIter / (float)mashBufferSize);
 			mashBuffer.SetValue(button, bufferIter);
@@ -64,6 +65,7 @@ public class InputManager : MonoBehaviour {
 				Fire();
 			}
 		} else if(mashing && button == '0'){
+			Debug.Log ("Mashing && Button");
 			shotCooldownTimer -= Time.deltaTime;
 			if(shotCooldownTimer <= 0.0f) {
 				Fire();
@@ -129,7 +131,7 @@ public class InputManager : MonoBehaviour {
 		if(bufferIter < mashBufferSize) {
 			lockFrames = lockFrames / 2;
 		}
-		exponentCooldownTimer = lockFrames;
+		exponentCooldownTimer = lockFrames * exponentCooldownTime;
 		bufferIter = 0;
 		mashing = false;
 		gameObject.transform.localScale = new Vector3(1, 1, 1);
@@ -201,5 +203,12 @@ public class InputManager : MonoBehaviour {
 		}
 		BulletLogic bulletLogic = ((GameObject)Instantiate(bulletPrefab, transform.position, Quaternion.Euler(0, 0, bullet.angle))).GetComponent<BulletLogic>();
 		bulletLogic.Initialize(type, bullet.damage, bullet.speed, 5, playerStats.playerColor);
+	}
+
+	public void InitializeControls(string[] controls) {
+		buttonA = controls[2];
+		buttonB = controls[3];
+		buttonC = controls[4];
+		buttonD = controls[5];
 	}
 }

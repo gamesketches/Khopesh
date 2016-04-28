@@ -18,19 +18,20 @@ public class GameManager : MonoBehaviour {
 	void Start () {
 		bullets = new BulletDepot();
 		bullets.Load();
+		player1Controls = CreateControlScheme(0);
+		player2Controls = CreateControlScheme(1);
 		StartRound();
-		CreateControlScheme(0, out player1Controls);
-		CreateControlScheme(1, out player2Controls);
 	}
 
-	void CreateControlScheme(int playerNum, out string[] controlArray) {
-		controlArray = new string[6];
+	string[] CreateControlScheme(int playerNum) {
+		string[] controlArray = new string[6];
 		controlArray[0] = string.Concat("Horizontal", playerNum.ToString());
 		controlArray[1] = string.Concat("Vertical", playerNum.ToString());
 		controlArray[2] = string.Concat("ButtonA", playerNum.ToString());
 		controlArray[3] = string.Concat("ButtonB", playerNum.ToString());
 		controlArray[4] = string.Concat("ButtonC", playerNum.ToString());
 		controlArray[5] = string.Concat("ButtonD", playerNum.ToString());
+		return controlArray;
 	}
 	
 	// Update is called once per frame
@@ -77,7 +78,10 @@ public class GameManager : MonoBehaviour {
 		//SetControls(temp);
 		//temp.GetComponent<Renderer>() = color;
 		temp.GetComponent<PlayerStats>().playerColor = color;
-		temp.GetComponent<InputManager>().bullets = bullets;
+		temp.GetComponent<PlayerMovement>().InitializeAxes(controls);
+		InputManager tempInputManager = temp.GetComponent<InputManager>();
+		tempInputManager.bullets = bullets;
+		tempInputManager.InitializeControls(controls);
 		return temp;
 	}
 }
