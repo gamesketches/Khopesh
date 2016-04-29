@@ -11,11 +11,16 @@ public class GameManager : MonoBehaviour {
 	public int startingHealth;
 	string[] player1Controls, player2Controls;
 	PlayerStats player1Stats, player2Stats;
-
+	string sceneName;
+	AudioClip[] dialogue;
+	AudioSource dialoguePlayer;
 	BulletDepot bullets;
 
 	// Use this for initialization
 	void Start () {
+		dialoguePlayer = GetComponent<AudioSource>();
+		sceneName = "intro";
+		loadAudio();
 		bullets = new BulletDepot();
 		bullets.Load();
 		player1Controls = CreateControlScheme(0);
@@ -37,6 +42,7 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		roundTime -= Time.deltaTime;
+		string nextSceneCode = "T";
 		if(player1Stats.health <= 0 || player2Stats.health <= 0 || roundTime <= 0) {
 		  		LockPlayers();
 			if(player1Stats.health <= 0 && player2Stats.health <= 0) {
@@ -44,19 +50,47 @@ public class GameManager : MonoBehaviour {
 					}
 			else if(player1Stats.health <= 0) {
 					player2Stats.IncrementRoundWins();	
+					nextSceneCode = "H";
 				}
-				else {
+			else if (player2Stats.health <= 0){
 					player1Stats.IncrementRoundWins();
+					nextSceneCode = "S";
 				}
+			else {
+					// TODO: give a win to whoever is in the lead
+					nextSceneCode = "T";
+			}
+			if(sceneName == "intro") {
+				sceneName = nextSceneCode;
+			}
+			else {
+				sceneName = string.Concat(sceneName, nextSceneCode);
+			}
 			RoundReset();
 		}
 	}
 
 	void StartRound() {
+		StartCoroutine(audioIntro());
 		player1 = CreatePlayer(player1Controls, Color.red, player1Pos);
 		player2 = CreatePlayer(player2Controls, Color.blue, player2Pos);
 		player1Stats = player1.GetComponent<PlayerStats>();
 		player2Stats = player2.GetComponent<PlayerStats>();
+	}
+
+	IEnumerator audioIntro() {
+		for(int i = 0; i < dialogue.Length - 2; i++) {
+			dialoguePlayer.clip = dialogue[i];
+			dialoguePlayer.Play();
+			while(dialoguePlayer.isPlaying) {
+				yield return null;
+			}
+		}
+	}
+
+	void audioOutro(int playerNum) {
+		dialoguePlayer.clip = dialogue[dialogue.Length - 2 + playerNum];
+		dialoguePlayer.Play();
 	}
 
 	void LockPlayers() {
@@ -67,7 +101,15 @@ public class GameManager : MonoBehaviour {
 	void RoundReset() {
 		Destroy(player1);
 		Destroy(player2);
+		loadAudio();
 		StartRound();
+	}
+
+	void loadAudio() {
+		dialogue = Resources.LoadAll<AudioClip>(string.Concat("audio/", sceneName));
+		foreach(AudioClip clip in dialogue) {
+			Debug.Log(clip.name);
+		}
 	}
 
 	GameObject CreatePlayer(string[] controls, Color color, Vector3 position){
