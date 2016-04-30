@@ -79,6 +79,8 @@ public class BulletLogic : MonoBehaviour {
 		if(other.gameObject.layer != gameObject.layer) {
 			if(other.gameObject.tag == "Player") {
 					other.gameObject.GetComponent<PlayerStats>().health -= damage;
+					GameObject sparks = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/HitSparks"), transform.position, Quaternion.identity);
+					sparks.GetComponent<HitSparkLogic>().SetSparkColor(renderer.color);
 					Destroy(gameObject);
 					return;
 			}
