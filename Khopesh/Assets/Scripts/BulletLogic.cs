@@ -10,10 +10,12 @@ public class BulletLogic : MonoBehaviour {
 	float velocity;
 	float lifetime;
 	public float indirectCorrectionSpeed = 5f;
+	public float indirectHomingTime = 0.5f;
 	delegate void BulletFunction();
 	BulletFunction bulletFunction;
 	private Vector2 travelVector;
 	private Transform target;
+	private Vector3 targetPosition;
 	private float headingTime;
 	private Sprite[] animation;
 	private int animFrame;
@@ -53,12 +55,11 @@ public class BulletLogic : MonoBehaviour {
 				bulletFunction = IndirectLogic;
 				animation = Resources.LoadAll<Sprite>("sprites/craneAnimation");
 				headingTime = 0f;
-			foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player")){
-				if(player.layer != gameObject.layer) {
-					target = player.transform;
+				foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player")){
+					if(player.layer != gameObject.layer) {
+						target = player.transform;
+						}
 				}
-				}
-			Debug.Log(target.gameObject);
 				break;
 			case BulletType.Gator:
 			animation = Resources.LoadAll<Sprite>("sprites/gatorAnimation");
@@ -100,13 +101,18 @@ public class BulletLogic : MonoBehaviour {
 	}
 
 	void IndirectLogic(){
+		if(headingTime < indirectHomingTime) {
+			targetPosition = target.position;
+		}
 		// Might be better to handle this shit as a rotation
+		if(headingTime < 1f) {
 		Vector3 startVector = Quaternion.AngleAxis(gameObject.transform.rotation.eulerAngles.z, Vector3.forward) * new Vector3(velocity, 0, 0);
-		Vector3 temp = Vector3.Lerp(startVector, target.position - gameObject.transform.position, 
+		Vector3 temp = Vector3.Lerp(startVector, targetPosition - gameObject.transform.position, 
 			headingTime);
 		travelVector.x = temp.x;
 		travelVector.y = temp.y;
 		headingTime += indirectCorrectionSpeed / (indirectCorrectionSpeed * 60);
+		}
 
 	}
 
