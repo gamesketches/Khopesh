@@ -185,7 +185,7 @@ public class InputManager : MonoBehaviour {
 	public void CreateBullet(BulletDepot.Bullet bullet, BulletType type = BulletType.Gator) {
 		bullet.angle += (int)playerMovement.CurrentShotAngle();
 		BulletLogic bulletLogic = ((GameObject)Instantiate(bulletPrefab, reticle.transform.position, Quaternion.Euler(0, 0, bullet.angle))).GetComponent<BulletLogic>();
-		bulletLogic.Initialize(type, bullet.damage, bullet.speed, 5, playerStats.playerColor, gameObject);
+		bulletLogic.Initialize(type, bullet.damage, bullet.speed, 5, playerStats.playerColor, playerStats.number);
 	}
 
 	public void InitializeControls(string[] controls) {

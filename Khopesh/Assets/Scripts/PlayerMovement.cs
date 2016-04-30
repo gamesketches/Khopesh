@@ -20,6 +20,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	void Start() {
 		playerStats = GetComponent<PlayerStats>();
+		gameObject.layer = playerStats.number + 8;
 		locked = false;
 		rb2D = GetComponent<Rigidbody2D>();
 		if(playerStats.number == 0) {

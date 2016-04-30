@@ -107,9 +107,6 @@ public class GameManager : MonoBehaviour {
 
 	void loadAudio() {
 		dialogue = Resources.LoadAll<AudioClip>(string.Concat("audio/", sceneName));
-		foreach(AudioClip clip in dialogue) {
-			Debug.Log(clip.name);
-		}
 	}
 
 	GameObject CreatePlayer(string[] controls, Color color, Vector3 position){

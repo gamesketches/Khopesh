@@ -5,7 +5,7 @@ public enum BulletType {Gator, Hippo, Crane};
 
 public class BulletLogic : MonoBehaviour {
 
-	BulletType type;
+	public BulletType type;
 	int damage;
 	float velocity;
 	float lifetime;
@@ -38,25 +38,27 @@ public class BulletLogic : MonoBehaviour {
 	}
 
 	public void Initialize(BulletType bulletType, int bulletDamage, float Velocity,
-													float Lifetime, Color bulletColor, GameObject myMother){
+													float Lifetime, Color bulletColor, int playerNum){
 		type = bulletType;
 		damage = bulletDamage;
+		gameObject.tag = bulletType.ToString();
 		velocity = 10.0f;//Velocity;
 		Vector3 tempVector = Quaternion.AngleAxis(gameObject.transform.rotation.eulerAngles.z, Vector3.forward) * new Vector3(velocity, 0, 0);
 		travelVector = new Vector2(tempVector.x, tempVector.y);
 		lifetime = Lifetime;
 		GetComponent<SpriteRenderer>().color = bulletColor;
-		foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player")){
-			if(player != myMother) {
-				target = player.transform;
-				break;
-			}
-		}
+		gameObject.layer = 8 + playerNum;
 		switch(type) {
 			case BulletType.Crane:
 				bulletFunction = IndirectLogic;
 				animation = Resources.LoadAll<Sprite>("sprites/craneAnimation");
 				headingTime = 0f;
+			foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player")){
+				if(player.layer != gameObject.layer) {
+					target = player.transform;
+				}
+				}
+			Debug.Log(target.gameObject);
 				break;
 			case BulletType.Gator:
 			animation = Resources.LoadAll<Sprite>("sprites/gatorAnimation");
@@ -72,11 +74,27 @@ public class BulletLogic : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter(Collider other) {
-		if(other.gameObject.tag == "player") {
-			if(other.gameObject != gameObject.transform.parent) {
-				other.gameObject.GetComponent<PlayerStats>().health -= damage;
+	void OnTriggerEnter2D(Collider2D other) {
+		if(other.gameObject.layer != gameObject.layer) {
+			if(other.gameObject.tag == "Player") {
+					other.gameObject.GetComponent<PlayerStats>().health -= damage;
+					Destroy(gameObject);
+					return;
+			}
+
+			BulletType opposingType = (BulletType)System.Enum.Parse(typeof(BulletType), other.gameObject.tag);
+
+			if(opposingType == type){
+				Destroy(other.gameObject);
 				Destroy(gameObject);
+			}
+			else if((int)opposingType == System.Enum.GetValues(typeof(BulletType)).Length - 1 && (int)type == 0) {
+				Destroy(other.gameObject);
+				
+			}
+			else {
+				GameObject destroyedObject = opposingType > type ? gameObject : other.gameObject;
+				Destroy(destroyedObject);
 			}
 		}
 	}
@@ -89,6 +107,7 @@ public class BulletLogic : MonoBehaviour {
 		travelVector.x = temp.x;
 		travelVector.y = temp.y;
 		headingTime += indirectCorrectionSpeed / (indirectCorrectionSpeed * 60);
+
 	}
 
 	void StraightLogic(){
