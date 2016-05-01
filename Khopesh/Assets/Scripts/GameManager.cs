@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
@@ -18,8 +19,11 @@ public class GameManager : MonoBehaviour {
 	GameObject[] SetLifeBar;
 	GameObject[] HorusLifeBar;
 
-	// Use this for initialization
-	void Start () {
+    SpriteRenderer TitleLogo;
+    Text RoundTimer;
+
+    // Use this for initialization
+    void Start () {
 		SetLifeBar = GameObject.FindGameObjectsWithTag("SetLifeBar");
 		HorusLifeBar = GameObject.FindGameObjectsWithTag("HorusLifeBar");
 		dialoguePlayer = GetComponent<AudioSource>();
@@ -29,10 +33,21 @@ public class GameManager : MonoBehaviour {
 		bullets.Load();
 		player1Controls = CreateControlScheme(0);
 		player2Controls = CreateControlScheme(1);
-		StartRound();
-	}
+        TitleLogo = GameObject.FindGameObjectWithTag("TitleLogo").GetComponent<SpriteRenderer>();
+        RoundTimer = GameObject.FindGameObjectWithTag("RoundTimer").GetComponent<Text>();
+        TitleLogo.enabled = true;
+        TitleScreen();
+    }
 
-	string[] CreateControlScheme(int playerNum) {
+    void TitleScreen()
+    {
+        if (Input.GetButtonUp("ButtonA0"))
+        {
+            TitleLogo.enabled = true;
+            StartRound();
+        }
+    }
+    string[] CreateControlScheme(int playerNum) {
 		string[] controlArray = new string[6];
 		controlArray[0] = string.Concat("Horizontal", playerNum.ToString());
 		controlArray[1] = string.Concat("Vertical", playerNum.ToString());
@@ -46,6 +61,8 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		roundTime -= Time.deltaTime;
+        RoundTimer.text = Mathf.RoundToInt(roundTime).ToString();
+
 		string nextSceneCode = "T";
 		UpdateLifeBars();
 
@@ -91,7 +108,8 @@ public class GameManager : MonoBehaviour {
 		player2 = CreatePlayer(player2Controls, Color.blue, player2Pos);
 		player1Stats = player1.GetComponent<PlayerStats>();
 		player2Stats = player2.GetComponent<PlayerStats>();
-	}
+        RoundTimer.enabled = true;
+    }
 
 	IEnumerator audioIntro() {
 		for(int i = 0; i < dialogue.Length - 2; i++) {
