@@ -7,7 +7,7 @@ public class GameManager : MonoBehaviour {
 	UpdateFunction currentUpdateFunction;
 	GameObject player1;
 	GameObject player2;
-	int player1Wins, player2Wins;
+	int player1RoundWins, player1Wins, player2RoundWins, player2Wins;
 	public float roundTime;
 	public Vector3 player1Pos, player2Pos;
 	public int startingHealth;
@@ -51,6 +51,10 @@ public class GameManager : MonoBehaviour {
 	void InitializeGameSettings() {
 		SetLifeBar = GameObject.FindGameObjectsWithTag("SetLifeBar");
 		HorusLifeBar = GameObject.FindGameObjectsWithTag("HorusLifeBar");
+		player1RoundWins = 0;
+		player1Wins = 0;
+		player2RoundWins = 0;
+		player2Wins = 0;
 		dialoguePlayer = GetComponent<AudioSource>();
 		sceneName = "intro";
 		loadAudio();
@@ -73,13 +77,13 @@ public class GameManager : MonoBehaviour {
 				Debug.Log("we have a tie");
 			}
 			else if(player1Stats.health <= 0) {
-				player2Stats.IncrementRoundWins();
+				player2RoundWins++;
 				audioOutro(1);
 				nextSceneCode = "h";
 			}
 			else if (player2Stats.health <= 0){
 				audioOutro(0);
-				player1Stats.IncrementRoundWins();
+				player1RoundWins++;
 				nextSceneCode = "s";
 			}
 			else {
@@ -99,6 +103,12 @@ public class GameManager : MonoBehaviour {
 	void RoundEndUpdate() {
 		if(!dialoguePlayer.isPlaying)
 		{
+			if(player1RoundWins > 2 || player2RoundWins > 2){
+				Destroy(player1);
+				Destroy(player2);
+				InitializeGameSettings();
+				return;
+			}
 			RoundReset();
 		}
 	}
@@ -113,14 +123,15 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void StartRound() {
-		StartCoroutine(audioIntro());
 		player1 = CreatePlayer(player1Controls, Color.red, player1Pos);
 		player2 = CreatePlayer(player2Controls, Color.blue, player2Pos);
 		player1Stats = player1.GetComponent<PlayerStats>();
 		player2Stats = player2.GetComponent<PlayerStats>();
+		StartCoroutine(audioIntro());
 	}
 
 	IEnumerator audioIntro() {
+		LockPlayers();
 		for(int i = 0; i < dialogue.Length - 2; i++) {
 			dialoguePlayer.clip = dialogue[i];
 			dialoguePlayer.Play();
@@ -128,6 +139,7 @@ public class GameManager : MonoBehaviour {
 				yield return null;
 			}
 		}
+		UnlockPlayers();
 	}
 
 	void audioOutro(int playerNum) {
@@ -138,6 +150,11 @@ public class GameManager : MonoBehaviour {
 	void LockPlayers() {
 		player1.GetComponent<PlayerMovement>().locked = true;
 		player2.GetComponent<PlayerMovement>().locked = true;
+	}
+
+	void UnlockPlayers() {
+		player1.GetComponent<PlayerMovement>().locked = false;
+		player2.GetComponent<PlayerMovement>().locked = false;
 	}
 
 	void RoundReset() {
