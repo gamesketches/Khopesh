@@ -15,9 +15,13 @@ public class GameManager : MonoBehaviour {
 	AudioClip[] dialogue;
 	AudioSource dialoguePlayer;
 	BulletDepot bullets;
+	GameObject[] SetLifeBar;
+	GameObject[] HorusLifeBar;
 
 	// Use this for initialization
 	void Start () {
+		SetLifeBar = GameObject.FindGameObjectsWithTag("SetLifeBar");
+		HorusLifeBar = GameObject.FindGameObjectsWithTag("HorusLifeBar");
 		dialoguePlayer = GetComponent<AudioSource>();
 		sceneName = "intro";
 		loadAudio();
@@ -43,6 +47,8 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 		roundTime -= Time.deltaTime;
 		string nextSceneCode = "T";
+		UpdateLifeBars();
+
 		if(player1Stats.health <= 0 || player2Stats.health <= 0 || roundTime <= 0) {
 		  		LockPlayers();
 			if(player1Stats.health <= 0 && player2Stats.health <= 0) {
@@ -67,6 +73,15 @@ public class GameManager : MonoBehaviour {
 				sceneName = string.Concat(sceneName, nextSceneCode);
 			}
 			RoundReset();
+		}
+	}
+
+	void UpdateLifeBars() {
+		foreach(GameObject lifebar in SetLifeBar) {
+			lifebar.transform.localScale = new Vector3((player1Stats.health / player1Stats.maxHealth) * 10f, 6, 1);
+		}
+		foreach(GameObject lifebar in HorusLifeBar) {
+			lifebar.transform.localScale = new Vector3((player2Stats.health / player1Stats.maxHealth) * 10f, 6, 1);
 		}
 	}
 
@@ -118,6 +133,7 @@ public class GameManager : MonoBehaviour {
 		InputManager tempInputManager = temp.GetComponent<InputManager>();
 
 		tempStats.health = startingHealth;
+		tempStats.maxHealth = startingHealth;
 		tempStats.playerColor = color;
 		temp.GetComponent<PlayerMovement>().InitializeAxes(controls);
 
