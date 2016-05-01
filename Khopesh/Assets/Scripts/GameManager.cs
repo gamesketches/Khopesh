@@ -73,16 +73,18 @@ public class GameManager : MonoBehaviour {
 				Debug.Log("we have a tie");
 			}
 			else if(player1Stats.health <= 0) {
-				player2Stats.IncrementRoundWins();	
-				nextSceneCode = "H";
+				player2Stats.IncrementRoundWins();
+				audioOutro(1);
+				nextSceneCode = "h";
 			}
 			else if (player2Stats.health <= 0){
+				audioOutro(0);
 				player1Stats.IncrementRoundWins();
-				nextSceneCode = "S";
+				nextSceneCode = "s";
 			}
 			else {
 				// TODO: give a win to whoever is in the lead
-				nextSceneCode = "T";
+				nextSceneCode = "t";
 			}
 			if(sceneName == "intro") {
 				sceneName = nextSceneCode;
@@ -90,6 +92,13 @@ public class GameManager : MonoBehaviour {
 			else {
 				sceneName = string.Concat(sceneName, nextSceneCode);
 			}
+			currentUpdateFunction = RoundEndUpdate;
+		}
+	}
+
+	void RoundEndUpdate() {
+		if(!dialoguePlayer.isPlaying)
+		{
 			RoundReset();
 		}
 	}
@@ -132,6 +141,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void RoundReset() {
+		currentUpdateFunction = InGameUpdate;
 		Destroy(player1);
 		Destroy(player2);
 		loadAudio();
@@ -139,7 +149,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void loadAudio() {
-		dialogue = Resources.LoadAll<AudioClip>(string.Concat("audio/", sceneName));
+		dialogue = Resources.LoadAll<AudioClip>(string.Concat("audio/dialogue/", sceneName));
 	}
 
 	GameObject CreatePlayer(string[] controls, Color color, Vector3 position){
