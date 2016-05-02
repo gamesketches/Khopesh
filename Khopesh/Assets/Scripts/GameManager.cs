@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
     Text RoundTimer;
 
     // Use this for initialization
-    void Start () {
+    void myStart () {
 		SetLifeBar = GameObject.FindGameObjectsWithTag("SetLifeBar");
 		HorusLifeBar = GameObject.FindGameObjectsWithTag("HorusLifeBar");
 		dialoguePlayer = GetComponent<AudioSource>();
@@ -50,7 +50,7 @@ public class GameManager : MonoBehaviour {
             StartRound();
         }
     }
-    string[] CreateControlScheme(int playerNum) {
+
 	// Use this for initialization
 	void Start () {
 		// Fill in the MenuUpdate function
@@ -161,6 +161,7 @@ public class GameManager : MonoBehaviour {
 		player1Stats = player1.GetComponent<PlayerStats>();
 		player2Stats = player2.GetComponent<PlayerStats>();
 
+        RoundTimer = GameObject.FindGameObjectWithTag("RoundTimer").GetComponent<Text>();
         RoundTimer.enabled = true;
         StartCoroutine(audioIntro());
     }
