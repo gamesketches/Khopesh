@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour {
 	UpdateFunction currentUpdateFunction;
 	GameObject player1;
 	GameObject player2;
-	int player1Wins, player2Wins;
+	int player1RoundWins, player1Wins, player2RoundWins, player2Wins;
 	public float roundTime;
 	public Vector3 player1Pos, player2Pos;
 	public int startingHealth;
@@ -82,6 +82,10 @@ public class GameManager : MonoBehaviour {
 	void InitializeGameSettings() {
 		SetLifeBar = GameObject.FindGameObjectsWithTag("SetLifeBar");
 		HorusLifeBar = GameObject.FindGameObjectsWithTag("HorusLifeBar");
+		player1RoundWins = 0;
+		player1Wins = 0;
+		player2RoundWins = 0;
+		player2Wins = 0;
 		dialoguePlayer = GetComponent<AudioSource>();
 		sceneName = "intro";
 		loadAudio();
@@ -106,22 +110,37 @@ public class GameManager : MonoBehaviour {
 				Debug.Log("we have a tie");
 			}
 			else if(player1Stats.health <= 0) {
-				player2Stats.IncrementRoundWins();	
-				nextSceneCode = "H";
+				player2RoundWins++;
+				audioOutro(1);
+				nextSceneCode = "h";
 			}
 			else if (player2Stats.health <= 0){
-				player1Stats.IncrementRoundWins();
-				nextSceneCode = "S";
+				audioOutro(0);
+				player1RoundWins++;
+				nextSceneCode = "s";
 			}
 			else {
 				// TODO: give a win to whoever is in the lead
-				nextSceneCode = "T";
+				nextSceneCode = "t";
 			}
 			if(sceneName == "intro") {
 				sceneName = nextSceneCode;
 			}
 			else {
 				sceneName = string.Concat(sceneName, nextSceneCode);
+			}
+			currentUpdateFunction = RoundEndUpdate;
+		}
+	}
+
+	void RoundEndUpdate() {
+		if(!dialoguePlayer.isPlaying)
+		{
+			if(player1RoundWins > 2 || player2RoundWins > 2){
+				Destroy(player1);
+				Destroy(player2);
+				InitializeGameSettings();
+				return;
 			}
 			RoundReset();
 		}
@@ -137,15 +156,20 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void StartRound() {
-		StartCoroutine(audioIntro());
 		player1 = CreatePlayer(player1Controls, Color.red, player1Pos);
 		player2 = CreatePlayer(player2Controls, Color.blue, player2Pos);
 		player1Stats = player1.GetComponent<PlayerStats>();
 		player2Stats = player2.GetComponent<PlayerStats>();
+<<<<<<< HEAD
         RoundTimer.enabled = true;
     }
+=======
+		StartCoroutine(audioIntro());
+	}
+>>>>>>> f0707bef0f8c6590d00cd988fb9254204c30ac59
 
 	IEnumerator audioIntro() {
+		LockPlayers();
 		for(int i = 0; i < dialogue.Length - 2; i++) {
 			dialoguePlayer.clip = dialogue[i];
 			dialoguePlayer.Play();
@@ -153,6 +177,7 @@ public class GameManager : MonoBehaviour {
 				yield return null;
 			}
 		}
+		UnlockPlayers();
 	}
 
 	void audioOutro(int playerNum) {
@@ -165,7 +190,13 @@ public class GameManager : MonoBehaviour {
 		player2.GetComponent<PlayerMovement>().locked = true;
 	}
 
+	void UnlockPlayers() {
+		player1.GetComponent<PlayerMovement>().locked = false;
+		player2.GetComponent<PlayerMovement>().locked = false;
+	}
+
 	void RoundReset() {
+		currentUpdateFunction = InGameUpdate;
 		Destroy(player1);
 		Destroy(player2);
 		loadAudio();
@@ -173,7 +204,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void loadAudio() {
-		dialogue = Resources.LoadAll<AudioClip>(string.Concat("audio/", sceneName));
+		dialogue = Resources.LoadAll<AudioClip>(string.Concat("audio/dialogue/", sceneName));
 	}
 
 	GameObject CreatePlayer(string[] controls, Color color, Vector3 position){
