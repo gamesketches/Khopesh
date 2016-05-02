@@ -9,7 +9,7 @@ public class InputManager : MonoBehaviour {
 	public float exponentCooldownTime;
 	public float fullBufferScale = 2f;
 
-	public GameObject reticle;
+	public Rigidbody2D reticle;
 
 	private GameObject bulletPrefab;
 
