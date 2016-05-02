@@ -4,6 +4,8 @@ using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour {
 
+	delegate void UpdateFunction();
+	UpdateFunction currentUpdateFunction;
 	GameObject player1;
 	GameObject player2;
 	int player1Wins, player2Wins;
@@ -18,6 +20,7 @@ public class GameManager : MonoBehaviour {
 	BulletDepot bullets;
 	GameObject[] SetLifeBar;
 	GameObject[] HorusLifeBar;
+
 
     SpriteRenderer TitleLogo;
     Text RoundTimer;
@@ -48,6 +51,15 @@ public class GameManager : MonoBehaviour {
         }
     }
     string[] CreateControlScheme(int playerNum) {
+	// Use this for initialization
+	void Start () {
+		// Fill in the MenuUpdate function
+		// then uncomment line 27 and delete line 28
+		// currentUpdateFunction = MenuUpdate;
+		InitializeGameSettings();
+	}
+
+	string[] CreateControlScheme(int playerNum) {
 		string[] controlArray = new string[6];
 		controlArray[0] = string.Concat("Horizontal", playerNum.ToString());
 		controlArray[1] = string.Concat("Vertical", playerNum.ToString());
@@ -60,6 +72,28 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		currentUpdateFunction();
+	}
+
+	void MenuUpdate() {
+		// here you go christian
+	}
+
+	void InitializeGameSettings() {
+		SetLifeBar = GameObject.FindGameObjectsWithTag("SetLifeBar");
+		HorusLifeBar = GameObject.FindGameObjectsWithTag("HorusLifeBar");
+		dialoguePlayer = GetComponent<AudioSource>();
+		sceneName = "intro";
+		loadAudio();
+		bullets = new BulletDepot();
+		bullets.Load();
+		currentUpdateFunction = InGameUpdate;
+		player1Controls = CreateControlScheme(0);
+		player2Controls = CreateControlScheme(1);
+		StartRound();
+	}
+
+	void InGameUpdate(){
 		roundTime -= Time.deltaTime;
         RoundTimer.text = Mathf.RoundToInt(roundTime).ToString();
 
@@ -67,21 +101,21 @@ public class GameManager : MonoBehaviour {
 		UpdateLifeBars();
 
 		if(player1Stats.health <= 0 || player2Stats.health <= 0 || roundTime <= 0) {
-		  		LockPlayers();
+			LockPlayers();
 			if(player1Stats.health <= 0 && player2Stats.health <= 0) {
-					Debug.Log("we have a tie");
-					}
+				Debug.Log("we have a tie");
+			}
 			else if(player1Stats.health <= 0) {
-					player2Stats.IncrementRoundWins();	
-					nextSceneCode = "H";
-				}
+				player2Stats.IncrementRoundWins();	
+				nextSceneCode = "H";
+			}
 			else if (player2Stats.health <= 0){
-					player1Stats.IncrementRoundWins();
-					nextSceneCode = "S";
-				}
+				player1Stats.IncrementRoundWins();
+				nextSceneCode = "S";
+			}
 			else {
-					// TODO: give a win to whoever is in the lead
-					nextSceneCode = "T";
+				// TODO: give a win to whoever is in the lead
+				nextSceneCode = "T";
 			}
 			if(sceneName == "intro") {
 				sceneName = nextSceneCode;
