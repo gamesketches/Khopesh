@@ -46,6 +46,9 @@ public class GameManager : MonoBehaviour {
     {
         if (Input.GetButtonUp("ButtonA0"))
         {
+			AudioSource backgroundMusic = Camera.main.GetComponent<AudioSource>();
+			backgroundMusic.clip = Resources.Load<AudioClip>("audio/music/battleTheme/RenewYourSoul");
+			backgroundMusic.Play();
             TitleLogo.enabled = false;
 			InitializeGameSettings();
         }

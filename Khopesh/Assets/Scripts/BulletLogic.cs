@@ -19,11 +19,15 @@ public class BulletLogic : MonoBehaviour {
 	private float headingTime;
 	private Sprite[] animation;
 	private int animFrame;
+	AudioSource audio;
 	SpriteRenderer renderer;
 
 	// Use this for initialization
 	void Start () {
 		renderer = GetComponent<SpriteRenderer>();
+		audio = GetComponent<AudioSource>();
+		audio.clip = Resources.Load<AudioClip>("audio/soundEffects/rpsBulletCancel");
+		Debug.Log(audio.clip.name);
 		animFrame = 0;
 	}
 	
@@ -97,6 +101,7 @@ public class BulletLogic : MonoBehaviour {
 			}
 			else if((int)opposingType == System.Enum.GetValues(typeof(BulletType)).Length - 1 && (int)type == 0) {
 				Destroy(other.gameObject);
+				audio.Play();
 				
 			}
 			else {
