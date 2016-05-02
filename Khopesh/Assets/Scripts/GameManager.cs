@@ -157,8 +157,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void StartRound() {
-		player1 = CreatePlayer(player1Controls, Color.red, player1Pos);
-		player2 = CreatePlayer(player2Controls, Color.blue, player2Pos);
+		player1 = CreatePlayer(player1Controls, Color.blue, player1Pos);
+		player2 = CreatePlayer(player2Controls, Color.red, player2Pos);
 		player1Stats = player1.GetComponent<PlayerStats>();
 		player2Stats = player2.GetComponent<PlayerStats>();
 
@@ -222,11 +222,11 @@ public class GameManager : MonoBehaviour {
 		tempInputManager.bullets = bullets;
 		tempInputManager.InitializeControls(controls);
 
-		if(color == Color.red) {
-			temp.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/playerStillBlackWhite");
-			tempStats.number = 0;
-		} else if(color == Color.blue) {
+		if(color == Color.blue) {
 			temp.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/playerStillWhiteBlack");
+			tempStats.number = 0;
+		} else if(color == Color.red) {
+			temp.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/playerStillBlackWhite");
 			tempStats.number = 1;
 		}
 		return temp;
