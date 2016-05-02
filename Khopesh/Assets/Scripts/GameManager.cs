@@ -135,7 +135,9 @@ public class GameManager : MonoBehaviour {
 			if(player1RoundWins > 2 || player2RoundWins > 2){
 				Destroy(player1);
 				Destroy(player2);
-				InitializeGameSettings();
+				TitleLogo.enabled = true;
+				RoundTimer.enabled = false;
+				currentUpdateFunction = TitleScreen;
 				return;
 			}
 			RoundReset();
