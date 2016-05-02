@@ -8,14 +8,4 @@ public class PlayerStats : MonoBehaviour {
 	public int shotCooldown;
 	public int meleeCooldown;
 	public int number;
-
-	private int roundWins;
-
-	public void IncrementRoundWins() {
-		roundWins++;
-	}
-
-	public int GetRoundWins() {
-		return roundWins;
-	}
 }

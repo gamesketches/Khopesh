@@ -160,13 +160,10 @@ public class GameManager : MonoBehaviour {
 		player2 = CreatePlayer(player2Controls, Color.blue, player2Pos);
 		player1Stats = player1.GetComponent<PlayerStats>();
 		player2Stats = player2.GetComponent<PlayerStats>();
-<<<<<<< HEAD
+
         RoundTimer.enabled = true;
+        StartCoroutine(audioIntro());
     }
-=======
-		StartCoroutine(audioIntro());
-	}
->>>>>>> f0707bef0f8c6590d00cd988fb9254204c30ac59
 
 	IEnumerator audioIntro() {
 		LockPlayers();
