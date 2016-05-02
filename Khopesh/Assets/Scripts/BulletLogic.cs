@@ -27,7 +27,6 @@ public class BulletLogic : MonoBehaviour {
 		renderer = GetComponent<SpriteRenderer>();
 		audio = GetComponent<AudioSource>();
 		audio.clip = Resources.Load<AudioClip>("audio/soundEffects/rpsBulletCancel");
-		Debug.Log(audio.clip.name);
 		animFrame = 0;
 	}
 	
@@ -96,12 +95,16 @@ public class BulletLogic : MonoBehaviour {
 			BulletType opposingType = (BulletType)System.Enum.Parse(typeof(BulletType), other.gameObject.tag);
 
 			if(opposingType == type){
+				GameObject temp = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/SoundEffectObject"), gameObject.transform.position, Quaternion.identity);
+				temp.GetComponent<SoundEffectObjectScript>().PlaySoundEffect("identicalBulletRPS");
 				Destroy(other.gameObject);
 				Destroy(gameObject);
 			}
 			else if((int)opposingType == System.Enum.GetValues(typeof(BulletType)).Length - 1 && (int)type == 0) {
+				GameObject temp = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/SoundEffectObject"), gameObject.transform.position, Quaternion.identity);
+				temp.GetComponent<SoundEffectObjectScript>().PlaySoundEffect("rpsBulletCancel");
 				Destroy(other.gameObject);
-				audio.Play();
+				//audio.Play();
 				
 			}
 			else {
