@@ -56,7 +56,7 @@ public class BulletLogic : MonoBehaviour {
 		switch(type) {
 			case BulletType.Crane:
 				bulletFunction = IndirectLogic;
-				animation = Resources.LoadAll<Sprite>("sprites/craneAnimation");
+			animation = Resources.LoadAll<Sprite>(string.Concat("sprites/craneAnimation", bulletColor == Color.blue ? "B" : "R"));
 				headingTime = 0f;
 				foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player")){
 					if(player.layer != gameObject.layer) {
@@ -65,14 +65,14 @@ public class BulletLogic : MonoBehaviour {
 				}
 				break;
 			case BulletType.Gator:
-			animation = Resources.LoadAll<Sprite>("sprites/gatorAnimation");
+			animation = Resources.LoadAll<Sprite>(string.Concat("sprites/gatorAnimation", bulletColor == Color.blue ? "B" : "R"));
 			// TODO: change this
 			bulletFunction = StraightLogic;
 			 /* bulletFunction = sineWaveLogic;
 			 */ break;
 			// Hippo situation
 			default:
-			animation = new Sprite[1] {Resources.Load<Sprite>("sprites/hippo")};
+			animation = new Sprite[1] {Resources.Load<Sprite>(string.Concat("sprites/hippo", bulletColor == Color.blue ? "B" : "R"))};
 				bulletFunction = StraightLogic;
 				break;
 		}
