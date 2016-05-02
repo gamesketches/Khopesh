@@ -86,8 +86,11 @@ public class BulletLogic : MonoBehaviour {
 		if(other.gameObject.layer != gameObject.layer) {
 			if(other.gameObject.tag == "Player") {
 					other.gameObject.GetComponent<PlayerStats>().health -= damage;
+				string hitSparkSpritePath = string.Concat("sprites/hitSparks/hit", renderer.color == Color.blue ? "B" : "R", type.ToString());
 					GameObject sparks = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/HitSparks"), transform.position, Quaternion.identity);
-					sparks.GetComponent<HitSparkLogic>().SetSparkColor(renderer.color);
+					sparks.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(hitSparkSpritePath);	
+				Debug.Log(hitSparkSpritePath);
+					//sparks.GetComponent<HitSparkLogic>().SetSparkColor(renderer.color);
 					Destroy(gameObject);
 					return;
 			}
