@@ -18,7 +18,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	private PlayerStats playerStats;
 
-	void Awake() {
+	void Start() {
 		playerStats = GetComponent<PlayerStats>();
 		gameObject.layer = playerStats.number + 8;
 		locked = false;

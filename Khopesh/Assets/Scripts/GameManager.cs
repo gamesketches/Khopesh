@@ -26,7 +26,7 @@ public class GameManager : MonoBehaviour {
     Text RoundTimer;
 
     // Use this for initialization
-    void myStart () {
+    void Start () {
 		SetLifeBar = GameObject.FindGameObjectsWithTag("SetLifeBar");
 		HorusLifeBar = GameObject.FindGameObjectsWithTag("HorusLifeBar");
 		dialoguePlayer = GetComponent<AudioSource>();
@@ -39,25 +39,25 @@ public class GameManager : MonoBehaviour {
         TitleLogo = GameObject.FindGameObjectWithTag("TitleLogo").GetComponent<SpriteRenderer>();
         RoundTimer = GameObject.FindGameObjectWithTag("RoundTimer").GetComponent<Text>();
         TitleLogo.enabled = true;
-        TitleScreen();
+		currentUpdateFunction = TitleScreen;
     }
 
     void TitleScreen()
     {
         if (Input.GetButtonUp("ButtonA0"))
         {
-            TitleLogo.enabled = true;
-            StartRound();
+            TitleLogo.enabled = false;
+			InitializeGameSettings();
         }
     }
 
-	// Use this for initialization
+/*	// Use this for initialization
 	void Start () {
 		// Fill in the MenuUpdate function
 		// then uncomment line 27 and delete line 28
 		// currentUpdateFunction = MenuUpdate;
-		InitializeGameSettings();
-	}
+		//InitializeGameSettings();
+	}*/
 
 	string[] CreateControlScheme(int playerNum) {
 		string[] controlArray = new string[6];
@@ -73,10 +73,6 @@ public class GameManager : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		currentUpdateFunction();
-	}
-
-	void MenuUpdate() {
-		// here you go christian
 	}
 
 	void InitializeGameSettings() {
