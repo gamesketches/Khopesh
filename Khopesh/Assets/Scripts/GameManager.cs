@@ -209,9 +209,11 @@ public class GameManager : MonoBehaviour {
 	GameObject CreatePlayer(string[] controls, Color color, Vector3 position){
 		GameObject temp = (GameObject)Instantiate(Resources.Load("prefabs/Player"), 
 												position, Quaternion.identity);
+		Rigidbody2D reticle = ((GameObject)Instantiate(Resources.Load("prefabs/Reticle"))).GetComponent<Rigidbody2D>();
 		//SetControls(temp);
 		//temp.GetComponent<Renderer>() = color;
 		PlayerStats tempStats = temp.GetComponent<PlayerStats>();
+		PlayerMovement tempMovement = temp.GetComponent<PlayerMovement>();
 		InputManager tempInputManager = temp.GetComponent<InputManager>();
 
 		tempStats.health = startingHealth;
@@ -219,8 +221,11 @@ public class GameManager : MonoBehaviour {
 		tempStats.playerColor = color;
 		temp.GetComponent<PlayerMovement>().InitializeAxes(controls);
 
+		tempMovement.reticle = reticle;
+
 		tempInputManager.bullets = bullets;
 		tempInputManager.InitializeControls(controls);
+		tempInputManager.reticle = reticle;
 
 		if(color == Color.red) {
 			temp.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/playerStillBlackWhite");

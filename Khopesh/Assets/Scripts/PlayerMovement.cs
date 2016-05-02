@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float reticleRadius;
 	public bool locked;
 
-	public GameObject reticle;
+	public Rigidbody2D reticle;
 
 	private float radians;
 	private float degrees;
@@ -29,8 +29,8 @@ public class PlayerMovement : MonoBehaviour {
 			radians = Mathf.PI;
 		}
 		degrees = radians * Mathf.Rad2Deg;
-		reticle.transform.localPosition = new Vector3(Mathf.Cos(radians) * reticleRadius, Mathf.Sin(radians) * reticleRadius, 0.0f);
-		reticle.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, degrees - 90.0f);
+		reticle.MovePosition((Vector2)transform.position + new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)) * reticleRadius);
+		reticle.MoveRotation(degrees - 90.0f);
 	}
 
 	void Update() {
@@ -43,8 +43,8 @@ public class PlayerMovement : MonoBehaviour {
 				if(rb2D.velocity.x != 0.0f || rb2D.velocity.y != 0.0f) {
 					radians = Mathf.Atan2(rb2D.velocity.y, rb2D.velocity.x);
 					degrees = radians * Mathf.Rad2Deg;
-					reticle.transform.localPosition = new Vector3(Mathf.Cos(radians) * reticleRadius, Mathf.Sin(radians) * reticleRadius, 0.0f);
-					reticle.transform.localRotation = Quaternion.Euler(0.0f, 0.0f, degrees - 90.0f);
+					reticle.MovePosition((Vector2)transform.position + new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)) * reticleRadius);
+					reticle.MoveRotation(degrees - 90.0f);
 				}
 			}
 	}

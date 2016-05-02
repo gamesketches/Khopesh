@@ -27,7 +27,6 @@ public class BulletLogic : MonoBehaviour {
 		renderer = GetComponent<SpriteRenderer>();
 		audio = GetComponent<AudioSource>();
 		audio.clip = Resources.Load<AudioClip>("audio/soundEffects/rpsBulletCancel");
-		Debug.Log(audio.clip.name);
 		animFrame = 0;
 	}
 	
@@ -57,7 +56,7 @@ public class BulletLogic : MonoBehaviour {
 		switch(type) {
 			case BulletType.Crane:
 				bulletFunction = IndirectLogic;
-				animation = Resources.LoadAll<Sprite>("sprites/craneAnimation");
+			animation = Resources.LoadAll<Sprite>(string.Concat("sprites/craneAnimation", bulletColor == Color.blue ? "B" : "R"));
 				headingTime = 0f;
 				foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player")){
 					if(player.layer != gameObject.layer) {
@@ -66,14 +65,14 @@ public class BulletLogic : MonoBehaviour {
 				}
 				break;
 			case BulletType.Gator:
-			animation = Resources.LoadAll<Sprite>("sprites/gatorAnimation");
+			animation = Resources.LoadAll<Sprite>(string.Concat("sprites/gatorAnimation", bulletColor == Color.blue ? "B" : "R"));
 			// TODO: change this
 			bulletFunction = StraightLogic;
 			 /* bulletFunction = sineWaveLogic;
 			 */ break;
 			// Hippo situation
 			default:
-			animation = new Sprite[1] {Resources.Load<Sprite>("sprites/hippo")};
+			animation = new Sprite[1] {Resources.Load<Sprite>(string.Concat("sprites/hippo", bulletColor == Color.blue ? "B" : "R"))};
 				bulletFunction = StraightLogic;
 				break;
 		}
@@ -87,8 +86,11 @@ public class BulletLogic : MonoBehaviour {
 		if(other.gameObject.layer != gameObject.layer) {
 			if(other.gameObject.tag == "Player") {
 					other.gameObject.GetComponent<PlayerStats>().health -= damage;
+				string hitSparkSpritePath = string.Concat("sprites/hitSparks/hit", renderer.color == Color.blue ? "B" : "R", type.ToString());
 					GameObject sparks = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/HitSparks"), transform.position, Quaternion.identity);
-					sparks.GetComponent<HitSparkLogic>().SetSparkColor(renderer.color);
+					sparks.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(hitSparkSpritePath);	
+				Debug.Log(hitSparkSpritePath);
+					//sparks.GetComponent<HitSparkLogic>().SetSparkColor(renderer.color);
 					Destroy(gameObject);
 					return;
 			}
@@ -96,12 +98,16 @@ public class BulletLogic : MonoBehaviour {
 			BulletType opposingType = (BulletType)System.Enum.Parse(typeof(BulletType), other.gameObject.tag);
 
 			if(opposingType == type){
+				GameObject temp = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/SoundEffectObject"), gameObject.transform.position, Quaternion.identity);
+				temp.GetComponent<SoundEffectObjectScript>().PlaySoundEffect("identicalBulletRPS");
 				Destroy(other.gameObject);
 				Destroy(gameObject);
 			}
 			else if((int)opposingType == System.Enum.GetValues(typeof(BulletType)).Length - 1 && (int)type == 0) {
+				GameObject temp = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/SoundEffectObject"), gameObject.transform.position, Quaternion.identity);
+				temp.GetComponent<SoundEffectObjectScript>().PlaySoundEffect("rpsBulletCancel");
 				Destroy(other.gameObject);
-				audio.Play();
+				//audio.Play();
 				
 			}
 			else {
