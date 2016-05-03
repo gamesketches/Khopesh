@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour {
 	GameObject player2Reticle;
 	int player1RoundWins, player1Wins, player2RoundWins, player2Wins;
 	public float roundTime;
+	private float currentRoundTime;
 	public Vector3 player1Pos, player2Pos;
 	public int startingHealth;
 	string[] player1Controls, player2Controls;
@@ -38,6 +39,7 @@ public class GameManager : MonoBehaviour {
 		bullets.Load();
 		player1Controls = CreateControlScheme(0);
 		player2Controls = CreateControlScheme(1);
+		currentRoundTime = roundTime;
         TitleLogo = GameObject.FindGameObjectWithTag("TitleLogo").GetComponent<SpriteRenderer>();
         RoundTimer = GameObject.FindGameObjectWithTag("RoundTimer").GetComponent<Text>();
         TitleLogo.enabled = true;
@@ -96,16 +98,33 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void InGameUpdate(){
-		roundTime -= Time.deltaTime;
-        RoundTimer.text = Mathf.RoundToInt(roundTime).ToString();
+		currentRoundTime -= Time.deltaTime;
+        RoundTimer.text = Mathf.RoundToInt(currentRoundTime).ToString();
 
 		string nextSceneCode = "T";
 		UpdateLifeBars();
 
-		if(player1Stats.health <= 0 || player2Stats.health <= 0 || roundTime <= 0) {
+		if(player1Stats.health <= 0 || player2Stats.health <= 0 || currentRoundTime <= 0) {
 			LockPlayers();
 			if(player1Stats.health <= 0 && player2Stats.health <= 0) {
-				Debug.Log("we have a tie");
+				switch(sceneName[sceneName.Length - 1]) {
+					case 'o':
+						nextSceneCode = "t";
+						break;
+					case 't':
+						nextSceneCode = "t";
+						break;
+					case 's':
+						player2RoundWins++;
+						audioOutro(1);
+						nextSceneCode = "s";
+						break;
+					case 'h':
+						player1RoundWins++;
+						audioOutro(0);
+						nextSceneCode = "h";
+						break;
+					}
 			}
 			else if(player1Stats.health <= 0) {
 				player2RoundWins++;
@@ -116,10 +135,6 @@ public class GameManager : MonoBehaviour {
 				audioOutro(0);
 				player1RoundWins++;
 				nextSceneCode = "h";
-			}
-			else {
-				// TODO: give a win to whoever is in the lead
-				nextSceneCode = "t";
 			}
 			if(sceneName == "intro") {
 				sceneName = nextSceneCode;
@@ -163,6 +178,7 @@ public class GameManager : MonoBehaviour {
 		player1Stats = player1.GetComponent<PlayerStats>();
 		player2Stats = player2.GetComponent<PlayerStats>();
 
+		currentRoundTime = roundTime;
         RoundTimer = GameObject.FindGameObjectWithTag("RoundTimer").GetComponent<Text>();
         RoundTimer.enabled = true;
         StartCoroutine(audioIntro());
@@ -209,6 +225,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void loadAudio() {
+		Debug.Log(sceneName);
 		dialogue = Resources.LoadAll<AudioClip>(string.Concat("audio/dialogue/", sceneName));
 	}
 
