@@ -2,11 +2,15 @@
 using System.Collections;
 
 public class Reticle : MonoBehaviour {
-	public float damage;
+	public float jabDamage;
+	public float spinDamage;
+	public float jabCooldown;
+	public float spinCooldown;
 
 	public Color color;
 
 	public bool melee;
+	public bool spinning;
 
 	private Rigidbody2D rb2D;
 
@@ -18,7 +22,13 @@ public class Reticle : MonoBehaviour {
 		if(melee) {
 			if(collider.gameObject.layer != gameObject.layer) {
 				if(collider.gameObject.tag == "Player") {
-					collider.gameObject.GetComponent<PlayerStats>().health -= damage;
+					if(spinning) {
+						collider.gameObject.GetComponent<PlayerStats>().health -= spinDamage;
+						collider.gameObject.GetComponent<InputManager>().SetExponentCooldownTimer(spinCooldown);
+					} else {
+						collider.gameObject.GetComponent<PlayerStats>().health -= jabDamage;
+						collider.gameObject.GetComponent<InputManager>().SetExponentCooldownTimer(jabCooldown);
+					}
 					string hitSparkSpritePath = string.Concat("sprites/hitSparks/hit", color == Color.blue ? "BR" : "RB");
 					GameObject sparks = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/HitSparks"), transform.position, Quaternion.identity);
 					sparks.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(hitSparkSpritePath);	

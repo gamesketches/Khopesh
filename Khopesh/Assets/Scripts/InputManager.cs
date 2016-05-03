@@ -238,6 +238,7 @@ public class InputManager : MonoBehaviour {
 	IEnumerator Spin() {
 		playerMovement.locked = true;
 		reticle.melee = true;
+		reticle.spinning = true;
 		float angle = reticle.GetRigidbody2D().rotation;
 		float spinTimer = spinTime;
 		while(spinTimer > 0.0f) {
@@ -251,6 +252,11 @@ public class InputManager : MonoBehaviour {
 		playerMovement.SetReticle();
 		melee = false;
 		reticle.melee = false;
+		reticle.spinning = false;
 		playerMovement.locked = false;
+	}
+
+	public void SetExponentCooldownTimer(float value) {
+		exponentCooldownTimer = value;
 	}
 }
