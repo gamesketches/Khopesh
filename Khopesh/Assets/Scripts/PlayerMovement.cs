@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour {
 	public float reticleRadius;
 	public bool locked;
 
-	public Rigidbody2D reticle;
+	public Reticle reticle;
 
 	private float radians;
 	private float degrees;
@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour {
 	}
 
 	public void SetReticle() {
-		reticle.MovePosition((Vector2)transform.position + new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)) * reticleRadius);
-		reticle.MoveRotation(degrees - 90.0f);
+		reticle.GetRigidbody2D().MovePosition((Vector2)transform.position + new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)) * reticleRadius);
+		reticle.GetRigidbody2D().MoveRotation(degrees - 90.0f);
 	}
 }

@@ -15,7 +15,7 @@ public class InputManager : MonoBehaviour {
 	public float spinRadius;
 	public float fullBufferScale = 2f;
 
-	public Rigidbody2D reticle;
+	public Reticle reticle;
 
 	private GameObject bulletPrefab;
 
@@ -204,7 +204,6 @@ public class InputManager : MonoBehaviour {
 
 	void Melee() {
 		if(melee && !playerMovement.locked) {
-			Debug.Log ("Yo");
 			StopCoroutine("MeleeWindow");
 			StartCoroutine("Spin");
 		} else {
@@ -213,7 +212,6 @@ public class InputManager : MonoBehaviour {
 	}
 
 	IEnumerator MeleeWindow() {
-		Debug.Log("Melee Window!");
 		melee = true;
 		float windowTimer = meleePressWindow;
 		while(windowTimer > 0.0f) {
@@ -224,33 +222,35 @@ public class InputManager : MonoBehaviour {
 	}
 
 	IEnumerator Jab() {
-		Debug.Log("Jab!");
 		playerMovement.locked = true;
-		reticle.velocity = new Vector2(Mathf.Cos(playerMovement.CurrentShotAngle() * Mathf.Deg2Rad), Mathf.Sin(playerMovement.CurrentShotAngle() * Mathf.Deg2Rad)) * jabSpeed;
+		reticle.melee = true;
+		reticle.GetRigidbody2D().velocity = new Vector2(Mathf.Cos(playerMovement.CurrentShotAngle() * Mathf.Deg2Rad), Mathf.Sin(playerMovement.CurrentShotAngle() * Mathf.Deg2Rad)) * jabSpeed;
 		yield return new WaitForSeconds(jabTime);
-		reticle.velocity = new Vector2(Mathf.Cos((playerMovement.CurrentShotAngle() + 180.0f) * Mathf.Deg2Rad), Mathf.Sin((playerMovement.CurrentShotAngle() + 180.0f) * Mathf.Deg2Rad)) * jabSpeed;
+		reticle.GetRigidbody2D().velocity = new Vector2(Mathf.Cos((playerMovement.CurrentShotAngle() + 180.0f) * Mathf.Deg2Rad), Mathf.Sin((playerMovement.CurrentShotAngle() + 180.0f) * Mathf.Deg2Rad)) * jabSpeed;
 		yield return new WaitForSeconds(jabTime);
-		reticle.velocity = Vector2.zero;
+		reticle.GetRigidbody2D().velocity = Vector2.zero;
 		playerMovement.SetReticle();
 		melee = false;
+		reticle.melee = false;
 		playerMovement.locked = false;
 	}
 
 	IEnumerator Spin() {
-		Debug.Log("Spin!");
 		playerMovement.locked = true;
-		float angle = reticle.rotation;
+		reticle.melee = true;
+		float angle = reticle.GetRigidbody2D().rotation;
 		float spinTimer = spinTime;
 		while(spinTimer > 0.0f) {
 			spinTimer -= Time.deltaTime;
 			angle += spinSpeed * Time.deltaTime;
 			float radians = angle * Mathf.Deg2Rad;
-			reticle.MovePosition((Vector2)transform.position + new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)) * spinRadius);
-			reticle.MoveRotation(angle - 90.0f);
+			reticle.GetRigidbody2D().MovePosition((Vector2)transform.position + new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)) * spinRadius);
+			reticle.GetRigidbody2D().MoveRotation(angle - 90.0f);
 			yield return 0;
 		}
 		playerMovement.SetReticle();
 		melee = false;
+		reticle.melee = false;
 		playerMovement.locked = false;
 	}
 }

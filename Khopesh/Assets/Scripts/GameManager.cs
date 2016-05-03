@@ -8,6 +8,8 @@ public class GameManager : MonoBehaviour {
 	UpdateFunction currentUpdateFunction;
 	GameObject player1;
 	GameObject player2;
+	GameObject player1Reticle;
+	GameObject player2Reticle;
 	int player1RoundWins, player1Wins, player2RoundWins, player2Wins;
 	public float roundTime;
 	public Vector3 player1Pos, player2Pos;
@@ -196,6 +198,8 @@ public class GameManager : MonoBehaviour {
 
 	void RoundReset() {
 		currentUpdateFunction = InGameUpdate;
+		Destroy(player1Reticle);
+		Destroy(player2Reticle);
 		Destroy(player1);
 		Destroy(player2);
 		loadAudio();
@@ -222,18 +226,20 @@ public class GameManager : MonoBehaviour {
 		temp.GetComponent<PlayerMovement>().InitializeAxes(controls);
 
 		reticle.color = color;
-		tempMovement.reticle = reticle.GetComponent<Rigidbody2D>();
+		tempMovement.reticle = reticle;
 
 		tempInputManager.bullets = bullets;
 		tempInputManager.InitializeControls(controls);
-		tempInputManager.reticle = reticle.GetComponent<Rigidbody2D>();
+		tempInputManager.reticle = reticle;
 
 		if(color == Color.blue) {
 			temp.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/playerStillBlackWhite");
 			tempStats.number = 0;
+			player1Reticle = reticle.gameObject;
 		} else if(color == Color.red) {
 			temp.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/playerStillWhiteBlack");
 			tempStats.number = 1;
+			player2Reticle = reticle.gameObject;
 		}
 		return temp;
 	}
