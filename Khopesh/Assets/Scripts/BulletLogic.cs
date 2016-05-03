@@ -86,7 +86,7 @@ public class BulletLogic : MonoBehaviour {
 		if(other.gameObject.layer != gameObject.layer) {
 			if(other.gameObject.tag == "Player") {
 					other.gameObject.GetComponent<PlayerStats>().health -= damage;
-				string hitSparkSpritePath = string.Concat("sprites/hitSparks/hit", renderer.color == Color.blue ? "BR" : "RB");
+					string hitSparkSpritePath = string.Concat("sprites/hitSparks/hit", renderer.color == Color.blue ? "BR" : "RB");
 					GameObject sparks = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/HitSparks"), transform.position, Quaternion.identity);
 					sparks.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(hitSparkSpritePath);	
 					Destroy(gameObject);
@@ -102,6 +102,8 @@ public class BulletLogic : MonoBehaviour {
 				temp.GetComponent<SoundEffectObjectScript>().PlaySoundEffect("identicalBulletRPS");
 				Destroy(other.gameObject);
 				Destroy(gameObject);
+				//other.gameObject.GetComponent<BulletLogic>();
+
 			}
 			else if((int)opposingType == System.Enum.GetValues(typeof(BulletType)).Length - 1 && (int)type == 0) {
 				GameObject temp = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/SoundEffectObject"), gameObject.transform.position, Quaternion.identity);

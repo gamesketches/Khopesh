@@ -275,11 +275,13 @@ public class GameManager : MonoBehaviour {
 
 		if(color == Color.blue) {
 			temp.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/playerStillBlackWhite");
+			tempMovement.SetAnimator(Resources.Load<RuntimeAnimatorController>("sprites/HorusAnimation/HorusAnimation_0"));
 			tempStats.number = 0;
 			reticle.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Khopesh/khopeshHorus");
 			player1Reticle = reticle.gameObject;
 		} else if(color == Color.red) {
 			temp.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/playerStillWhiteBlack");
+			tempMovement.SetAnimator(Resources.Load<RuntimeAnimatorController>("sprites/SetAnimation/SetAnimation_0"));
 			tempStats.number = 1;
 			reticle.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Khopesh/khopeshSet");
 			player2Reticle = reticle.gameObject;
