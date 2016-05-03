@@ -29,8 +29,7 @@ public class PlayerMovement : MonoBehaviour {
 			radians = Mathf.PI;
 		}
 		degrees = radians * Mathf.Rad2Deg;
-		reticle.MovePosition((Vector2)transform.position + new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)) * reticleRadius);
-		reticle.MoveRotation(degrees - 90.0f);
+		SetReticle();
 	}
 
 	void Update() {
@@ -43,8 +42,7 @@ public class PlayerMovement : MonoBehaviour {
 				if(rb2D.velocity.x != 0.0f || rb2D.velocity.y != 0.0f) {
 					radians = Mathf.Atan2(rb2D.velocity.y, rb2D.velocity.x);
 					degrees = radians * Mathf.Rad2Deg;
-					reticle.MovePosition((Vector2)transform.position + new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)) * reticleRadius);
-					reticle.MoveRotation(degrees - 90.0f);
+					SetReticle();
 				}
 			}
 	}
@@ -56,5 +54,10 @@ public class PlayerMovement : MonoBehaviour {
 	public void InitializeAxes(string[] controls) {
 		horizontalAxis = controls[0];
 		verticalAxis = controls[1];
+	}
+
+	public void SetReticle() {
+		reticle.MovePosition((Vector2)transform.position + new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)) * reticleRadius);
+		reticle.MoveRotation(degrees - 90.0f);
 	}
 }

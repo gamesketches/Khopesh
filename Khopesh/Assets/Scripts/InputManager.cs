@@ -7,6 +7,12 @@ public class InputManager : MonoBehaviour {
 
 	public float shotCooldownTime;
 	public float exponentCooldownTime;
+	public float meleePressWindow;
+	public float jabTime;
+	public float jabSpeed;
+	public float spinTime;
+	public float spinSpeed;
+	public float spinRadius;
 	public float fullBufferScale = 2f;
 
 	public Rigidbody2D reticle;
@@ -29,6 +35,7 @@ public class InputManager : MonoBehaviour {
 	private char[] mashBuffer;
 
 	private bool mashing;
+	private bool melee;
 
 	private PlayerStats playerStats;
 	private PlayerMovement playerMovement;
@@ -42,13 +49,13 @@ public class InputManager : MonoBehaviour {
 		for(int i = 0; i < mashBufferSize; i++){
 			mashBuffer.SetValue('*', i);
 		}
-		ExponentShot();
 	}
 
 	void Update() {
 		char button = GetButtonPress();
 		if(button == 'D' && meleeCooldownTimer <= 0) {
-		} else if(button != '0' && exponentCooldownTimer <= 0) {
+			Melee();
+		} else if(button != '0' && exponentCooldownTimer <= 0 && !melee) {
 			shotCooldownTimer = shotCooldownTime;
 			gameObject.transform.localScale = Vector3.Lerp(new Vector3(1f, 1f, 1f), new Vector3(fullBufferScale, fullBufferScale, fullBufferScale),(float)bufferIter / (float)mashBufferSize);
 			mashBuffer.SetValue(button, bufferIter);
@@ -61,7 +68,7 @@ public class InputManager : MonoBehaviour {
 			if(bufferIter >= mashBufferSize) {
 				Fire();
 			}
-		} else if(mashing && button == '0'){
+		} else if(mashing && button == '0' && !melee){
 			shotCooldownTimer -= Time.deltaTime;
 			if(shotCooldownTimer <= 0.0f) {
 				Fire();
@@ -193,5 +200,57 @@ public class InputManager : MonoBehaviour {
 		buttonB = controls[3];
 		buttonC = controls[4];
 		buttonD = controls[5];
+	}
+
+	void Melee() {
+		if(melee && !playerMovement.locked) {
+			Debug.Log ("Yo");
+			StopCoroutine("MeleeWindow");
+			StartCoroutine("Spin");
+		} else {
+			StartCoroutine("MeleeWindow");
+		}
+	}
+
+	IEnumerator MeleeWindow() {
+		Debug.Log("Melee Window!");
+		melee = true;
+		float windowTimer = meleePressWindow;
+		while(windowTimer > 0.0f) {
+			windowTimer -= Time.deltaTime;
+			yield return 0;
+		}
+		StartCoroutine("Jab");
+	}
+
+	IEnumerator Jab() {
+		Debug.Log("Jab!");
+		playerMovement.locked = true;
+		reticle.velocity = new Vector2(Mathf.Cos(playerMovement.CurrentShotAngle() * Mathf.Deg2Rad), Mathf.Sin(playerMovement.CurrentShotAngle() * Mathf.Deg2Rad)) * jabSpeed;
+		yield return new WaitForSeconds(jabTime);
+		reticle.velocity = new Vector2(Mathf.Cos((playerMovement.CurrentShotAngle() + 180.0f) * Mathf.Deg2Rad), Mathf.Sin((playerMovement.CurrentShotAngle() + 180.0f) * Mathf.Deg2Rad)) * jabSpeed;
+		yield return new WaitForSeconds(jabTime);
+		reticle.velocity = Vector2.zero;
+		playerMovement.SetReticle();
+		melee = false;
+		playerMovement.locked = false;
+	}
+
+	IEnumerator Spin() {
+		Debug.Log("Spin!");
+		playerMovement.locked = true;
+		float angle = reticle.rotation;
+		float spinTimer = spinTime;
+		while(spinTimer > 0.0f) {
+			spinTimer -= Time.deltaTime;
+			angle += spinSpeed * Time.deltaTime;
+			float radians = angle * Mathf.Deg2Rad;
+			reticle.MovePosition((Vector2)transform.position + new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)) * spinRadius);
+			reticle.MoveRotation(angle - 90.0f);
+			yield return 0;
+		}
+		playerMovement.SetReticle();
+		melee = false;
+		playerMovement.locked = false;
 	}
 }

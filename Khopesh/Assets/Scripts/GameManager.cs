@@ -157,8 +157,8 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void StartRound() {
-		player1 = CreatePlayer(player1Controls, Color.red, player1Pos);
-		player2 = CreatePlayer(player2Controls, Color.blue, player2Pos);
+		player1 = CreatePlayer(player1Controls, Color.blue, player1Pos);
+		player2 = CreatePlayer(player2Controls, Color.red, player2Pos);
 		player1Stats = player1.GetComponent<PlayerStats>();
 		player2Stats = player2.GetComponent<PlayerStats>();
 
@@ -209,7 +209,7 @@ public class GameManager : MonoBehaviour {
 	GameObject CreatePlayer(string[] controls, Color color, Vector3 position){
 		GameObject temp = (GameObject)Instantiate(Resources.Load("prefabs/Player"), 
 												position, Quaternion.identity);
-		Rigidbody2D reticle = ((GameObject)Instantiate(Resources.Load("prefabs/Reticle"))).GetComponent<Rigidbody2D>();
+		/*Rigidbody2D*/Reticle reticle = ((GameObject)Instantiate(Resources.Load("prefabs/Reticle"))).GetComponent<Reticle>();
 		//SetControls(temp);
 		//temp.GetComponent<Renderer>() = color;
 		PlayerStats tempStats = temp.GetComponent<PlayerStats>();
@@ -221,16 +221,17 @@ public class GameManager : MonoBehaviour {
 		tempStats.playerColor = color;
 		temp.GetComponent<PlayerMovement>().InitializeAxes(controls);
 
-		tempMovement.reticle = reticle;
+		reticle.color = color;
+		tempMovement.reticle = reticle.GetComponent<Rigidbody2D>();
 
 		tempInputManager.bullets = bullets;
 		tempInputManager.InitializeControls(controls);
-		tempInputManager.reticle = reticle;
+		tempInputManager.reticle = reticle.GetComponent<Rigidbody2D>();
 
-		if(color == Color.red) {
+		if(color == Color.blue) {
 			temp.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/playerStillBlackWhite");
 			tempStats.number = 0;
-		} else if(color == Color.blue) {
+		} else if(color == Color.red) {
 			temp.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/playerStillWhiteBlack");
 			tempStats.number = 1;
 		}
