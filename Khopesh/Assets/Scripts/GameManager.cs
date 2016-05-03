@@ -91,7 +91,6 @@ public class GameManager : MonoBehaviour {
 		loadAudio();
 		bullets = new BulletDepot();
 		bullets.Load();
-		currentUpdateFunction = InGameUpdate;
 		player1Controls = CreateControlScheme(0);
 		player2Controls = CreateControlScheme(1);
 		StartRound();
@@ -195,6 +194,7 @@ public class GameManager : MonoBehaviour {
 				yield return null;
 			}
 		}
+		currentUpdateFunction = InGameUpdate;
 		backgroundMusic.Play();
 		UnlockPlayers();
 	}
@@ -215,7 +215,6 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void RoundReset() {
-		currentUpdateFunction = InGameUpdate;
 		Destroy(player1Reticle);
 		Destroy(player2Reticle);
 		Destroy(player1);
