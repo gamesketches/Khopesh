@@ -54,6 +54,9 @@ public class InputManager : MonoBehaviour {
 	}
 
 	void Update() {
+		if(playerMovement.locked) {
+			return;
+		}
 		char button = GetButtonPress();
 		if(button == 'D' && meleeCooldownTimer <= 0) {
 			Melee();
