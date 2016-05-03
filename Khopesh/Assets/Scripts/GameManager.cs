@@ -25,8 +25,10 @@ public class GameManager : MonoBehaviour {
 	GameObject[] HorusLifeBar;
 
 
-    SpriteRenderer TitleLogo;
-    Text RoundTimer;
+    SpriteRenderer titleLogo;
+    SpriteRenderer infoScreen;
+    Text pressStart;
+    Text roundTimer;
 
     // Use this for initialization
     void Start () {
@@ -40,30 +42,52 @@ public class GameManager : MonoBehaviour {
 		player1Controls = CreateControlScheme(0);
 		player2Controls = CreateControlScheme(1);
 		currentRoundTime = roundTime;
-        TitleLogo = GameObject.FindGameObjectWithTag("TitleLogo").GetComponent<SpriteRenderer>();
-        RoundTimer = GameObject.FindGameObjectWithTag("RoundTimer").GetComponent<Text>();
-        TitleLogo.enabled = true;
-		currentUpdateFunction = TitleScreen;
+        titleLogo = GameObject.FindGameObjectWithTag("TitleLogo").GetComponent<SpriteRenderer>();
+        pressStart = titleLogo.GetComponent<Text>();
+        infoScreen = GameObject.FindGameObjectWithTag("InfoScreen").GetComponent<SpriteRenderer>();
+        roundTimer = GameObject.FindGameObjectWithTag("RoundTimer").GetComponent<Text>();
+        titleLogo.enabled = true;
+        pressStart.enabled = true;
+        currentUpdateFunction = TitleScreen;
     }
 
     void TitleScreen()
     {
         if (Input.GetButtonUp("ButtonA0"))
         {
-			TitleLogo.enabled = false;
-			InitializeGameSettings();
+            titleLogo.enabled = false;
+            pressStart.enabled = false;
+            InitializeGameSettings();
+        }
+        else if (Input.GetButtonUp("ButtonC0"))
+        {
+            titleLogo.enabled = false;
+            pressStart.enabled = false;
+            infoScreen.enabled = true;
+            currentUpdateFunction = InfoScreen;
         }
     }
 
-/*	// Use this for initialization
-	void Start () {
-		// Fill in the MenuUpdate function
-		// then uncomment line 27 and delete line 28
-		// currentUpdateFunction = MenuUpdate;
-		//InitializeGameSettings();
-	}*/
+    void InfoScreen()
+    {
+        if (Input.GetButton("ButtonD0") && Input.GetButton("ButtonA0"))
+        {
+            infoScreen.enabled = false;
+            titleLogo.enabled = true;
+            pressStart.enabled = true;
+            currentUpdateFunction = TitleScreen;
+        }
+    }
 
-	string[] CreateControlScheme(int playerNum) {
+    /*	// Use this for initialization
+        void Start () {
+            // Fill in the MenuUpdate function
+            // then uncomment line 27 and delete line 28
+            // currentUpdateFunction = MenuUpdate;
+            //InitializeGameSettings();
+        }*/
+
+    string[] CreateControlScheme(int playerNum) {
 		string[] controlArray = new string[6];
 		controlArray[0] = string.Concat("Horizontal", playerNum.ToString());
 		controlArray[1] = string.Concat("Vertical", playerNum.ToString());
@@ -98,7 +122,7 @@ public class GameManager : MonoBehaviour {
 
 	void InGameUpdate(){
 		currentRoundTime -= Time.deltaTime;
-        RoundTimer.text = Mathf.RoundToInt(currentRoundTime).ToString();
+        roundTimer.text = Mathf.RoundToInt(currentRoundTime).ToString();
 
 		string nextSceneCode = "T";
 		UpdateLifeBars();
@@ -153,8 +177,9 @@ public class GameManager : MonoBehaviour {
 				Destroy(player2Reticle);
 				Destroy(player1);
 				Destroy(player2);
-				TitleLogo.enabled = true;
-				RoundTimer.enabled = false;
+				titleLogo.enabled = true;
+                pressStart.enabled = true;
+				roundTimer.enabled = false;
 				currentUpdateFunction = TitleScreen;
 				return;
 			}
@@ -178,8 +203,8 @@ public class GameManager : MonoBehaviour {
 		player2Stats = player2.GetComponent<PlayerStats>();
 		currentUpdateFunction = InGameUpdate;
 		currentRoundTime = roundTime;	
-        RoundTimer = GameObject.FindGameObjectWithTag("RoundTimer").GetComponent<Text>();
-        RoundTimer.enabled = true;
+        roundTimer = GameObject.FindGameObjectWithTag("RoundTimer").GetComponent<Text>();
+        roundTimer.enabled = true;
         StartCoroutine(audioIntro());
     }
 

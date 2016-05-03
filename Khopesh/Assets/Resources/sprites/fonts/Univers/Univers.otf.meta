@@ -11,7 +11,33 @@ TrueTypeFontImporter:
   includeFontData: 1
   use2xBehaviour: 0
   fontNames: []
-  fallbackFontReferences: []
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: ce5a42c09bf6f44428374ce57c56dcbe, type: 3}
+  - {fileID: 12800000, guid: 2a7b5b1259299ef4b96824453f82a7aa, type: 3}
+  - {fileID: 12800000, guid: 216b30c25ca6c9c47aaa1b58dcea4b6a, type: 3}
+  - {fileID: 12800000, guid: 6ca599f268ced4c4ba29044fe44355c9, type: 3}
+  - {fileID: 12800000, guid: b4bddd23f649b58439244041389f07fa, type: 3}
+  - {fileID: 12800000, guid: 4a26a5f337649e141a058c0e4dafdef5, type: 3}
+  - {fileID: 12800000, guid: e141e45578d0d4940a3ab87375302c86, type: 3}
+  - {fileID: 12800000, guid: bb96a8f500f021f46a47210a942eb80e, type: 3}
+  - {fileID: 12800000, guid: 0b68c8e693e281641be5000d9b7aa116, type: 3}
+  - {fileID: 12800000, guid: 171de0177f72e4345a6f5d21e86a3b12, type: 3}
+  - {fileID: 12800000, guid: 2d17e7f7d49863d45821bebfd88f70e9, type: 3}
+  - {fileID: 12800000, guid: 40853b18f5b7eb241bd9e7d8553d183c, type: 3}
+  - {fileID: 12800000, guid: d097d288a20bcd64f866857d86e1ed98, type: 3}
+  - {fileID: 12800000, guid: 07994db87186acd41965f209edb42215, type: 3}
+  - {fileID: 12800000, guid: c405f3d8d9fceac42b8981ee0bee9734, type: 3}
+  - {fileID: 12800000, guid: b498ba59f9ac7ce4580a5eac8aac2409, type: 3}
+  - {fileID: 12800000, guid: 5b6d8369e4eb85a40981a513b49c5fc4, type: 3}
+  - {fileID: 12800000, guid: 9351f24b513be4042a97b3c8b339b1a5, type: 3}
+  - {fileID: 12800000, guid: 125e0a5bf8f73574bb53908180274651, type: 3}
+  - {fileID: 12800000, guid: c3efbbdc3db8a114d965b6594e334951, type: 3}
+  - {fileID: 12800000, guid: cf5b1e0d623a3df47a3f60cdd6a7cd67, type: 3}
+  - {fileID: 12800000, guid: c81fc02d3270380438760e703f4bc554, type: 3}
+  - {fileID: 12800000, guid: adc8b69de11e6ed468afde77ca8e36c1, type: 3}
+  - {fileID: 12800000, guid: cdb6c8addc43613408ca25ca87357c70, type: 3}
+  - {fileID: 12800000, guid: 6d6b26de7c4b3554b8fed075daec30f2, type: 3}
+  - {fileID: 12800000, guid: 3c805bef84fb3a1438dd5724d1bbc37d, type: 3}
   customCharacters: 
   fontRenderingMode: 0
   userData: 
