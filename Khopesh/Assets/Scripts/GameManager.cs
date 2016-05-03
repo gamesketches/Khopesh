@@ -110,12 +110,12 @@ public class GameManager : MonoBehaviour {
 			else if(player1Stats.health <= 0) {
 				player2RoundWins++;
 				audioOutro(1);
-				nextSceneCode = "h";
+				nextSceneCode = "s";
 			}
 			else if (player2Stats.health <= 0){
 				audioOutro(0);
 				player1RoundWins++;
-				nextSceneCode = "s";
+				nextSceneCode = "h";
 			}
 			else {
 				// TODO: give a win to whoever is in the lead
