@@ -1,0 +1,625 @@
+fileFormatVersion: 2
+guid: 42ab1d7947841422fa4047f8bc7d0a93
+timeCreated: 1462240924
+licenseType: Free
+TextureImporter:
+  fileIDToRecycleName:
+    21300000: SetAnimation_0
+    21300002: SetAnimation_1
+    21300004: SetAnimation_2
+    21300006: SetAnimation_3
+    21300008: SetAnimation_4
+    21300010: SetAnimation_5
+    21300012: SetAnimation_6
+    21300014: SetAnimation_7
+    21300016: SetAnimation_8
+    21300018: SetAnimation_9
+    21300020: SetAnimation_10
+    21300022: SetAnimation_11
+    21300024: SetAnimation_12
+    21300026: SetAnimation_13
+    21300028: SetAnimation_14
+    21300030: SetAnimation_15
+    21300032: SetAnimation_16
+    21300034: SetAnimation_17
+    21300036: SetAnimation_18
+    21300038: SetAnimation_19
+    21300040: SetAnimation_20
+    21300042: SetAnimation_21
+    21300044: SetAnimation_22
+    21300046: SetAnimation_23
+  serializedVersion: 2
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 1
+    linearTexture: 0
+    correctGamma: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 0
+  cubemapConvolution: 0
+  cubemapConvolutionSteps: 7
+  cubemapConvolutionExponent: 1.5
+  seamlessCubemap: 0
+  textureFormat: -1
+  maxTextureSize: 2048
+  textureSettings:
+    filterMode: 0
+    aniso: 16
+    mipBias: -1
+    wrapMode: 1
+  nPOTScale: 0
+  lightmap: 0
+  rGBM: 0
+  compressionQuality: 50
+  allowsAlphaSplitting: 0
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spritePixelsToUnits: 100
+  alphaIsTransparency: 1
+  textureType: 8
+  buildTargetSettings: []
+  spriteSheet:
+    sprites:
+    - name: SetAnimation_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 17, y: 34.5}
+        - {x: 8, y: 44.5}
+        - {x: -11, y: 44.5}
+        - {x: -40, y: 8.5}
+        - {x: -40, y: -22.5}
+        - {x: -26, y: -45.5}
+        - {x: 24, y: -45.5}
+        - {x: 39, y: -23.5}
+        - {x: 39, y: 8.5}
+    - name: SetAnimation_1
+      rect:
+        serializedVersion: 2
+        x: 288
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -16.666664, y: 45.5}
+        - {x: -39.666664, y: 37.5}
+        - {x: -39.666664, y: -26.5}
+        - {x: -33.666664, y: -45.5}
+        - {x: 30.333336, y: -45.5}
+        - {x: 40.333336, y: -11.5}
+        - {x: 40.333336, y: 28.5}
+        - {x: 11.333336, y: 45.5}
+    - name: SetAnimation_2
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 25.666672, y: 21.5}
+        - {x: 23.666672, y: 17.5}
+        - {x: 23.666672, y: 5.5}
+        - {x: 23.666672, y: 14.5}
+        - {x: 7.6666718, y: 44.5}
+        - {x: -10.333328, y: 44.5}
+        - {x: -22.333328, y: 30.5}
+        - {x: -22.333328, y: -22.5}
+        - {x: -19.333328, y: -44.5}
+        - {x: 27.666672, y: -44.5}
+        - {x: 37.66667, y: -7.5}
+        - {x: 37.66667, y: 17.5}
+        - {x: 36.66667, y: 21.5}
+    - name: SetAnimation_3
+      rect:
+        serializedVersion: 2
+        x: 864
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8, y: 45.5}
+        - {x: -9, y: 42.5}
+        - {x: -21, y: 15.5}
+        - {x: -22, y: 11.5}
+        - {x: -25, y: 20.5}
+        - {x: -37, y: 21.5}
+        - {x: -37, y: -5.5}
+        - {x: -34, y: -7.5}
+        - {x: -25, y: -43.5}
+        - {x: -23, y: -45.5}
+        - {x: 20, y: -45.5}
+        - {x: 23, y: -37.5}
+        - {x: 23, y: 18.5}
+        - {x: 8, y: 45.5}
+    - name: SetAnimation_4
+      rect:
+        serializedVersion: 2
+        x: 1152
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.6666565, y: 44.5}
+        - {x: -42.666656, y: 18.5}
+        - {x: -42.666656, y: -17.5}
+        - {x: -19.666656, y: -45.5}
+        - {x: -8.6666565, y: -45.5}
+        - {x: -6.6666565, y: -44.5}
+        - {x: -1.6666565, y: -38.5}
+        - {x: -1.6666565, y: -33.5}
+        - {x: -1.6666565, y: -39.5}
+        - {x: 2.3333435, y: -44.5}
+        - {x: 3.3333435, y: -45.5}
+        - {x: 14.3333435, y: -45.5}
+        - {x: 31.333344, y: -24.5}
+        - {x: 31.333344, y: 14.5}
+        - {x: 18.333344, y: 44.5}
+    - name: SetAnimation_5
+      rect:
+        serializedVersion: 2
+        x: 1440
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 23.666656, y: -45.5}
+        - {x: 25.666656, y: -38.5}
+        - {x: 43.666656, y: -2.5}
+        - {x: 43.666656, y: 2.5}
+        - {x: 36.666656, y: 8.5}
+        - {x: 34.666656, y: 7.5}
+        - {x: 26.666656, y: 0.5}
+        - {x: 19.666656, y: 6.5}
+        - {x: 22.666656, y: 8.5}
+        - {x: 27.666656, y: 15.5}
+        - {x: 13.6666565, y: 44.5}
+        - {x: -15.3333435, y: 44.5}
+        - {x: -30.333344, y: 20.5}
+        - {x: -30.333344, y: -28.5}
+        - {x: -19.333344, y: -45.5}
+        - {x: -1.3333435, y: -45.5}
+        - {x: 2.6666565, y: -39.5}
+        - {x: 2.6666565, y: -35.5}
+        - {x: 2.6666565, y: -39.5}
+        - {x: 4.6666565, y: -45.5}
+    - name: SetAnimation_6
+      rect:
+        serializedVersion: 2
+        x: 1728
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9, y: 44.5}
+        - {x: -11, y: 44.5}
+        - {x: -43, y: 15.5}
+        - {x: -43, y: -17.5}
+        - {x: -25, y: -45.5}
+        - {x: 17, y: -45.5}
+        - {x: 25, y: -41.5}
+        - {x: 31, y: -27.5}
+        - {x: 31, y: 12.5}
+    - name: SetAnimation_7
+      rect:
+        serializedVersion: 2
+        x: 2016
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9.333313, y: -45.5}
+        - {x: 27.333313, y: -45.5}
+        - {x: 43.333313, y: -30.5}
+        - {x: 43.333313, y: 27.5}
+        - {x: 29.333313, y: 45.5}
+        - {x: -7.666687, y: 45.5}
+        - {x: -10.666687, y: 43.5}
+        - {x: -31.666687, y: 1.5}
+        - {x: -31.666687, y: -11.5}
+        - {x: -20.666687, y: -40.5}
+        - {x: -12.666687, y: -45.5}
+        - {x: -4.666687, y: -45.5}
+        - {x: 2.333313, y: -35.5}
+        - {x: 2.333313, y: -33.5}
+        - {x: 2.333313, y: -38.5}
+    - name: SetAnimation_8
+      rect:
+        serializedVersion: 2
+        x: 2304
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -20.333313, y: 44.5}
+        - {x: -38.333313, y: 7.5}
+        - {x: -39.333313, y: -1.5}
+        - {x: -39.333313, y: -20.5}
+        - {x: -37.333313, y: -21.5}
+        - {x: -29.333313, y: -21.5}
+        - {x: -25.333313, y: -17.5}
+        - {x: -22.333313, y: -32.5}
+        - {x: 1.666687, y: -45.5}
+        - {x: 23.666687, y: -45.5}
+        - {x: 41.666687, y: -35.5}
+        - {x: 41.666687, y: 18.5}
+        - {x: 32.666687, y: 44.5}
+    - name: SetAnimation_9
+      rect:
+        serializedVersion: 2
+        x: 2592
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 7, y: 45.5}
+        - {x: -12, y: 45.5}
+        - {x: -40, y: 12.5}
+        - {x: -40, y: -36.5}
+        - {x: -31, y: -43.5}
+        - {x: -13, y: -45.5}
+        - {x: 23, y: -45.5}
+        - {x: 40, y: -20.5}
+        - {x: 40, y: 2.5}
+        - {x: 39, y: 8.5}
+    - name: SetAnimation_10
+      rect:
+        serializedVersion: 2
+        x: 2880
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 36.333313, y: 19.5}
+        - {x: 21.333313, y: 45.5}
+        - {x: -21.666687, y: 45.5}
+        - {x: -41.666687, y: 19.5}
+        - {x: -41.666687, y: 1.5}
+        - {x: -40.666687, y: -6.5}
+        - {x: -32.666687, y: -9.5}
+        - {x: -24.666687, y: -26.5}
+        - {x: -8.666687, y: -37.5}
+        - {x: -2.666687, y: -28.5}
+        - {x: -1.666687, y: -25.5}
+        - {x: -1.666687, y: -19.5}
+        - {x: 1.333313, y: -45.5}
+        - {x: 20.333313, y: -45.5}
+        - {x: 39.333313, y: -11.5}
+        - {x: 39.333313, y: 16.5}
+    - name: SetAnimation_11
+      rect:
+        serializedVersion: 2
+        x: 3168
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -33.333313, y: 45.5}
+        - {x: -39.333313, y: 39.5}
+        - {x: -39.333313, y: -11.5}
+        - {x: -19.333313, y: -45.5}
+        - {x: 24.666687, y: -45.5}
+        - {x: 41.666687, y: -29.5}
+        - {x: 41.666687, y: 42.5}
+        - {x: 39.666687, y: 45.5}
+    - name: SetAnimation_12
+      rect:
+        serializedVersion: 2
+        x: 3456
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 23, y: 17.5}
+        - {x: 14, y: 44.5}
+        - {x: -18, y: 44.5}
+        - {x: -23, y: 16.5}
+        - {x: -23, y: -25.5}
+        - {x: 1, y: -42.5}
+        - {x: 17, y: -42.5}
+        - {x: 37, y: -16.5}
+        - {x: 37, y: 19.5}
+        - {x: 25, y: 22.5}
+    - name: SetAnimation_13
+      rect:
+        serializedVersion: 2
+        x: 3744
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 34.333374, y: 19.5}
+        - {x: 25.333374, y: 20.5}
+        - {x: 23.333374, y: 17.5}
+        - {x: 8.333374, y: 41.5}
+        - {x: 5.333374, y: 44.5}
+        - {x: 3.333374, y: 44.5}
+        - {x: 0.33337402, y: 43.5}
+        - {x: 0.33337402, y: 44.5}
+        - {x: -11.666626, y: 44.5}
+        - {x: -22.666626, y: 13.5}
+        - {x: -22.666626, y: -18.5}
+        - {x: 2.333374, y: -42.5}
+        - {x: 15.333374, y: -42.5}
+        - {x: 37.333374, y: -7.5}
+        - {x: 37.333374, y: 15.5}
+    - name: SetAnimation_14
+      rect:
+        serializedVersion: 2
+        x: 4032
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -8.333374, y: 44.5}
+        - {x: -20.333374, y: 15.5}
+        - {x: -21.333374, y: 11.5}
+        - {x: -18.333374, y: 8.5}
+        - {x: -17.333374, y: 8.5}
+        - {x: -22.333374, y: 5.5}
+        - {x: -21.333374, y: 18.5}
+        - {x: -28.333374, y: 21.5}
+        - {x: -35.333374, y: 20.5}
+        - {x: -35.333374, y: -18.5}
+        - {x: -10.333374, y: -43.5}
+        - {x: 5.666626, y: -43.5}
+        - {x: 23.666626, y: -23.5}
+        - {x: 23.666626, y: 24.5}
+        - {x: 10.666626, y: 44.5}
+    - name: SetAnimation_15
+      rect:
+        serializedVersion: 2
+        x: 4320
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 45.5}
+        - {x: -22, y: 14.5}
+        - {x: -22, y: 11.5}
+        - {x: -20, y: 9.5}
+        - {x: -20, y: 5.5}
+        - {x: -25, y: 20.5}
+        - {x: -36, y: 22.5}
+        - {x: -37, y: 16.5}
+        - {x: -37, y: -11.5}
+        - {x: -15, y: -42.5}
+        - {x: -3, y: -42.5}
+        - {x: 22, y: -18.5}
+        - {x: 22, y: 19.5}
+        - {x: 8, y: 45.5}
+    - name: SetAnimation_16
+      rect:
+        serializedVersion: 2
+        x: 4608
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -13.666626, y: 44.5}
+        - {x: -42.666626, y: 10.5}
+        - {x: -42.666626, y: -9.5}
+        - {x: -19.666626, y: -43.5}
+        - {x: 11.333374, y: -43.5}
+        - {x: 31.333374, y: -17.5}
+        - {x: 31.333374, y: 3.5}
+        - {x: 9.333374, y: 44.5}
+    - name: SetAnimation_17
+      rect:
+        serializedVersion: 2
+        x: 4896
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 9.666626, y: 45.5}
+        - {x: -10.333374, y: 45.5}
+        - {x: -32.333374, y: 20.5}
+        - {x: -42.333374, y: 9.5}
+        - {x: -42.333374, y: -14.5}
+        - {x: -16.333374, y: -42.5}
+        - {x: 5.666626, y: -42.5}
+        - {x: 31.666626, y: -13.5}
+        - {x: 31.666626, y: 2.5}
+        - {x: 10.666626, y: 44.5}
+    - name: SetAnimation_18
+      rect:
+        serializedVersion: 2
+        x: 5184
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -24, y: 44.5}
+        - {x: -32, y: -4.5}
+        - {x: -32, y: -13.5}
+        - {x: -31, y: -36.5}
+        - {x: -25, y: -42.5}
+        - {x: -13, y: -42.5}
+        - {x: -8, y: -40.5}
+        - {x: 25, y: -37.5}
+        - {x: 43, y: -35.5}
+        - {x: 43, y: 44.5}
+    - name: SetAnimation_19
+      rect:
+        serializedVersion: 2
+        x: 5472
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: 27.333374, y: 44.5}
+        - {x: -13.666626, y: 44.5}
+        - {x: -29.666626, y: 14.5}
+        - {x: -29.666626, y: -34.5}
+        - {x: -27.666626, y: -42.5}
+        - {x: -3.666626, y: -42.5}
+        - {x: 17.333374, y: -37.5}
+        - {x: 36.333374, y: -29.5}
+        - {x: 43.333374, y: -20.5}
+        - {x: 43.333374, y: 22.5}
+    - name: SetAnimation_20
+      rect:
+        serializedVersion: 2
+        x: 5760
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -10.333374, y: 44.5}
+        - {x: -42.333374, y: 1.5}
+        - {x: -42.333374, y: -1.5}
+        - {x: -31.333374, y: -32.5}
+        - {x: -23.333374, y: -36.5}
+        - {x: 18.666626, y: -36.5}
+        - {x: 32.666626, y: -14.5}
+        - {x: 32.666626, y: 7.5}
+        - {x: 10.666626, y: 44.5}
+    - name: SetAnimation_21
+      rect:
+        serializedVersion: 2
+        x: 6048
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -9, y: 44.5}
+        - {x: -11, y: 43.5}
+        - {x: -42, y: 7.5}
+        - {x: -43, y: 5.5}
+        - {x: -43, y: -6.5}
+        - {x: -30, y: -17.5}
+        - {x: -25, y: -18.5}
+        - {x: -26, y: -28.5}
+        - {x: -21, y: -36.5}
+        - {x: 5, y: -36.5}
+        - {x: 31, y: -12.5}
+        - {x: 31, y: -1.5}
+        - {x: 9, y: 44.5}
+    - name: SetAnimation_22
+      rect:
+        serializedVersion: 2
+        x: 6336
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -6.666626, y: 44.5}
+        - {x: -7.666626, y: 42.5}
+        - {x: -21.666626, y: 16.5}
+        - {x: -30.666626, y: -0.5}
+        - {x: -30.666626, y: -11.5}
+        - {x: -19.666626, y: -37.5}
+        - {x: 42.333374, y: -37.5}
+        - {x: 42.333374, y: 14.5}
+        - {x: 8.333374, y: 44.5}
+    - name: SetAnimation_23
+      rect:
+        serializedVersion: 2
+        x: 6624
+        y: 0
+        width: 288
+        height: 306
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline:
+      - - {x: -12.333374, y: 44.5}
+        - {x: -31.333374, y: 4.5}
+        - {x: -31.333374, y: -16.5}
+        - {x: -23.333374, y: -36.5}
+        - {x: 42.666626, y: -36.5}
+        - {x: 42.666626, y: 19.5}
+        - {x: 25.666626, y: 44.5}
+    outline: []
+  spritePackingTag: 
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
