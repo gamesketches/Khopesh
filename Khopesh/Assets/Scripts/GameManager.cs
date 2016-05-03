@@ -48,10 +48,7 @@ public class GameManager : MonoBehaviour {
     {
         if (Input.GetButtonUp("ButtonA0"))
         {
-			AudioSource backgroundMusic = Camera.main.GetComponent<AudioSource>();
-			backgroundMusic.clip = Resources.Load<AudioClip>("audio/music/battleTheme/RenewYourSoul");
-			backgroundMusic.Play();
-            TitleLogo.enabled = false;
+			TitleLogo.enabled = false;
 			InitializeGameSettings();
         }
     }
@@ -173,6 +170,8 @@ public class GameManager : MonoBehaviour {
 
 	IEnumerator audioIntro() {
 		LockPlayers();
+		AudioSource backgroundMusic = Camera.main.GetComponent<AudioSource>();
+		backgroundMusic.clip = Resources.Load<AudioClip>("audio/music/battleTheme/RenewYourSoul");
 		for(int i = 0; i < dialogue.Length - 2; i++) {
 			dialoguePlayer.clip = dialogue[i];
 			dialoguePlayer.Play();
@@ -180,6 +179,7 @@ public class GameManager : MonoBehaviour {
 				yield return null;
 			}
 		}
+		backgroundMusic.Play();
 		UnlockPlayers();
 	}
 
