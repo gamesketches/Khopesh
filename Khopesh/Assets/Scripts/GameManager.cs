@@ -178,17 +178,17 @@ public class GameManager : MonoBehaviour {
 		player1Stats = player1.GetComponent<PlayerStats>();
 		player2Stats = player2.GetComponent<PlayerStats>();
 
-		currentRoundTime = roundTime;
+		currentRoundTime = roundTime;	
         RoundTimer = GameObject.FindGameObjectWithTag("RoundTimer").GetComponent<Text>();
         RoundTimer.enabled = true;
         StartCoroutine(audioIntro());
     }
 
 	IEnumerator audioIntro() {
-		LockPlayers();
 		AudioSource backgroundMusic = Camera.main.GetComponent<AudioSource>();
 		backgroundMusic.clip = Resources.Load<AudioClip>("audio/music/battleTheme/RenewYourSoul");
 		for(int i = 0; i < dialogue.Length - 2; i++) {
+			LockPlayers();
 			dialoguePlayer.clip = dialogue[i];
 			dialoguePlayer.Play();
 			while(dialoguePlayer.isPlaying) {
@@ -225,7 +225,6 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void loadAudio() {
-		Debug.Log(sceneName);
 		dialogue = Resources.LoadAll<AudioClip>(string.Concat("audio/dialogue/", sceneName));
 	}
 

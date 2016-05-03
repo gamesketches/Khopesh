@@ -18,11 +18,14 @@ public class PlayerMovement : MonoBehaviour {
 
 	private PlayerStats playerStats;
 
+	void Awake() {
+		locked = false;
+	}
+
 	void Start() {
 		playerStats = GetComponent<PlayerStats>();
 		gameObject.layer = playerStats.number + 8;
 		reticle.gameObject.layer = gameObject.layer;
-		locked = false;
 		rb2D = GetComponent<Rigidbody2D>();
 		if(playerStats.number == 0) {
 			radians = 0.0f;
