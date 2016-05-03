@@ -27,6 +27,7 @@ public class GameManager : MonoBehaviour {
 
     SpriteRenderer titleLogo;
     SpriteRenderer infoScreen;
+	SpriteRenderer background;
     Text pressStart;
     Text roundTimer;
     Text victoryText;
@@ -64,6 +65,7 @@ public class GameManager : MonoBehaviour {
         titleLogo = GameObject.FindGameObjectWithTag("TitleLogo").GetComponent<SpriteRenderer>();
         pressStart = titleLogo.GetComponent<Text>();
         infoScreen = GameObject.FindGameObjectWithTag("InfoScreen").GetComponent<SpriteRenderer>();
+		background = GameObject.FindGameObjectWithTag("Background").GetComponent<SpriteRenderer>();
         roundTimer = GameObject.FindGameObjectWithTag("RoundTimer").GetComponent<Text>();
         victoryText = GameObject.FindGameObjectWithTag("VictoryText").GetComponent<Text>();
         titleLogo.enabled = true;
@@ -77,6 +79,7 @@ public class GameManager : MonoBehaviour {
         {
             titleLogo.enabled = false;
             pressStart.enabled = false;
+			background.enabled = true;
             InitializeGameSettings();
         }
         else if (Input.GetButtonUp("ButtonC0"))
@@ -216,6 +219,7 @@ public class GameManager : MonoBehaviour {
 				Destroy(player2);
 				titleLogo.enabled = true;
                 pressStart.enabled = true;
+				background.enabled = false;
 				roundTimer.enabled = false;
 				currentUpdateFunction = TitleScreen;
 				return;
