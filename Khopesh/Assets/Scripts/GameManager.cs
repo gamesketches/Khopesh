@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour {
     SpriteRenderer infoScreen;
     Text pressStart;
     Text roundTimer;
+    Text victoryText;
 
     SpriteRenderer[] HorusWinsIconsSR;
     SpriteRenderer[] SetWinsIconsSR;
@@ -66,6 +67,7 @@ public class GameManager : MonoBehaviour {
         pressStart = titleLogo.GetComponent<Text>();
         infoScreen = GameObject.FindGameObjectWithTag("InfoScreen").GetComponent<SpriteRenderer>();
         roundTimer = GameObject.FindGameObjectWithTag("RoundTimer").GetComponent<Text>();
+        victoryText = GameObject.FindGameObjectWithTag("VictoryText").GetComponent<Text>();
         titleLogo.enabled = true;
         pressStart.enabled = true;
         currentUpdateFunction = TitleScreen;
@@ -97,6 +99,15 @@ public class GameManager : MonoBehaviour {
             pressStart.enabled = true;
             currentUpdateFunction = TitleScreen;
         }
+    }
+
+    IEnumerator DisplayVictoryText(int playerNum)
+    {
+        victoryText.text = playerNum == 1 ? "<color=Blue> HORUS </color>" : "<color=Red> SET </color>"; 
+        victoryText.text += "\n WINS";
+        victoryText.enabled = true;
+        yield return new WaitForSeconds(3.0f);
+        victoryText.enabled = false;
     }
 
     /*	// Use this for initialization
@@ -158,13 +169,15 @@ public class GameManager : MonoBehaviour {
 						nextSceneCode = "t";
 						break;
 					case 's':
+                        StartCoroutine(DisplayVictoryText(2));
 						player2RoundWins++;
                         SetWinsIconsSR[player2RoundWins - 1].enabled = true;
                         audioOutro(1);
 						nextSceneCode = "s";
 						break;
 					case 'h':
-						player1RoundWins++;
+                        StartCoroutine(DisplayVictoryText(1));
+                        player1RoundWins++;
                         HorusWinsIconsSR[player1RoundWins - 1].enabled = true;
                         audioOutro(0);
                         nextSceneCode = "h";
@@ -172,14 +185,16 @@ public class GameManager : MonoBehaviour {
 					}
 			}
 			else if(player1Stats.health <= 0) {
-				player2RoundWins++;
-                SetWinsIconsSR[player2RoundWins - 1].enabled = true;
                 audioOutro(1);
+                player2RoundWins++;
+                StartCoroutine(DisplayVictoryText(2));
+                SetWinsIconsSR[player2RoundWins - 1].enabled = true;
 				nextSceneCode = "s";
 			}
 			else if (player2Stats.health <= 0){
-				audioOutro(0);
-				player1RoundWins++;
+                audioOutro(0);
+                player1RoundWins++;
+                StartCoroutine(DisplayVictoryText(1));
                 HorusWinsIconsSR[player1RoundWins - 1].enabled = true;
                 nextSceneCode = "h";
 			}
