@@ -176,7 +176,7 @@ public class GameManager : MonoBehaviour {
 		player2 = CreatePlayer(player2Controls, Color.red, player2Pos);
 		player1Stats = player1.GetComponent<PlayerStats>();
 		player2Stats = player2.GetComponent<PlayerStats>();
-
+		currentUpdateFunction = InGameUpdate;
 		currentRoundTime = roundTime;	
         RoundTimer = GameObject.FindGameObjectWithTag("RoundTimer").GetComponent<Text>();
         RoundTimer.enabled = true;
@@ -184,19 +184,18 @@ public class GameManager : MonoBehaviour {
     }
 
 	IEnumerator audioIntro() {
+		LockPlayers();
+		Invoke("UnlockPlayers", 2.5f);
 		AudioSource backgroundMusic = Camera.main.GetComponent<AudioSource>();
 		backgroundMusic.clip = Resources.Load<AudioClip>("audio/music/battleTheme/RenewYourSoul");
 		for(int i = 0; i < dialogue.Length - 2; i++) {
-			LockPlayers();
 			dialoguePlayer.clip = dialogue[i];
 			dialoguePlayer.Play();
 			while(dialoguePlayer.isPlaying) {
 				yield return null;
 			}
 		}
-		currentUpdateFunction = InGameUpdate;
 		backgroundMusic.Play();
-		UnlockPlayers();
 	}
 
 	void audioOutro(int playerNum) {
