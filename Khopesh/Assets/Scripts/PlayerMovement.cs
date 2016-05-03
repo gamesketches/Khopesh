@@ -38,6 +38,7 @@ public class PlayerMovement : MonoBehaviour {
 		} else if(playerStats.number == 1) {
 			radians = Mathf.PI;
 			direction = 4;
+			anim.SetTrigger("Idle West");
 		}
 		degrees = radians * Mathf.Rad2Deg;
 		SetReticle();
@@ -101,14 +102,6 @@ public class PlayerMovement : MonoBehaviour {
 					} else if(direction == 7) {
 						anim.SetTrigger("Idle Southeast");
 					}
-					/*if(direction == 6) {
-					Debug.Log("yoooooo");
-						anim.SetTrigger("Idle South");
-					} else {
-					Debug.Log(direction);
-					Debug.Log("yoooooo---eerrrrr");
-						anim.SetTrigger("Idle");
-					}*/
 				}
 			}
 	}
