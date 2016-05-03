@@ -39,8 +39,10 @@ public class InputManager : MonoBehaviour {
 
 	private PlayerStats playerStats;
 	private PlayerMovement playerMovement;
+	private AudioSource soundEffects;
 
 	void Start() {
+		soundEffects = GetComponent<AudioSource>();
 		bulletPrefab = Resources.Load<GameObject>("prefabs/Bullet");
 		playerStats = GetComponent<PlayerStats>();
 		playerMovement = GetComponent<PlayerMovement>();
@@ -119,6 +121,18 @@ public class InputManager : MonoBehaviour {
 		foreach(BulletDepot.Bullet bullet in volley.volley) {
 			CreateBullet(bullet, type);
 		}
+		switch(type) {
+		case BulletType.Crane:
+			soundEffects.clip = Resources.Load<AudioClip>("audio/bulletSounds/craneSound");
+			break;
+		case BulletType.Gator:
+			soundEffects.clip = Resources.Load<AudioClip>("audio/bulletSounds/alligatorSound");
+			break;
+		case BulletType.Hippo:
+			soundEffects.clip = Resources.Load<AudioClip>("audio/bulletSounds/hippoSound");
+			break;
+		}
+		soundEffects.Play();
 	}
 
 	void Fire() {
