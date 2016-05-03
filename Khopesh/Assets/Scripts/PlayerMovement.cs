@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour {
 
 	public Reticle reticle;
 
+	private int direction = 8;
+
 	private float radians;
 	private float degrees;
 
@@ -32,8 +34,10 @@ public class PlayerMovement : MonoBehaviour {
 		rb2D = GetComponent<Rigidbody2D>();
 		if(playerStats.number == 0) {
 			radians = 0.0f;
+			direction = 0;
 		} else if(playerStats.number == 1) {
 			radians = Mathf.PI;
+			direction = 4;
 		}
 		degrees = radians * Mathf.Rad2Deg;
 		SetReticle();
@@ -49,26 +53,62 @@ public class PlayerMovement : MonoBehaviour {
 				if(rb2D.velocity.x != 0.0f || rb2D.velocity.y != 0.0f) {
 					radians = Mathf.Atan2(rb2D.velocity.y, rb2D.velocity.x);
 					degrees = radians * Mathf.Rad2Deg;
-					if((degrees >= 0.0f && degrees <= 22.5f) || (degrees > 337.5f && degrees <= 359.0f)) {
+					if(degrees < 0.0f) {
+						degrees += 360.0f;
+					}
+
+					if((degrees >= 0.0f && degrees <= 22.5f) || (degrees > 337.5f && degrees <= 359.0f) && direction != 0) {
 						anim.SetTrigger("Walk East");
-					} else if(degrees > 22.5f && degrees <= 67.5f) {
+						direction = 0;
+					} else if(degrees > 22.5f && degrees <= 67.5f && direction != 1) {
 						anim.SetTrigger("Walk Northeast");
-					} else if(degrees > 67.5f && degrees <= 112.5f) {
+						direction = 1;
+					} else if(degrees > 67.5f && degrees <= 112.5f && direction != 2) {
 						anim.SetTrigger("Walk North");
-					} else if(degrees > 112.5f && degrees <= 157.5f) {
+						direction = 2;
+					} else if(degrees > 112.5f && degrees <= 157.5f && direction != 3) {
 						anim.SetTrigger("Walk Northwest");
-					} else if(degrees > 157.5f && degrees <= 202.5f) {
+						direction = 3;
+					} else if(degrees > 157.5f && degrees <= 202.5f && direction != 4) {
 						anim.SetTrigger("Walk West");
-					} else if(degrees > 202.5f && degrees <= 247.5f) {
+						direction = 4;
+					} else if(degrees > 202.5f && degrees <= 247.5f && direction != 5) {
 						anim.SetTrigger("Walk Southwest");
-					} else if(degrees > 247.5f && degrees <= 292.5f) {
+						direction = 5;
+					} else if(degrees > 247.5f && degrees <= 292.5f && direction != 6) {
 						anim.SetTrigger("Walk South");
-					} else if(degrees > 292.5f && degrees <= 337.5f) {
-						anim.SetTrigger("Walk South");
+						direction = 6;
+					} else if(degrees > 292.5f && degrees <= 337.5f && direction != 7) {
+						anim.SetTrigger("Walk Southeast");
+						direction = 7;
 					}
 					SetReticle();
 				} else {
-					anim.SetTrigger("Idle");
+					if(direction == 0) {
+						anim.SetTrigger("Idle East");
+					} else if(direction == 1) {
+						anim.SetTrigger("Idle Northeast");
+					} else if(direction == 2) {
+						anim.SetTrigger("Idle North");
+					} else if(direction == 3) {
+						anim.SetTrigger("Idle Northwest");
+					} else if(direction == 4) {
+						anim.SetTrigger("Idle West");
+					} else if(direction == 5) {
+						anim.SetTrigger("Idle Southwest");
+					} else if(direction == 6) {
+						anim.SetTrigger("Idle South");
+					} else if(direction == 7) {
+						anim.SetTrigger("Idle Southeast");
+					}
+					/*if(direction == 6) {
+					Debug.Log("yoooooo");
+						anim.SetTrigger("Idle South");
+					} else {
+					Debug.Log(direction);
+					Debug.Log("yoooooo---eerrrrr");
+						anim.SetTrigger("Idle");
+					}*/
 				}
 			}
 	}
