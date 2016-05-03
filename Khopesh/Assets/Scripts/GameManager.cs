@@ -138,6 +138,8 @@ public class GameManager : MonoBehaviour {
 		if(!dialoguePlayer.isPlaying)
 		{
 			if(player1RoundWins > 2 || player2RoundWins > 2){
+				Destroy(player1Reticle);
+				Destroy(player2Reticle);
 				Destroy(player1);
 				Destroy(player2);
 				TitleLogo.enabled = true;
