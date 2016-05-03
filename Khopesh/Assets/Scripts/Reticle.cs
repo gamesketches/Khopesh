@@ -33,6 +33,8 @@ public class Reticle : MonoBehaviour {
 					GameObject sparks = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/HitSparks"), transform.position, Quaternion.identity);
 					sparks.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(hitSparkSpritePath);	
 					return;
+				} else if(collider.gameObject.tag == "Hippo" || collider.gameObject.tag == "Crane" || collider.gameObject.tag == "Gator") {
+					Destroy(collider.gameObject);
 				}
 			}
 		}
