@@ -30,11 +30,31 @@ public class GameManager : MonoBehaviour {
     Text pressStart;
     Text roundTimer;
 
+    SpriteRenderer[] HorusWinsIconsSR;
+    SpriteRenderer[] SetWinsIconsSR;
+
     // Use this for initialization
     void Start () {
-		SetLifeBar = GameObject.FindGameObjectsWithTag("SetLifeBar");
-		HorusLifeBar = GameObject.FindGameObjectsWithTag("HorusLifeBar");
-		dialoguePlayer = GetComponent<AudioSource>();
+        GameObject[] HorusWinsIcons;
+        GameObject[] SetWinsIcons;
+
+        SetLifeBar = GameObject.FindGameObjectsWithTag("SetLifeBar");
+        HorusLifeBar = GameObject.FindGameObjectsWithTag("HorusLifeBar");
+        SetWinsIcons = GameObject.FindGameObjectsWithTag("SetWinsIcon");
+        HorusWinsIcons = GameObject.FindGameObjectsWithTag("HorusWinsIcon");
+        HorusWinsIconsSR = new SpriteRenderer[HorusWinsIcons.Length];
+        SetWinsIconsSR = new SpriteRenderer[SetWinsIcons.Length];
+        int j = 0;
+        for (int i = 2; i >= 0; i--)
+        {
+            Debug.Log(HorusWinsIcons[i].GetComponent<SpriteRenderer>());
+            Debug.Log(SetWinsIcons[i].GetComponent<SpriteRenderer>());
+            HorusWinsIconsSR[j] = HorusWinsIcons[i].GetComponent<SpriteRenderer>();
+            SetWinsIconsSR[j] = SetWinsIcons[i].GetComponent<SpriteRenderer>();
+            j++;
+        }
+
+        dialoguePlayer = GetComponent<AudioSource>();
 		sceneName = "intro";
 		loadAudio();
 		bullets = new BulletDepot();
@@ -139,25 +159,29 @@ public class GameManager : MonoBehaviour {
 						break;
 					case 's':
 						player2RoundWins++;
-						audioOutro(1);
+                        SetWinsIconsSR[player2RoundWins - 1].enabled = true;
+                        audioOutro(1);
 						nextSceneCode = "s";
 						break;
 					case 'h':
 						player1RoundWins++;
-						audioOutro(0);
-						nextSceneCode = "h";
+                        HorusWinsIconsSR[player1RoundWins - 1].enabled = true;
+                        audioOutro(0);
+                        nextSceneCode = "h";
 						break;
 					}
 			}
 			else if(player1Stats.health <= 0) {
 				player2RoundWins++;
-				audioOutro(1);
+                SetWinsIconsSR[player2RoundWins - 1].enabled = true;
+                audioOutro(1);
 				nextSceneCode = "s";
 			}
 			else if (player2Stats.health <= 0){
 				audioOutro(0);
 				player1RoundWins++;
-				nextSceneCode = "h";
+                HorusWinsIconsSR[player1RoundWins - 1].enabled = true;
+                nextSceneCode = "h";
 			}
 			if(sceneName == "intro") {
 				sceneName = nextSceneCode;
