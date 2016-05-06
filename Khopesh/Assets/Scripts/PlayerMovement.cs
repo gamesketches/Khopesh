@@ -34,10 +34,9 @@ public class PlayerMovement : MonoBehaviour {
 		rb2D = GetComponent<Rigidbody2D>();
 		if(playerStats.number == 0) {
 			radians = 0.0f;
-			direction = 0;
+			anim.SetTrigger("Idle East");
 		} else if(playerStats.number == 1) {
 			radians = Mathf.PI;
-			direction = 4;
 			anim.SetTrigger("Idle West");
 		}
 		degrees = radians * Mathf.Rad2Deg;
@@ -123,5 +122,9 @@ public class PlayerMovement : MonoBehaviour {
 	public void SetAnimator(RuntimeAnimatorController value) {
 		anim = GetComponent<Animator>();
 		anim.runtimeAnimatorController = value;
+	}
+
+	public Rigidbody2D GetRigidbody2D() {
+		return rb2D;
 	}
 }

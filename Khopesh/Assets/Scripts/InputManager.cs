@@ -239,6 +239,7 @@ public class InputManager : MonoBehaviour {
 	}
 
 	IEnumerator Jab() {
+		playerMovement.GetRigidbody2D().velocity = Vector2.zero;
 		playerMovement.locked = true;
 		reticle.melee = true;
 		reticle.GetRigidbody2D().velocity = new Vector2(Mathf.Cos(playerMovement.CurrentShotAngle() * Mathf.Deg2Rad), Mathf.Sin(playerMovement.CurrentShotAngle() * Mathf.Deg2Rad)) * jabSpeed;
@@ -253,6 +254,7 @@ public class InputManager : MonoBehaviour {
 	}
 
 	IEnumerator Spin() {
+		playerMovement.GetRigidbody2D().velocity = Vector2.zero;
 		playerMovement.locked = true;
 		reticle.melee = true;
 		reticle.spinning = true;
