@@ -9,6 +9,7 @@ public class BulletLogic : MonoBehaviour {
 	int damage;
 	float velocity;
 	float lifetime;
+	public float velocityMultiplier = 10f;
 	public float indirectCorrectionSpeed = 5f;
 	public float indirectHomingTime = 0.5f;
 	delegate void BulletFunction();
@@ -47,7 +48,7 @@ public class BulletLogic : MonoBehaviour {
 		type = bulletType;
 		damage = bulletDamage;
 		gameObject.tag = bulletType.ToString();
-		velocity = Velocity * 10f;
+		velocity = Velocity * velocityMultiplier;
 		if(velocity == 0) {
 			velocity = 5f;
 		}
