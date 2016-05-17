@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour {
 				playerNum -= 2;
 			}
 	        victoryText.text = playerNum == 1 ? "<color=Blue> HORUS" : "<color=Red> SET";
-			victoryText.text += roundsWon == 3 ? "\n IS \n VICTORIOUS </color> " : "\n </color> WINS";
+			victoryText.text += roundsWon == 3 ? "\n IS \n   VICTORIOUS </color> " : "\n</color> WINS";
 		}
 		victoryText.enabled = true;
         yield return new WaitForSeconds(3.0f);
@@ -235,6 +235,12 @@ public class GameManager : MonoBehaviour {
                 pressStart.enabled = true;
 				background.enabled = false;
 				roundTimer.enabled = false;
+				foreach(SpriteRenderer renderer in HorusWinsIconsSR) {
+					renderer.enabled = false;
+				}
+				foreach(SpriteRenderer renderer in SetWinsIconsSR) {
+					renderer.enabled = false;
+				}
 				currentUpdateFunction = TitleScreen;
 				return;
 			}
