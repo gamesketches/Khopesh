@@ -79,7 +79,8 @@ public class BulletLogic : MonoBehaviour {
 			animation = new Sprite[1] {Resources.Load<Sprite>(string.Concat("sprites/hippo", bulletColor == Color.blue ? "B" : "R"))};
 				bulletFunction = StraightLogic;
 			velocity = 2.5f;
-			lifetime = Lifetime / 2;
+			//lifetime = Lifetime / 2;
+			lifetime = Lifetime / 0.25f;
 			tempVector = Quaternion.AngleAxis(gameObject.transform.rotation.eulerAngles.z, Vector3.forward) * new Vector3(velocity, 0, 0);
 			travelVector = new Vector2(tempVector.x, tempVector.y);	
 			break;
