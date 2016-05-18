@@ -24,7 +24,7 @@ public class BulletLogic : MonoBehaviour {
 	SpriteRenderer renderer;
 
 	// Use this for initialization
-	void Awake () {
+	void Start () {
 		renderer = GetComponent<SpriteRenderer>();
 		audio = GetComponent<AudioSource>();
 		audio.clip = Resources.Load<AudioClip>("audio/soundEffects/rpsBulletCancel");
@@ -39,7 +39,7 @@ public class BulletLogic : MonoBehaviour {
 		}
 		bulletFunction();
 		gameObject.transform.position += new Vector3(travelVector.x, travelVector.y) * Time.deltaTime;
-		//renderer.sprite = animation[animFrame];
+		renderer.sprite = animation[animFrame];
 		animFrame = animFrame + 1 >= animation.Length ? 0 : animFrame + 1;
 	}
 
@@ -55,17 +55,11 @@ public class BulletLogic : MonoBehaviour {
 		Vector3 tempVector = Quaternion.AngleAxis(gameObject.transform.rotation.eulerAngles.z, Vector3.forward) * new Vector3(velocity, 0, 0);
 		travelVector = new Vector2(tempVector.x, tempVector.y);
 		lifetime = Lifetime;
-		//GetComponent<SpriteRenderer>().color = bulletColor;
+		GetComponent<SpriteRenderer>().color = bulletColor;
 		gameObject.layer = 8 + playerNum;
 		switch(type) {
 			case BulletType.Crane:
 				bulletFunction = IndirectLogic;
-				renderer.sprite = Resources.Load<Sprite>("sprites/NewArt/bulletPaperLines");
-			if(bulletColor == Color.red) {
-				renderer.color = new Color(225.0f / 255.0f, 0.0f / 255.0f, 115.0f / 255.0f);
-			} else if(bulletColor == Color.blue) {
-				renderer.color = new Color(0.0f / 255.0f, 128.0f / 255.0f, 255.0f / 255.0f);
-			}
 			animation = Resources.LoadAll<Sprite>(string.Concat("sprites/craneAnimation", bulletColor == Color.blue ? "B" : "R"));
 				headingTime = 0f;
 				foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player")){
@@ -75,12 +69,6 @@ public class BulletLogic : MonoBehaviour {
 				}
 				break;
 			case BulletType.Gator:
-			renderer.sprite = Resources.Load<Sprite>("sprites/NewArt/bulletScissorsLines");
-			if(bulletColor == Color.red) {
-				renderer.color = new Color(180.0f / 255.0f, 0.0f / 255.0f, 150.0f / 255.0f);
-			} else if(bulletColor == Color.blue) {
-				renderer.color = new Color(0.0f / 255.0f, 150.0f / 255.0f, 125.0f / 255.0f);
-			}
 			animation = Resources.LoadAll<Sprite>(string.Concat("sprites/gatorAnimation", bulletColor == Color.blue ? "B" : "R"));
 			// TODO: change this
 			bulletFunction = StraightLogic;
@@ -88,12 +76,6 @@ public class BulletLogic : MonoBehaviour {
 			 */ break;
 			// Hippo situation
 			default:
-			renderer.sprite = Resources.Load<Sprite>("sprites/NewArt/bulletRockLines");
-			if(bulletColor == Color.red) {
-				renderer.color = new Color(125.0f / 255.0f, 0.0f / 255.0f, 0.0f / 255.0f);
-			} else if(bulletColor == Color.blue) {
-				renderer.color = new Color(0.0f / 255.0f, 0.0f / 255.0f, 125.0f / 255.0f);
-			}
 			animation = new Sprite[1] {Resources.Load<Sprite>(string.Concat("sprites/hippo", bulletColor == Color.blue ? "B" : "R"))};
 				bulletFunction = StraightLogic;
 			velocity = 2.5f;
