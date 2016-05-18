@@ -34,16 +34,16 @@ public class PlayerMovement : MonoBehaviour {
 		rb2D = GetComponent<Rigidbody2D>();
 		if(playerStats.number == 0) {
 			radians = 0.0f;
-			anim.SetTrigger("Idle East");
+			//anim.SetTrigger("Idle East");
 		} else if(playerStats.number == 1) {
 			radians = Mathf.PI;
-			anim.SetTrigger("Idle West");
+			//anim.SetTrigger("Idle West");
 		}
 		degrees = radians * Mathf.Rad2Deg;
 		SetReticle();
 	}
 
-	void Update() {
+	void LateUpdate() {
 		HandleMovement();
 	}
 
@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour {
 						degrees += 360.0f;
 					}
 
-					if((degrees >= 0.0f && degrees <= 22.5f) || (degrees > 337.5f && degrees <= 359.0f) && direction != 0) {
+					/*if((degrees >= 0.0f && degrees <= 22.5f) || (degrees > 337.5f && degrees <= 359.0f) && direction != 0) {
 						anim.SetTrigger("Walk East");
 						direction = 0;
 					} else if(degrees > 22.5f && degrees <= 67.5f && direction != 1) {
@@ -81,10 +81,10 @@ public class PlayerMovement : MonoBehaviour {
 					} else if(degrees > 292.5f && degrees <= 337.5f && direction != 7) {
 						anim.SetTrigger("Walk Southeast");
 						direction = 7;
-					}
+					}*/
 					SetReticle();
 				} else {
-					if(direction == 0) {
+					/*if(direction == 0) {
 						anim.SetTrigger("Idle East");
 					} else if(direction == 1) {
 						anim.SetTrigger("Idle Northeast");
@@ -100,7 +100,7 @@ public class PlayerMovement : MonoBehaviour {
 						anim.SetTrigger("Idle South");
 					} else if(direction == 7) {
 						anim.SetTrigger("Idle Southeast");
-					}
+					}*/
 				}
 			}
 		else {
@@ -119,7 +119,7 @@ public class PlayerMovement : MonoBehaviour {
 
 	public void SetReticle() {
 		reticle.GetRigidbody2D().MovePosition((Vector2)transform.position + new Vector2(Mathf.Cos(radians), Mathf.Sin(radians)) * reticleRadius);
-		reticle.GetRigidbody2D().MoveRotation(degrees - 90.0f);
+		reticle.GetRigidbody2D().MoveRotation(degrees/* - 90.0f*/);
 	}
 
 	public void SetAnimator(RuntimeAnimatorController value) {

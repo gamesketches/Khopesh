@@ -332,6 +332,9 @@ public class GameManager : MonoBehaviour {
 		GameObject temp = (GameObject)Instantiate(Resources.Load("prefabs/Player"), 
 												position, Quaternion.identity);
 		Reticle reticle = ((GameObject)Instantiate(Resources.Load("prefabs/Reticle"))).GetComponent<Reticle>();
+		/*GameObject reticleFrame = (GameObject)Instantiate(Resources.Load("prefabs/ReticleFrame"));
+		reticleFrame.transform.parent = temp.transform;
+		reticleFrame.transform.localPosition = Vector3.zero;*/
 		//SetControls(temp);
 		//temp.GetComponent<Renderer>() = color;
 		PlayerStats tempStats = temp.GetComponent<PlayerStats>();
@@ -351,17 +354,23 @@ public class GameManager : MonoBehaviour {
 		tempInputManager.reticle = reticle;
 
 		if(color == Color.blue) {
-			temp.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/playerStillBlackWhite");
-			tempMovement.SetAnimator(Resources.Load<RuntimeAnimatorController>("sprites/HorusAnimation/HorusAnimation_0"));
+			//temp.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/playerStillBlackWhite");
+			temp.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/NewArt/playerSunLines");
+			temp.GetComponent<SpriteRenderer>().color = Color.blue;
+			//tempMovement.SetAnimator(Resources.Load<RuntimeAnimatorController>("sprites/HorusAnimation/HorusAnimation_0"));
 			tempStats.number = 0;
-			reticle.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Khopesh/khopeshHorus");
+			//reticle.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Khopesh/khopeshHorus");
 			player1Reticle = reticle.gameObject;
+			player1Reticle.GetComponent<SpriteRenderer>().color = Color.blue;
 		} else if(color == Color.red) {
-			temp.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/playerStillWhiteBlack");
-			tempMovement.SetAnimator(Resources.Load<RuntimeAnimatorController>("sprites/SetAnimation/SetAnimation_0"));
+			temp.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/NewArt/playerMoonLines");
+			temp.GetComponent<SpriteRenderer>().color = Color.red;
+			//temp.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/playerStillWhiteBlack");
+			//tempMovement.SetAnimator(Resources.Load<RuntimeAnimatorController>("sprites/SetAnimation/SetAnimation_0"));
 			tempStats.number = 1;
-			reticle.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Khopesh/khopeshSet");
+			//reticle.gameObject.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>("sprites/Khopesh/khopeshSet");
 			player2Reticle = reticle.gameObject;
+			player2Reticle.GetComponent<SpriteRenderer>().color = Color.red;
 		}
 		return temp;
 	}
