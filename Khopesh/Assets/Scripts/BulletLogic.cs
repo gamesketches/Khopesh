@@ -53,10 +53,13 @@ public class BulletLogic : MonoBehaviour {
 		lifetime = Lifetime;
 		GetComponent<SpriteRenderer>().color = bulletColor;
 		gameObject.layer = 8 + playerNum;
+		GameObject bulletGraphics;
 		switch(type) {
 			case BulletType.Crane:
 				bulletFunction = IndirectLogic;
 			animation = Resources.LoadAll<Sprite>(string.Concat("sprites/craneAnimation", bulletColor == Color.blue ? "B" : "R"));
+				bulletGraphics = (GameObject)Instantiate(Resources.Load<GameObject>("sprites/NewArt/HandGraphics"));
+			bulletGraphics.transform.parent = gameObject.transform;
 				headingTime = 0f;
 				foreach(GameObject player in GameObject.FindGameObjectsWithTag("Player")){
 					if(player.layer != gameObject.layer) {
@@ -66,6 +69,8 @@ public class BulletLogic : MonoBehaviour {
 				break;
 			case BulletType.Gator:
 			animation = Resources.LoadAll<Sprite>(string.Concat("sprites/gatorAnimation", bulletColor == Color.blue ? "B" : "R"));
+			bulletGraphics = (GameObject)Instantiate(Resources.Load<GameObject>("sprites/NewArt/FaceGraphics"));
+			bulletGraphics.transform.parent = gameObject.transform;
 			// TODO: change this
 			bulletFunction = StraightLogic;
 			 /* bulletFunction = sineWaveLogic;
@@ -73,7 +78,9 @@ public class BulletLogic : MonoBehaviour {
 			// Hippo situation
 			default:
 			animation = new Sprite[1] {Resources.Load<Sprite>(string.Concat("sprites/hippo", bulletColor == Color.blue ? "B" : "R"))};
-				bulletFunction = StraightLogic;
+			bulletGraphics = (GameObject)Instantiate(Resources.Load<GameObject>("sprites/NewArt/StaffGraphics"));
+			bulletGraphics.transform.parent = gameObject.transform;	
+			bulletFunction = StraightLogic;
 			velocity = 2.5f;
 			lifetime = Lifetime / 2;
 			tempVector = Quaternion.AngleAxis(gameObject.transform.rotation.eulerAngles.z, Vector3.forward) * new Vector3(velocity, 0, 0);
