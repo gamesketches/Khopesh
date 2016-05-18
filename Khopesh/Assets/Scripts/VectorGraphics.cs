@@ -105,6 +105,7 @@ public class VectorGraphics : MonoBehaviour {
         VectorLine.SetCanvasCamera(Camera.main);
     }
 
+
     void OnDestroy()
     {
         if (Line != null)

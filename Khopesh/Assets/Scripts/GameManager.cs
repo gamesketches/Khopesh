@@ -115,7 +115,7 @@ public class GameManager : MonoBehaviour {
 				playerNum -= 2;
 			}
 	        victoryText.text = playerNum == 1 ? "<color=Blue> HORUS" : "<color=Red> SET";
-			victoryText.text += roundsWon == 3 ? "\n IS \n VICTORIOUS </color> " : "\n </color> WINS";
+			victoryText.text += roundsWon == 3 ? "\n IS \n   VICTORIOUS </color> " : "\n</color> WINS";
 		}
 		victoryText.enabled = true;
         yield return new WaitForSeconds(3.0f);
@@ -235,6 +235,15 @@ public class GameManager : MonoBehaviour {
                 pressStart.enabled = true;
 				background.enabled = false;
 				roundTimer.enabled = false;
+				foreach(SpriteRenderer renderer in HorusWinsIconsSR) {
+					renderer.enabled = false;
+				}
+				foreach(SpriteRenderer renderer in SetWinsIconsSR) {
+					renderer.enabled = false;
+				}
+				AudioSource backgroundMusic = Camera.main.GetComponent<AudioSource>();
+				backgroundMusic.clip = Resources.Load<AudioClip>("audio/music/menu/LandOfTwoFields");
+				backgroundMusic.Play();
 				currentUpdateFunction = TitleScreen;
 				return;
 			}
@@ -243,12 +252,25 @@ public class GameManager : MonoBehaviour {
 	}
 
 	void UpdateLifeBars() {
-		foreach(GameObject lifebar in SetLifeBar) {
-			lifebar.transform.localScale = new Vector3((player1Stats.health / player1Stats.maxHealth) * 10f, 6, 1);
+		float player1HealthProportion, player2HealthProportion;
+		if(player1Stats.health > 0) {
+			player1HealthProportion = (player1Stats.health / player1Stats.maxHealth);
 		}
-		foreach(GameObject lifebar in HorusLifeBar) {
-			lifebar.transform.localScale = new Vector3((player2Stats.health / player1Stats.maxHealth) * 10f, 6, 1);
+		else {
+			player1HealthProportion = 0;
 		}
+		if(player2Stats.health > 0) {
+			player2HealthProportion = (player2Stats.health / player2Stats.maxHealth);
+		}
+		else {
+			player2HealthProportion = 0;
+		}
+		SetLifeBar[0].transform.localScale = new Vector3(player1HealthProportion * 10f, 6, 1);
+		SetLifeBar[1].transform.localScale = new Vector3(player1HealthProportion * 10f, 6, 1);
+		SetLifeBar[2].transform.localScale = new Vector3(player1HealthProportion * 10.5062f, 6, 1);
+		HorusLifeBar[0].transform.localScale = new Vector3(player2HealthProportion * 10f, 6, 1);
+		HorusLifeBar[1].transform.localScale = new Vector3(player2HealthProportion * 10f, 6, 1);
+		HorusLifeBar[2].transform.localScale = new Vector3(player2HealthProportion * 10.5062f, 6, 1);
 	}
 
 	void StartRound() {

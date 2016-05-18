@@ -103,6 +103,9 @@ public class PlayerMovement : MonoBehaviour {
 					}
 				}
 			}
+		else {
+			rb2D.velocity = Vector2.zero;
+		}
 	}
 
 	public float CurrentShotAngle() {
