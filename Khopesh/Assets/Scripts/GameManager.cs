@@ -241,6 +241,9 @@ public class GameManager : MonoBehaviour {
 				foreach(SpriteRenderer renderer in SetWinsIconsSR) {
 					renderer.enabled = false;
 				}
+				AudioSource backgroundMusic = Camera.main.GetComponent<AudioSource>();
+				backgroundMusic.clip = Resources.Load<AudioClip>("audio/music/menu/LandOfTwoFields");
+				backgroundMusic.Play();
 				currentUpdateFunction = TitleScreen;
 				return;
 			}
