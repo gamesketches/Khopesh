@@ -106,9 +106,12 @@ public class BulletLogic : MonoBehaviour {
 			}
 			BulletType opposingType = (BulletType)System.Enum.Parse(typeof(BulletType), other.gameObject.tag);
 
+			if((int)type == System.Enum.GetValues(typeof(BulletType)).Length - 1) {
+				return;
+			}
 			if(opposingType == type){
 				GameObject temp = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/SoundEffectObject"), gameObject.transform.position, Quaternion.identity);
-				temp.GetComponent<SoundEffectObjectScript>().PlaySoundEffect("identicalBulletRPS");
+				temp.GetComponent<SoundEffectObjectScript>().PlaySoundEffect("identicalBulletCancel");
 				Destroy(other.gameObject);
 				Destroy(gameObject);
 				//other.gameObject.GetComponent<BulletLogic>();
@@ -122,6 +125,8 @@ public class BulletLogic : MonoBehaviour {
 				
 			}
 			else {
+				GameObject temp = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/SoundEffectObject"), gameObject.transform.position, Quaternion.identity);
+				temp.GetComponent<SoundEffectObjectScript>().PlaySoundEffect("rpsBulletCancel");
 				GameObject destroyedObject = opposingType > type ? gameObject : other.gameObject;
 				Destroy(destroyedObject);
 			}
