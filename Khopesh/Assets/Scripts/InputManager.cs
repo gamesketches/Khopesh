@@ -202,7 +202,7 @@ public class InputManager : MonoBehaviour {
 			}
 		}
 		for(int i = 0; i < bulletAngles.Count; i++) {
-			BulletDepot.Bullet bullet = new BulletDepot.Bullet();
+			BulletDepot.Bullet bullet = bullets.types.projectileTypes[(int)bulletTypes[i]].volleys[0].volley[0];
 			bullet.angle = (int)bulletAngles[i];
 			CreateBullet(bullet, bulletTypes[i]);
 		}
