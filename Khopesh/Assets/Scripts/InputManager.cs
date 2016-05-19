@@ -60,9 +60,11 @@ public class InputManager : MonoBehaviour {
 			return;
 		}
 		char button = GetButtonPress();
-		if(button == 'D' && meleeCooldownTimer <= 0) {
+        meleeCooldownTimer -= Time.deltaTime;
+
+        if (button == 'D' && meleeCooldownTimer <= 0) {
 			Melee();
-		} else if(button != '0' && exponentCooldownTimer <= 0 && !melee) {
+		} else if(button != '0' && exponentCooldownTimer <= 0 && !melee && button != 'D') {
 			shotCooldownTimer = shotCooldownTime;
 			gameObject.transform.localScale = Vector3.Lerp(new Vector3(1f, 1f, 1f), new Vector3(fullBufferScale, fullBufferScale, fullBufferScale),(float)bufferIter / (float)mashBufferSize);
 			mashBuffer.SetValue(button, bufferIter);
@@ -77,9 +79,10 @@ public class InputManager : MonoBehaviour {
 				GameObject temp = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/SoundEffectObject"), gameObject.transform.position, Quaternion.identity);
 				temp.GetComponent<SoundEffectObjectScript>().PlaySoundEffect("bufferFull");
 			}
-		} else if(mashing && button == '0' && !melee){
+		} else if(mashing && button == '0' && !melee && button != '0' && button != 'D'){
 			shotCooldownTimer -= Time.deltaTime;
-			if(shotCooldownTimer <= 0.0f) {
+
+            if (shotCooldownTimer <= 0.0f) {
 				Fire();
 			}
 		}
@@ -149,6 +152,7 @@ public class InputManager : MonoBehaviour {
 		//playerMovement.ResetReticle();
 		if(exponentCooldownTimer <= 0) {
 			InputEqualsNumber();
+            Debug.Log("this");
 		}
 		for(int i = 0; i < mashBufferSize; i++){
 			mashBuffer.SetValue('*', i);
@@ -258,9 +262,10 @@ public class InputManager : MonoBehaviour {
 		melee = false;
 		reticle.melee = false;
 		playerMovement.locked = false;
-	}
+        meleeCooldownTimer = reticle.jabCooldown;
+    }
 
-	IEnumerator Spin() {
+    IEnumerator Spin() {
 		playerMovement.GetRigidbody2D().velocity = Vector2.zero;
 		playerMovement.locked = true;
 		reticle.melee = true;
@@ -280,9 +285,10 @@ public class InputManager : MonoBehaviour {
 		reticle.melee = false;
 		reticle.spinning = false;
 		playerMovement.locked = false;
-	}
+        meleeCooldownTimer = reticle.spinCooldown;
+    }
 
-	public void SetExponentCooldownTimer(float value) {
+    public void SetExponentCooldownTimer(float value) {
 		exponentCooldownTimer = value;
 	}
 }
