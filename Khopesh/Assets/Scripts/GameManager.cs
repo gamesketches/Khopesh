@@ -233,7 +233,7 @@ public class GameManager : MonoBehaviour {
 				Destroy(player2);
 				titleLogo.enabled = true;
                 pressStart.enabled = true;
-				background.enabled = false;
+				background.enabled = true;
 				roundTimer.enabled = false;
 				foreach(SpriteRenderer renderer in HorusWinsIconsSR) {
 					renderer.enabled = false;
