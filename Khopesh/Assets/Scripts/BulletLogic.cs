@@ -136,9 +136,7 @@ public class BulletLogic : MonoBehaviour {
 			}
 			BulletType opposingType = (BulletType)System.Enum.Parse(typeof(BulletType), other.gameObject.tag);
 
-			if((int)type == System.Enum.GetValues(typeof(BulletType)).Length - 1) {
-				return;
-			}
+
 			if(opposingType == type){
 				GameObject temp = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/SoundEffectObject"), gameObject.transform.position, Quaternion.identity);
 				temp.GetComponent<SoundEffectObjectScript>().PlaySoundEffect("identicalBulletCancel");
@@ -146,10 +144,14 @@ public class BulletLogic : MonoBehaviour {
 				Destroy(gameObject);
 
 			}
-			else if((int)opposingType == System.Enum.GetValues(typeof(BulletType)).Length - 1 && (int)type == 0) {
+            else if ((int)type == System.Enum.GetValues(typeof(BulletType)).Length - 1)
+            {
+                return;
+            }
+            else if((int)opposingType == System.Enum.GetValues(typeof(BulletType)).Length - 1 && (int)type == 0) {
 				GameObject temp = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/SoundEffectObject"), gameObject.transform.position, Quaternion.identity);
 				temp.GetComponent<SoundEffectObjectScript>().PlaySoundEffect("rpsBulletCancel");
-				Destroy(other.gameObject);
+				Destroy(gameObject);
 				string hitSparkSpritePath = string.Concat("sprites/hitSparks/hit", renderer.color == Color.blue ? "BR" : "RB");
 				GameObject sparks = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/HitSparks"), transform.position, Quaternion.identity);
 				sparks.transform.localScale = new Vector3(10f, 10f, 10f);
@@ -162,7 +164,7 @@ public class BulletLogic : MonoBehaviour {
 				sparks.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(hitSparkSpritePath);	
 				GameObject temp = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/SoundEffectObject"), gameObject.transform.position, Quaternion.identity);
 				temp.GetComponent<SoundEffectObjectScript>().PlaySoundEffect("rpsBulletCancel");
-				GameObject destroyedObject = opposingType > type ? gameObject : other.gameObject;
+				GameObject destroyedObject = opposingType > type ? other.gameObject : gameObject;
 				Destroy(destroyedObject);
 			}
 		}

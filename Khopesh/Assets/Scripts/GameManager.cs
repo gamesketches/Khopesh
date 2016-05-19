@@ -83,7 +83,7 @@ public class GameManager : MonoBehaviour {
 			background.enabled = true;
             InitializeGameSettings();
         }
-        else if (Input.GetButtonUp("ButtonC0"))
+        else if (Input.GetButtonUp("ButtonD0") || Input.GetButtonUp("ButtonC0") || Input.GetButtonUp("ButtonB0"))
         {
             titleLogo.enabled = false;
             pressStart.enabled = false;
@@ -94,7 +94,7 @@ public class GameManager : MonoBehaviour {
 
     void InfoScreen()
     {
-        if (Input.GetButton("ButtonD0") && Input.GetButton("ButtonA0"))
+        if (Input.GetButtonUp("ButtonD0") || Input.GetButtonUp("ButtonC0") || Input.GetButtonUp("ButtonB0"))
         {
             infoScreen.enabled = false;
             titleLogo.enabled = true;
@@ -115,12 +115,13 @@ public class GameManager : MonoBehaviour {
 				yield return new WaitForSeconds(1.5f);
 				playerNum -= 2;
 			}
-	        victoryText.text = playerNum == 1 ? "<color=Blue> HORUS" : "<color=Red> SET";
-			victoryText.text += roundsWon == 3 ? "\n IS \n   VICTORIOUS </color> " : "\n</color> WINS";
+	        victoryText.text = playerNum == 1 ? "<color=Blue>HORUS" : "<color=Red>SET";
+			victoryText.text += roundsWon == 3 ? "\n IS \n   VICTORIOUS</color>" : "\n</color>WINS";
 		}
 		victoryText.enabled = true;
         yield return new WaitForSeconds(3.0f);
         victoryText.enabled = false;
+        victoryText.text = "";
     }
 
     /*	// Use this for initialization

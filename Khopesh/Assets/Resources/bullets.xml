@@ -1,115 +1,95 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Root xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<BulletCollection>
-    <ProjectileType name="gator">
+    <ProjectileType name="gator"> <!-- BLOCK blt count: 1,1,3,3,3,3,5,5-->
       <Volley>
-        <Bullet>
-          <size>1</size>
-          <speed>1</speed>
-          <damage>3</damage>
-          <angle>0</angle>
-        </Bullet>
-      </Volley>
-      <Volley>
-        <Bullet>
-          <size>2</size>
-          <speed>1</speed>
-          <damage>5</damage>
-          <angle>0</angle>
-        </Bullet>
-      </Volley>
-      <Volley>
-        <Bullet>
-          <size>1</size>
-          <speed>1</speed>
-          <damage>3</damage>
-          <angle>30</angle>
-        </Bullet>
-        <Bullet>
-          <size>2</size>
-          <speed>1</speed>
-          <damage>5</damage>
-          <angle>0</angle>
-        </Bullet>
-        <Bullet>
-          <size>1</size>
-          <speed>1</speed>
-          <damage>3</damage>
-          <angle>-30</angle>
-        </Bullet>
-      </Volley>
-      <Volley>
-        <Bullet>
-          <size>2</size>
-          <speed>1</speed>
-          <damage>5</damage>
-          <angle>30</angle>
-        </Bullet>
-        <Bullet>
-          <size>2</size>
-          <speed>1</speed>
-          <damage>5</damage>
-          <angle>0</angle>
-        </Bullet>
-        <Bullet>
-          <size>2</size>
-          <speed>1</speed>
-          <damage>5</damage>
-          <angle>-30</angle>
-        </Bullet>
-      </Volley>
-      <Volley>
-        <Bullet>
-          <size>2</size>
-          <speed>1</speed>
-          <damage>5</damage>
-          <angle>30</angle>
-        </Bullet>
-        <Bullet>
-          <size>5</size>
-          <speed>1</speed>
-          <damage>8</damage>
-          <angle>0</angle>
-        </Bullet>
-        <Bullet>
-          <size>2</size>
-          <speed>1</speed>
-          <damage>5</damage>
-          <angle>-30</angle>
-        </Bullet>
-      </Volley>
-      <Volley>
-        <Bullet>
-          <size>5</size>
-          <speed>1</speed>
-          <damage>8</damage>
-          <angle>30</angle>
-        </Bullet>
-        <Bullet>
-          <size>5</size>
-          <speed>1</speed>
-          <damage>8</damage>
-          <angle>0</angle>
-        </Bullet>
-        <Bullet>
-          <size>5</size>
-          <speed>1</speed>
-          <damage>8</damage>
-          <angle>-30</angle>
-        </Bullet>
-      </Volley>
-      <Volley>
+        <!-- Volley #1 -->
         <Bullet>
           <size>1</size>
           <speed>2</speed>
-          <damage>1</damage>
-          <angle>45</angle>
+          <damage>3</damage>
+          <angle>0</angle>
+        </Bullet>
+      </Volley>
+      <Volley>
+        <!-- Volley #2 -->
+        <Bullet>
+          <size>2</size>
+          <speed>2</speed>
+          <damage>5</damage>
+          <angle>0</angle>
+        </Bullet>
+      </Volley>
+      <Volley>
+        <!-- Volley #3 -->
+        <Bullet>
+          <size>1</size>
+          <speed>1</speed>
+          <damage>3</damage>
+          <angle>15</angle>
+        </Bullet>
+        <Bullet>
+          <size>2</size>
+          <speed>1</speed>
+          <damage>5</damage>
+          <angle>0</angle>
+        </Bullet>
+        <Bullet>
+          <size>1</size>
+          <speed>1</speed>
+          <damage>3</damage>
+          <angle>-15</angle>
+        </Bullet>
+      </Volley>
+      <!-- Volley #4 -->
+      <Volley>
+        <Bullet>
+          <size>2</size>
+          <speed>1</speed>
+          <damage>5</damage>
+          <angle>15</angle>
+        </Bullet>
+        <Bullet>
+          <size>2</size>
+          <speed>1</speed>
+          <damage>5</damage>
+          <angle>0</angle>
+        </Bullet>
+        <Bullet>
+          <size>2</size>
+          <speed>1</speed>
+          <damage>5</damage>
+          <angle>-15</angle>
+        </Bullet>
+      </Volley>
+      <Volley>
+        <!-- Volley #5 -->
+        <Bullet>
+          <size>2</size>
+          <speed>1</speed>
+          <damage>5</damage>
+          <angle>15</angle>
         </Bullet>
         <Bullet>
           <size>5</size>
           <speed>1</speed>
           <damage>8</damage>
-          <angle>30</angle>
+          <angle>0</angle>
+        </Bullet>
+        <Bullet>
+          <size>2</size>
+          <speed>1</speed>
+          <damage>5</damage>
+          <angle>-15</angle>
+        </Bullet>
+      </Volley>
+      <Volley>
+        <!-- Volley #6 3 big  -->
+        <Bullet>
+          <size>5</size>
+          <speed>1</speed>
+          <damage>8</damage>
+          <angle>15</angle>
         </Bullet>
         <Bullet>
           <size>5</size>
@@ -121,27 +101,55 @@
           <size>5</size>
           <speed>1</speed>
           <damage>8</damage>
-          <angle>-30</angle>
-        </Bullet>
-        <Bullet>
-          <size>1</size>
-          <speed>2</speed>
-          <damage>1</damage>
-          <angle>-45</angle>
+          <angle>-15</angle>
         </Bullet>
       </Volley>
       <Volley>
+        <!-- Volley #7 3 big 2 small -->
+        <Bullet>
+          <size>1</size>
+          <speed>3</speed>
+          <damage>1</damage>
+          <angle>20</angle>
+        </Bullet>
+        <Bullet>
+          <size>5</size>
+          <speed>1</speed>
+          <damage>8</damage>
+          <angle>15</angle>
+        </Bullet>
+        <Bullet>
+          <size>5</size>
+          <speed>1</speed>
+          <damage>8</damage>
+          <angle>0</angle>
+        </Bullet>
+        <Bullet>
+          <size>5</size>
+          <speed>1</speed>
+          <damage>8</damage>
+          <angle>-15</angle>
+        </Bullet>
+        <Bullet>
+          <size>1</size>
+          <speed>3</speed>
+          <damage>1</damage>
+          <angle>-20</angle>
+        </Bullet>
+      </Volley>
+      <Volley>
+        <!-- Volley #8 3 big 2 med -->
         <Bullet>
           <size>3</size>
-          <speed>2</speed>
+          <speed>3</speed>
           <damage>5</damage>
-          <angle>45</angle>
+          <angle>20</angle>
         </Bullet>
         <Bullet>
           <size>5</size>
           <speed>1</speed>
           <damage>8</damage>
-          <angle>30</angle>
+          <angle>15</angle>
         </Bullet>
         <Bullet>
           <size>5</size>
@@ -153,18 +161,18 @@
           <size>5</size>
           <speed>1</speed>
           <damage>8</damage>
-          <angle>-30</angle>
+          <angle>-15</angle>
         </Bullet>
         <Bullet>
           <size>3</size>
-          <speed>2</speed>
+          <speed>3</speed>
           <damage>5</damage>
-          <angle>-45</angle>
+          <angle>-20</angle>
         </Bullet>
       </Volley>
     </ProjectileType>
-		<ProjectileType name="hippo">
-				<Volley>
+		<ProjectileType name="hippo"> <!-- BLOCK blt count: 1,2,3,5,9,13,15,20-->
+      <Volley>
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
@@ -173,7 +181,8 @@
 					</Bullet>
 				</Volley>
 				<Volley>
-					<Bullet>
+          <!-- Volley #2 2 bullets -->
+          <Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>1</damage>
@@ -187,6 +196,7 @@
 					</Bullet>
 				</Volley>
 				<Volley>
+          <!-- Volley #3 3 bullets -->
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
@@ -207,7 +217,8 @@
 					</Bullet>
 				</Volley>
 				<Volley>
-					<Bullet>
+          <!-- Volley #4 5 bullets -->
+          <Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>1</damage>
@@ -239,7 +250,8 @@
 					</Bullet>
 				</Volley>
 				<Volley>
-					<Bullet>
+          <!-- Volley #5 9 bullets-->
+          <Bullet>
 						<size>2</size>
 						<speed>1</speed>
 						<damage>1</damage>
@@ -295,7 +307,8 @@
 					</Bullet>
 				</Volley>
 				<Volley>
-					<Bullet>
+          <!-- Volley #5 13 bullets -->
+          <Bullet>
 							<size>2</size>
 							<speed>1</speed>
 							<damage>3</damage>
@@ -375,7 +388,8 @@
 					</Bullet>
 				</Volley>
 				<Volley>
-					<Bullet>
+          <!-- Volley #7 15 bullets-->
+          <Bullet>
 							<size>2</size>
 							<speed>1</speed>
 							<damage>3</damage>
@@ -467,7 +481,8 @@
 					</Bullet>
 				</Volley>
 				<Volley>
-					<Bullet>
+          <!-- Volley #8 20 bullets-->
+          <Bullet>
 							<size>2</size>
 							<speed>5</speed>
 							<damage>3</damage>
@@ -584,17 +599,19 @@
 				</Volley>
 
 		</ProjectileType>
-		<ProjectileType name="crane">
+		<ProjectileType name="crane"> <!-- ROUNDABOUT blt count: 1,2,4,6,6,10,10,10-->
 				<Volley>
-					<Bullet>
+          <!-- Volley #1 1 bullets 4dmg  -->
+          <Bullet>
 						<size>1</size>
 						<speed>1</speed>
-						<damage>2</damage>
+						<damage>4</damage>
 						<angle>180</angle>
 					</Bullet>
 				</Volley>
 				<Volley>
-					<Bullet>
+          <!-- Volley #2 2 bullets 4dmg  -->
+          <Bullet>
 						<size>1</size>
 						<speed>1</speed>
 						<damage>2</damage>
@@ -608,6 +625,7 @@
 					</Bullet>
 				</Volley>
 				<Volley>
+          <!-- Volley #3 4 bullets 8 dmg -->
 					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
@@ -634,6 +652,7 @@
 					</Bullet>
 				</Volley>
 				<Volley>
+          <!-- Volley #4 6 bullets 12 dmg-->
 					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
@@ -672,6 +691,7 @@
 					</Bullet>
 				</Volley>
 				<Volley>
+          <!-- Volley #5 6 bullets 10 dmg: :2 big -(1dmg) -->
 					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
@@ -681,7 +701,7 @@
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
-						<damage>4</damage>
+						<damage>1</damage>
 						<angle>140</angle>
 					</Bullet>
 					<Bullet>
@@ -699,7 +719,7 @@
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
-						<damage>4</damage>
+						<damage>1</damage>
 						<angle>220</angle>
 					</Bullet>
 					<Bullet>
@@ -710,6 +730,7 @@
 					</Bullet>
 				</Volley>
 				<Volley>
+          <!-- Volley #7 10 bullets 6 big : 18 dmg -->
 					<Bullet>
 						<size>1</size>
 						<speed>1</speed>
@@ -719,7 +740,7 @@
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
-						<damage>4</damage>
+						<damage>1</damage>
 						<angle>140</angle>
 					</Bullet>
 					<Bullet>
@@ -761,7 +782,7 @@
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
-						<damage>4</damage>
+						<damage>1</damage>
 						<angle>220</angle>
 					</Bullet>
 					<Bullet>
@@ -772,22 +793,23 @@
 					</Bullet>
 				</Volley>
 				<Volley>
+          <!-- Volley #7 10 bullets 6 big -->
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
-						<damage>4</damage>
+						<damage>3</damage>
 						<angle>120</angle>
 					</Bullet>
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
-						<damage>4</damage>
+						<damage>3</damage>
 						<angle>140</angle>
 					</Bullet>
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
-						<damage>4</damage>
+						<damage>3</damage>
 						<angle>150</angle>
 					</Bullet>
 					<Bullet>
@@ -817,81 +839,82 @@
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
-						<damage>4</damage>
+						<damage>3</damage>
 						<angle>210</angle>
 					</Bullet>
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
-						<damage>4</damage>
+						<damage>3</damage>
 						<angle>220</angle>
 					</Bullet>
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
-						<damage>4</damage>
+						<damage>3</damage>
 						<angle>240</angle>
 					</Bullet>
 				</Volley>
 				<Volley>
+          <!-- Volley #8 10 bullets 10 big -->
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
-						<damage>4</damage>
+						<damage>3</damage>
 						<angle>120</angle>
 					</Bullet>
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
-						<damage>4</damage>
+						<damage>3</damage>
 						<angle>140</angle>
 					</Bullet>
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
-						<damage>4</damage>
+						<damage>3</damage>
 						<angle>150</angle>
 					</Bullet>
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
-						<damage>4</damage>
+						<damage>3</damage>
 						<angle>160</angle>
 					</Bullet>
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
-						<damage>4</damage>
+						<damage>3</damage>
 						<angle>170</angle>
 					</Bullet>
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
-						<damage>4</damage>
+						<damage>3</damage>
 						<angle>190</angle>
 					</Bullet>
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
-						<damage>4</damage>
+						<damage>3</damage>
 						<angle>200</angle>
 					</Bullet>
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
-						<damage>4</damage>
+						<damage>3</damage>
 						<angle>210</angle>
 					</Bullet>
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
-						<damage>4</damage>
+						<damage>3</damage>
 						<angle>220</angle>
 					</Bullet>
 					<Bullet>
 						<size>2</size>
 						<speed>1</speed>
-						<damage>4</damage>
+						<damage>3</damage>
 						<angle>240</angle>
 					</Bullet>
 				</Volley>
