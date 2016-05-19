@@ -52,7 +52,7 @@ public class BulletLogic : MonoBehaviour {
         animFrame = animFrame + 1 >= animation.Length ? 0 : animFrame + 1;
   	}
 
-	public void Initialize(BulletType bulletType, int bulletDamage, float Velocity, int size,
+	public void Initialize(BulletType bulletType, int bulletDamage, float Velocity, float size,
 													float Lifetime, Color bulletColor, int playerNum){
 		type = bulletType;
 		damage = bulletDamage;

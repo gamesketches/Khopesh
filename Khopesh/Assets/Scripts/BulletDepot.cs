@@ -8,8 +8,8 @@ using System.IO;
 public class BulletDepot : ScriptableObject {
 
 	public class Bullet{
-		public int size;
-		public int speed;
+		public float size;
+		public float speed;
 		public int damage;
 		public int angle;
 	}
