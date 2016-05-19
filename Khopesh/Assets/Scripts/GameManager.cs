@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour {
 
@@ -143,6 +144,9 @@ public class GameManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+		if(Input.GetAxis("Reset") != 0f) {
+			SceneManager.LoadScene(0);
+		}
 		currentUpdateFunction();
 	}
 
@@ -220,6 +224,7 @@ public class GameManager : MonoBehaviour {
 				sceneName = string.Concat(sceneName, nextSceneCode);
 			}
 			currentUpdateFunction = RoundEndUpdate;
+			ClearBullets();
 		}
 	}
 
@@ -233,7 +238,7 @@ public class GameManager : MonoBehaviour {
 				Destroy(player2);
 				titleLogo.enabled = true;
                 pressStart.enabled = true;
-				background.enabled = false;
+				background.enabled = true;
 				roundTimer.enabled = false;
 				foreach(SpriteRenderer renderer in HorusWinsIconsSR) {
 					renderer.enabled = false;
@@ -313,6 +318,18 @@ public class GameManager : MonoBehaviour {
 	void UnlockPlayers() {
 		player1.GetComponent<PlayerMovement>().locked = false;
 		player2.GetComponent<PlayerMovement>().locked = false;
+	}
+
+	void ClearBullets() {
+		foreach(GameObject bullet in GameObject.FindGameObjectsWithTag("Gator")) {
+			Destroy(bullet);
+		}
+		foreach(GameObject bullet in GameObject.FindGameObjectsWithTag("Hippo")) {
+			Destroy(bullet);
+		}
+		foreach(GameObject bullet in GameObject.FindGameObjectsWithTag("Crane")) {
+			Destroy(bullet);
+		}
 	}
 
 	void RoundReset() {

@@ -72,6 +72,8 @@ public class InputManager : MonoBehaviour {
 			//playerMovement.PassBufferToReticle(bufferIter, mashBufferSize);
 			if(bufferIter >= mashBufferSize) {
 				Fire();
+				GameObject temp = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/SoundEffectObject"), gameObject.transform.position, Quaternion.identity);
+				temp.GetComponent<SoundEffectObjectScript>().PlaySoundEffect("bufferFull");
 			}
 		} else if(mashing && button == '0' && !melee){
 			shotCooldownTimer -= Time.deltaTime;
@@ -200,7 +202,7 @@ public class InputManager : MonoBehaviour {
 			}
 		}
 		for(int i = 0; i < bulletAngles.Count; i++) {
-			BulletDepot.Bullet bullet = new BulletDepot.Bullet();
+			BulletDepot.Bullet bullet = bullets.types.projectileTypes[(int)bulletTypes[i]].volleys[0].volley[0];
 			bullet.angle = (int)bulletAngles[i];
 			CreateBullet(bullet, bulletTypes[i]);
 		}
