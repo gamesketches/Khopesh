@@ -77,7 +77,7 @@ public class BulletLogic : MonoBehaviour {
 			// Hippo situation
 			default:
 			animation = new Sprite[1] {Resources.Load<Sprite>(string.Concat("sprites/hippo", bulletColor == Color.blue ? "B" : "R"))};
-				bulletFunction = StraightLogic;
+				bulletFunction = SlowShotLogic;
 			velocity = 2.5f;
 			//lifetime = Lifetime / 2;
 			lifetime = Lifetime / 0.25f;
@@ -154,6 +154,6 @@ public class BulletLogic : MonoBehaviour {
 	}
 
 	void SlowShotLogic(){
-		Debug.Log("Slow shot logic");
+		transform.Rotate(new Vector3(0, 0, 1f));
 	}
 }
