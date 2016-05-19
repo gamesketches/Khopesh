@@ -73,6 +73,7 @@ public class BulletLogic : MonoBehaviour {
 			case BulletType.Gator:
 			animation = Resources.LoadAll<Sprite>(string.Concat("sprites/gatorAnimation", bulletColor == Color.blue ? "B" : "R"));
 			// TODO: change this
+			transform.Rotate(new Vector3(0f, 0f, -90f));
 			bulletFunction = StraightLogic;
 
 			 /* bulletFunction = sineWaveLogic;
