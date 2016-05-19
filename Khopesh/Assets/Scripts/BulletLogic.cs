@@ -43,10 +43,11 @@ public class BulletLogic : MonoBehaviour {
 		animFrame = animFrame + 1 >= animation.Length ? 0 : animFrame + 1;
 	}
 
-	public void Initialize(BulletType bulletType, int bulletDamage, float Velocity,
+	public void Initialize(BulletType bulletType, int bulletDamage, float Velocity, int size,
 													float Lifetime, Color bulletColor, int playerNum){
 		type = bulletType;
 		damage = bulletDamage;
+		transform.localScale = new Vector3(size, size, size);
 		gameObject.tag = bulletType.ToString();
 		velocity = Velocity * velocityMultiplier;
 		if(velocity == 0) {
