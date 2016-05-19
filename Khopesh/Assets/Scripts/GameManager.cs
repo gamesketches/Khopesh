@@ -224,6 +224,7 @@ public class GameManager : MonoBehaviour {
 				sceneName = string.Concat(sceneName, nextSceneCode);
 			}
 			currentUpdateFunction = RoundEndUpdate;
+			ClearBullets();
 		}
 	}
 
@@ -317,6 +318,18 @@ public class GameManager : MonoBehaviour {
 	void UnlockPlayers() {
 		player1.GetComponent<PlayerMovement>().locked = false;
 		player2.GetComponent<PlayerMovement>().locked = false;
+	}
+
+	void ClearBullets() {
+		foreach(GameObject bullet in GameObject.FindGameObjectsWithTag("Gator")) {
+			Destroy(bullet);
+		}
+		foreach(GameObject bullet in GameObject.FindGameObjectsWithTag("Hippo")) {
+			Destroy(bullet);
+		}
+		foreach(GameObject bullet in GameObject.FindGameObjectsWithTag("Crane")) {
+			Destroy(bullet);
+		}
 	}
 
 	void RoundReset() {
