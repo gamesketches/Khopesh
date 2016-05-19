@@ -40,8 +40,9 @@ public class BulletLogic : MonoBehaviour {
 		bulletFunction();
 		gameObject.transform.position += new Vector3(travelVector.x, travelVector.y) * Time.deltaTime;
 		renderer.sprite = animation[animFrame];
-		animFrame = animFrame + 1 >= animation.Length ? 0 : animFrame + 1;
-	}
+
+        animFrame = animFrame + 1 >= animation.Length ? 0 : animFrame + 1;
+  	}
 
 	public void Initialize(BulletType bulletType, int bulletDamage, float Velocity, int size,
 													float Lifetime, Color bulletColor, int playerNum){
@@ -73,6 +74,7 @@ public class BulletLogic : MonoBehaviour {
 			animation = Resources.LoadAll<Sprite>(string.Concat("sprites/gatorAnimation", bulletColor == Color.blue ? "B" : "R"));
 			// TODO: change this
 			bulletFunction = StraightLogic;
+
 			 /* bulletFunction = sineWaveLogic;
 			 */ break;
 			// Hippo situation
