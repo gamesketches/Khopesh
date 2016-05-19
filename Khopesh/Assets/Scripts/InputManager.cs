@@ -64,22 +64,26 @@ public class InputManager : MonoBehaviour {
 
         if (button == 'D' && meleeCooldownTimer <= 0) {
 			Melee();
-		} else if(button != '0' && exponentCooldownTimer <= 0 && !melee && button != 'D') {
+		} else if(button != '0' && exponentCooldownTimer <= 0 && !melee) {
 			shotCooldownTimer = shotCooldownTime;
-			gameObject.transform.localScale = Vector3.Lerp(new Vector3(1f, 1f, 1f), new Vector3(fullBufferScale, fullBufferScale, fullBufferScale),(float)bufferIter / (float)mashBufferSize);
-			mashBuffer.SetValue(button, bufferIter);
-			if(!mashing) {
-				mashing = true;
-			}
-			ExponentShot();
-			bufferIter++;
-			//playerMovement.PassBufferToReticle(bufferIter, mashBufferSize);
-			if(bufferIter >= mashBufferSize) {
+            if (button != 'D') // threw everything in here to get this cooldown not to interfere with sword. works.
+            {
+                gameObject.transform.localScale = Vector3.Lerp(new Vector3(1f, 1f, 1f), new Vector3(fullBufferScale, fullBufferScale, fullBufferScale),(float)bufferIter / (float)mashBufferSize);
+                mashBuffer.SetValue(button, bufferIter);
+            
+			    if(!mashing) {
+				    mashing = true;
+			    }
+			    ExponentShot();
+			    bufferIter++;
+            }
+            //playerMovement.PassBufferToReticle(bufferIter, mashBufferSize);
+            if (bufferIter >= mashBufferSize) {
 				Fire();
 				GameObject temp = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/SoundEffectObject"), gameObject.transform.position, Quaternion.identity);
 				temp.GetComponent<SoundEffectObjectScript>().PlaySoundEffect("bufferFull");
 			}
-		} else if(mashing && button == '0' && !melee && button != '0' && button != 'D'){
+		} else if(mashing && button == '0' && !melee ){
 			shotCooldownTimer -= Time.deltaTime;
 
             if (shotCooldownTimer <= 0.0f) {
