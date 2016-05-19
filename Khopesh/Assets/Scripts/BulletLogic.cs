@@ -18,18 +18,26 @@ public class BulletLogic : MonoBehaviour {
 	private Transform target;
 	private Vector3 targetPosition;
 	private float headingTime;
-	private Sprite[] animation;
-	private int animFrame;
+    private Sprite[] animation;
+    private int animFrame;
 	AudioSource audio;
 	SpriteRenderer renderer;
 
-	// Use this for initialization
-	void Start () {
+    //animation codes: 2= full mouth, 1=bottom mouth, 0=topmouth 
+    private int[] animGatorR = new int[] {2,2,2, 2,2,2, 2,2,2, 2,2,2,
+                                            1,1,1, 1,1,1,
+                                            2,2,2, 2,2,2,
+                                            0,0,0, 0,0,0};
+    private int[] animGatorB = new int[] {2,2,2, 2,2,2, 2,2,2, 2,2,2, 2,2,2,
+                                            1,1,1,1, 1,1,1,1,
+                                            0,0,0,0, 0,0,0,0};
+    // Use this for initialization
+    void Start () {
 		renderer = GetComponent<SpriteRenderer>();
 		audio = GetComponent<AudioSource>();
 		audio.clip = Resources.Load<AudioClip>("audio/soundEffects/rpsBulletCancel");
 		animFrame = 0;
-	}
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -71,9 +79,27 @@ public class BulletLogic : MonoBehaviour {
 				}
 				break;
 			case BulletType.Gator:
-			animation = Resources.LoadAll<Sprite>(string.Concat("sprites/gatorAnimation", bulletColor == Color.blue ? "B" : "R"));
-			// TODO: change this
-			transform.Rotate(new Vector3(0f, 0f, -90f));
+                Sprite[] animTemp;
+                animTemp = Resources.LoadAll<Sprite>(string.Concat("sprites/gatorAnimation", bulletColor == Color.blue ? "B" : "R"));
+                animation = animTemp;
+                if (bulletColor == Color.red)
+                {
+                    animation = new Sprite[animGatorR.Length];
+                    for (int i = 0; i < animGatorR.Length; i++)
+                    {
+                        animation[i] = animTemp[animGatorR[i]];
+                    }
+                }
+                else if (bulletColor == Color.blue)
+                {
+                    animation = new Sprite[animGatorB.Length];
+                    for (int i = 0; i < animGatorB.Length; i++)
+                    {
+                        animation[i] = animTemp[animGatorB[i]];
+                    }
+                }
+                // TODO: change this
+                transform.Rotate(new Vector3(0f, 0f, -90f));
 			bulletFunction = StraightLogic;
 
 			 /* bulletFunction = sineWaveLogic;
