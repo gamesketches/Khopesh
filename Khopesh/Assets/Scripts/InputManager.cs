@@ -72,6 +72,8 @@ public class InputManager : MonoBehaviour {
 			//playerMovement.PassBufferToReticle(bufferIter, mashBufferSize);
 			if(bufferIter >= mashBufferSize) {
 				Fire();
+				GameObject temp = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/SoundEffectObject"), gameObject.transform.position, Quaternion.identity);
+				temp.GetComponent<SoundEffectObjectScript>().PlaySoundEffect("bufferFull");
 			}
 		} else if(mashing && button == '0' && !melee){
 			shotCooldownTimer -= Time.deltaTime;
