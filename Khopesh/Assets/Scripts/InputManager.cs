@@ -38,6 +38,7 @@ public class InputManager : MonoBehaviour {
 	private bool melee;
 
 	private PlayerStats playerStats;
+	private SpriteRenderer renderer;
 	private PlayerMovement playerMovement;
 	private AudioSource soundEffects;
 
@@ -46,6 +47,7 @@ public class InputManager : MonoBehaviour {
 		bulletPrefab = Resources.Load<GameObject>("prefabs/Bullet");
 		playerStats = GetComponent<PlayerStats>();
 		playerMovement = GetComponent<PlayerMovement>();
+		renderer = GetComponent<SpriteRenderer>();
 		mashBufferSize = 8;
 		mashBuffer = new char[mashBufferSize];
 		for(int i = 0; i < mashBufferSize; i++){
@@ -84,7 +86,10 @@ public class InputManager : MonoBehaviour {
 
 		if(exponentCooldownTimer > 0) { 
 			exponentCooldownTimer -= Time.deltaTime;
-			//GetComponentInChildren<Renderer>().material.color = noShootingColor;
+			renderer.color = new Color(0.5f, 0.5f, 0.5f);
+		}
+		else {
+			renderer.color = new Color(1f, 1f, 1f);
 		}
 	}
 

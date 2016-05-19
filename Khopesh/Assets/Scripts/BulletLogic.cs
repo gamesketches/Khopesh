@@ -77,7 +77,7 @@ public class BulletLogic : MonoBehaviour {
 			// Hippo situation
 			default:
 			animation = new Sprite[1] {Resources.Load<Sprite>(string.Concat("sprites/hippo", bulletColor == Color.blue ? "B" : "R"))};
-				bulletFunction = StraightLogic;
+				bulletFunction = SlowShotLogic;
 			velocity = 2.5f;
 			//lifetime = Lifetime / 2;
 			lifetime = Lifetime / 0.25f;
@@ -114,17 +114,22 @@ public class BulletLogic : MonoBehaviour {
 				temp.GetComponent<SoundEffectObjectScript>().PlaySoundEffect("identicalBulletCancel");
 				Destroy(other.gameObject);
 				Destroy(gameObject);
-				//other.gameObject.GetComponent<BulletLogic>();
 
 			}
 			else if((int)opposingType == System.Enum.GetValues(typeof(BulletType)).Length - 1 && (int)type == 0) {
 				GameObject temp = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/SoundEffectObject"), gameObject.transform.position, Quaternion.identity);
 				temp.GetComponent<SoundEffectObjectScript>().PlaySoundEffect("rpsBulletCancel");
 				Destroy(other.gameObject);
-				//audio.Play();
-				
+				string hitSparkSpritePath = string.Concat("sprites/hitSparks/hit", renderer.color == Color.blue ? "BR" : "RB");
+				GameObject sparks = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/HitSparks"), transform.position, Quaternion.identity);
+				sparks.transform.localScale = new Vector3(5f, 5f, 5f);
+				sparks.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(hitSparkSpritePath);	
+				Debug.Log("sparks");
 			}
 			else {
+				string hitSparkSpritePath = string.Concat("sprites/hitSparks/hit", renderer.color == Color.blue ? "BR" : "RB");
+				GameObject sparks = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/HitSparks"), transform.position, Quaternion.identity);
+				sparks.transform.localScale = new Vector3(5f, 5f, 5f);
 				GameObject temp = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/SoundEffectObject"), gameObject.transform.position, Quaternion.identity);
 				temp.GetComponent<SoundEffectObjectScript>().PlaySoundEffect("rpsBulletCancel");
 				GameObject destroyedObject = opposingType > type ? gameObject : other.gameObject;
@@ -154,6 +159,6 @@ public class BulletLogic : MonoBehaviour {
 	}
 
 	void SlowShotLogic(){
-		Debug.Log("Slow shot logic");
+		transform.Rotate(new Vector3(0, 0, 1f));
 	}
 }
