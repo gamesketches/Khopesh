@@ -123,14 +123,14 @@ public class BulletLogic : MonoBehaviour {
 				Destroy(other.gameObject);
 				string hitSparkSpritePath = string.Concat("sprites/hitSparks/hit", renderer.color == Color.blue ? "BR" : "RB");
 				GameObject sparks = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/HitSparks"), transform.position, Quaternion.identity);
-				sparks.transform.localScale = new Vector3(5f, 5f, 5f);
+				sparks.transform.localScale = new Vector3(10f, 10f, 10f);
 				sparks.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(hitSparkSpritePath);	
-				Debug.Log("sparks");
 			}
 			else {
 				string hitSparkSpritePath = string.Concat("sprites/hitSparks/hit", renderer.color == Color.blue ? "BR" : "RB");
 				GameObject sparks = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/HitSparks"), transform.position, Quaternion.identity);
-				sparks.transform.localScale = new Vector3(5f, 5f, 5f);
+				sparks.transform.localScale = new Vector3(10f, 10f, 10f);
+				sparks.GetComponent<SpriteRenderer>().sprite = Resources.Load<Sprite>(hitSparkSpritePath);	
 				GameObject temp = (GameObject)Instantiate(Resources.Load<GameObject>("prefabs/SoundEffectObject"), gameObject.transform.position, Quaternion.identity);
 				temp.GetComponent<SoundEffectObjectScript>().PlaySoundEffect("rpsBulletCancel");
 				GameObject destroyedObject = opposingType > type ? gameObject : other.gameObject;
