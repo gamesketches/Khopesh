@@ -106,11 +106,11 @@ public class GameManager : MonoBehaviour {
     IEnumerator DisplayVictoryText(int playerNum, int roundsWon)
     {
 		if(playerNum == 5) {
-			victoryText.text = "DRAW \n GAME";
+			victoryText.text = "DRAW\nGAME";
 		}
 		else {
 			if(playerNum == 4 || playerNum == 3) {
-				victoryText.text = "DRAW \n GAME";
+				victoryText.text = "DRAW\nGAME";
 				victoryText.enabled = true;
 				yield return new WaitForSeconds(1.5f);
 				playerNum -= 2;

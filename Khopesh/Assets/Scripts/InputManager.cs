@@ -266,7 +266,6 @@ public class InputManager : MonoBehaviour {
 		melee = false;
 		reticle.melee = false;
 		playerMovement.locked = false;
-        meleeCooldownTimer = reticle.jabCooldown;
     }
 
     IEnumerator Spin() {
@@ -289,7 +288,6 @@ public class InputManager : MonoBehaviour {
 		reticle.melee = false;
 		reticle.spinning = false;
 		playerMovement.locked = false;
-        meleeCooldownTimer = reticle.spinCooldown;
     }
 
     public void SetExponentCooldownTimer(float value) {
